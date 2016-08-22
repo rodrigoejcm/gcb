@@ -1,0 +1,166 @@
+      <section style="background:url('assets/images/demo/wall2.jpg')">
+      
+        <div class="display-table">
+          <div class="display-table-cell vertical-align-middle">
+            
+            <div class="container">
+              
+              <div class="row">
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 col-md-push-7 col-lg-push-8 col-sm-push-7">
+
+                  <!-- ALERT -->
+                  <!--
+                  <div class="alert alert-mini alert-danger margin-bottom-30">
+                    <strong>Oh snap!</strong> Login Incorrect!
+                  </div>
+                  -->
+                  <!-- /ALERT -->
+
+                  <!-- register form -->
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'nomargin sky-form boxed'}) do |f| %>
+                      <%= devise_error_messages! %>
+                    <header>
+                      <i class="fa fa-users"></i> Cadastro
+                    </header>
+
+
+                    <fieldset class="nomargin">     
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :nome ,placeholder: "Nome" %>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :sobrenome, placeholder: "Sobrenome"%>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :apelido ,placeholder: "Apelido" %>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col col-md-5">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.select :sexo, [['Masculino', 'M'], ['Feminino', 'F']] , prompt: "Sexo"%>
+                          </label>
+                        </div>
+                      </div>
+                    </div>                           
+                    <label class="input">
+                      <%= f.select :graduacao, ['Calouro(a)', 'Graduado(a)', 'Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
+                    </label>
+                    <label class="input">
+                      <%= f.select :nome_professor, ['Rodrigo Capoeira', 'Bruno Berimbau', 'Paulinho Sabiá']  %> 
+                    </label>
+
+                    <label class="input">
+                        <i class="ico-append fa fa-envelope"></i>
+                        <%= f.email_field :email, placeholder: "E-mail" %>
+                        <b class="tooltip tooltip-bottom-right">Necessário para verificar o cadastro</b>
+                    </label>
+
+                     <label class="input">
+                        <i class="ico-append fa fa-lock"></i>
+                        <% if @minimum_password_length %>
+                      
+                      <% end %>
+                      <%= f.password_field :password, autocomplete: "off", placeholder:"Senha" %>
+                    </label>
+
+                    <label class="input">
+                        <i class="ico-append fa fa-envelope"></i>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmação de Senha" %>
+                    </label>
+                 
+
+                    <div class="margin-top-20">
+                        <label class="checkbox nomargin"><input class="checked-agree" type="checkbox" name="checkbox"><i></i>Concordo com os termos de serviço.</label>
+                        <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>Gostaria de receber novidade do Grupo Capoeira Brasil.</label>
+                      </div>
+                  </fieldset>
+                    
+
+
+                    <div class="row margin-bottom-20 actions">
+                      <div class="col-md-12">
+                         <%= f.submit "Cadastrar", class:'btn btn-primary' %>
+                      </div>
+                    </div>
+
+                    <%= render "devise/shared/links" %>
+
+                      
+                     
+                  <%end%>
+                  <!-- /register form -->
+
+                </div>
+
+                <div class="col-xs-12 col-md-7 col-sm-7 col-lg-8 col-lg-pull-4 col-md-pull-5 col-sm-pull-5">
+
+
+                  <h2 class="size-20 text-center-xs">Why Smarty?</h2>
+
+                  <p>Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
+
+                  <ul class="list-unstyled login-features">
+                    <li>
+                      <i class="glyphicon glyphicon-road"></i> <strong>Lorem ipsum</strong> dolor sit amet.
+                    </li>
+                    <li>
+                      <i class="glyphicon glyphicon-cog"></i> <strong>Sed ut perspiciatis</strong> unde omnis iste.
+                    </li>
+                    <li>
+                      <i class="glyphicon glyphicon-tint"></i> <strong>Et harum quidem</strong> rerum facilis est et expedita distinctio. 
+                    </li>
+                    <li>
+                      <i class="glyphicon glyphicon-screenshot"></i> <strong>Nam libero</strong> tempore, cum soluta nobis.
+                    </li>
+                    <li>
+                      <i class="glyphicon glyphicon-fire"></i> <strong>Est eligendi</strong> voluptatem accusantium.
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

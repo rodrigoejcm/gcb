@@ -1,0 +1,81 @@
+<!-- Top Bar -->
+<div id="topBar">
+	<div class="container">
+
+		<!-- right -->
+		<ul class="top-links list-inline pull-right">
+			<% if usuario_signed_in? %>
+			
+				<li class="text-welcome hidden-xs">
+                    Bem vindo, <strong><%= current_usuario.nome %></strong>
+                </li>
+				<li>
+					<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MINHA CONTA</a>
+					<ul class="dropdown-menu pull-right">
+						<li><a tabindex="-1" href="#"><i class="fa fa-calendar"></i> Meus Eventos</a></li>
+						<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> Publicar Conteúdo</a></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-group"></i> Autorizações Pendentes</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> Meu Cadastro</a></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-cogs"></i> Minhas Informações</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-shopping-cart"></i> Meus Pedidos</a></li>
+						<li class="divider"></li>
+						<li><a tabindex="-1" href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
+					</ul>
+                </li>
+                <li>
+                    <%= link_to("SAIR", destroy_usuario_session_path , method: 'delete') %>
+                </li>
+                <li>
+					<%= link_to("CONFIGURAÇÔES", edit_usuario_registration_path) %>
+				</li>
+            <%else%>
+             
+                <li>  
+                    <%= link_to("ENTRAR", new_usuario_session_path) %>
+                </li>
+                 
+                <li>
+                	<%= link_to("CADASTRO", new_usuario_registration_path)%>  
+                </li>
+
+            <% end %>
+
+            <li>
+				<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">
+					<%= image_tag("flags/br.png" , class:'flag-lang', height: '11', width: '16') %>
+				</a>
+				<ul class="dropdown-langs dropdown-menu">
+					<li>
+						<a tabindex="-1" href="#">
+							<%= image_tag("flags/br.png" , class:'flag-lang', height: '11', width: '16') %> 
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a tabindex="-1" href="#">
+							<%= image_tag("flags/us.png" , class:'flag-lang', height: '11', width: '16') %>
+						</a>
+					</li>
+					<li>
+                        <a tabindex="-1" href="#">
+                             <%= image_tag("flags/fr.png" , class:'flag-lang', height: '11', width: '16') %>
+                        </a>
+                    </li>
+					<li>
+                        <a tabindex="-1" href="#">
+                             <%= image_tag("flags/de.png" , class:'flag-lang', height: '11', width: '16') %>
+                        </a>
+                    </li>
+				</ul>
+			</li>	
+             
+		</ul>
+
+		<!-- left -->
+		
+
+	</div>
+</div>
+<!-- /Top Bar -->

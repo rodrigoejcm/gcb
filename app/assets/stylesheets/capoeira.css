@@ -1,0 +1,977 @@
+/** Dark Blue #1980B6
+ **************************************************************** **/
+	::selection {
+		background: #1980B6;
+	}
+	::-moz-selection {
+		background: #1980B6; /* Firefox */
+	}
+	::-webkit-selection {
+		background: #1980B6; /* Safari */
+	}
+
+
+	a,
+	a:focus:not(.btn),
+	section.dark a,
+	#slidetop a:hover,
+	h1 > span,
+	h2 > span,
+	h3 > span,
+	h4 > span,
+	h5 > span,
+	h6 > span,
+	.pagination>li>a, 
+	.pagination>li>a:hover, 
+	.pagination>li>span,
+	ul.list-links>li>a:hover,
+	#sidepanel ul li a[data-toggle="collapse"],
+	#sidepanel ul li a[data-toggle="collapse"]:hover,
+	#sidepanel ul li a:hover,
+	.menu-list ul li a:hover, 		/* header-0.css */
+	.menu-list ul li.active a, 		/* header-0.css */
+	#menu_overlay_close:hover, 	/* header-0.css */
+	#topMain.nav-pills>li.active>a>span.topMain-icon,
+	#page-menu.page-menu-light ul>li:hover>a>i,
+	#page-menu.page-menu-dark ul>li:hover>a>i,
+	#page-menu.page-menu-transparent ul>li:hover>a>i,
+	#page-menu.page-menu-light ul>li.active>a>i,
+	#page-menu.page-menu-dark ul>li.active>a>i,
+	#page-menu.page-menu-transparent ul>li.active>a>i,
+	.tp-caption.block_white,
+	section span.theme-color, 
+	section em.theme-color, 
+	section i.theme-color, 
+	section b.theme-color, 
+	section div.theme-color, 
+	section p.theme-color,
+	.owl-carousel.featured a.figure>span>i,
+	.owl-carousel.featured a:hover,
+	figure.zoom>a.lightbox:hover,
+	#portfolio h2>a:hover,
+	#portfolio h3>a:hover,
+	#portfolio h4>a:hover,
+	#portfolio h5>a:hover,
+	#portfolio h6>a:hover,
+	.tab-post a:hover,
+	.tag:hover>span.txt,
+	section.dark .tag:hover>span.txt,
+	ul.widget-twitter li>small>a:hover,
+	.blog-post-item h2>a:hover,
+	.blog-post-item h3>a:hover,
+	.blog-post-item h4>a:hover,
+	.blog-post-item h5>a:hover,
+	.item-box .item-hover .inner .ico-rounded:hover>span,
+	ul.side-nav>li:hover>a,
+	ul.side-nav>li a:hover,
+	ul.side-nav>li.active>a,
+	a.href-reset:hover,
+	a.href-reset.active,
+	.href-reset a.active,
+	.href-reset a:hover,
+	.href-reset a.active,
+	.price-clean-popular h4,
+	.box-icon.box-icon-color i,
+	.switch-primary.switch-round > input:checked + .switch-label:after,
+	section.dark .nav-tabs.nav-clean>li.active>a { 
+		color: #1980B6; 
+	}
+	
+	#sidepanel.sidepanel-theme-color,
+	div.alert.alert-theme-color,
+	div.alert.alert-primary,
+	span.badge-default,
+	span.label-default,
+	.list-group-item.active>.badge.badge-default,
+	.nav-tabs.nav-alternate>li.active>a,
+	.datepicker table tr td.active.active,
+	.callout-theme-color,
+	.progress-bar-primary,
+	.toast-primary,
+	.owl-theme .owl-controls .owl-page span,
+	.open>.dropdown-toggle.btn-primary,
+	.pagination>.active>a,
+	.pagination>.active>a:hover,
+	#header li.quick-cart .quick-cart-box a.btn,
+	#header li.quick-cart .quick-cart-box a.btn:hover, /* used by dark & transparent header */
+	#topMain.nav-pills>li.active>a>span.theme-color ,
+	.ei-slider-thumbs li.ei-slider-element,			/* elastic slider active indicator */
+	.flex-control-paging li a.flex-active,				/* flex slider bullets */
+	.tp-caption.block_theme_color,
+	.tp-bullets.simplebullets.round .bullet.selected,
+	i.ico-color,
+	.caption-primary,
+	.shop-list-options .btn.active,
+	.box-static.box-color,
+	.switch.switch-primary > input:checked + .switch-label,
+	.fancy-file-upload.fancy-file-primary>span.button,
+	.primary-slider .ui-slider .ui-slider-handle:before,
+	.primary-slider .ui-slider .ui-slider-range,
+	.ribbon-inner,
+	.info-bar.info-bar-color,
+	.music-album-title:hover,
+	.inews-item .inews-thumbnail .inews-sticky,
+    .eventos-item .eventos-thumbnail .eventos-sticky,
+	#progressBar #bar,								/* OWL */
+	#page-menu,
+	#page-menu ul {
+		background-color:#1980B6;
+	}
+	
+	.btn-primary,
+	.btn-primary:hover,
+	.btn-primary:active,
+	.btn-primary:focus {
+		background-color:#1980B6;
+	}
+	
+	/* !important required */
+	#music-player .mejs-controls .mejs-time-rail .mejs-time-current,
+	#music-player .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+	section .theme-background,
+	.swiper-pagination-bullet-active {
+		background-color:#1980B6 !important;
+	}
+	.inews-content-inner h3>a,
+    .eventos-content-inner h3>a,
+	div.side-nav ul>li:hover>a, 
+	div.side-nav ul>li.active>a,
+	.pagination.pagination-simple>li.active>a,
+	div.side-nav ul.list-group-bordered>li>a:hover,
+	section .theme-color {
+		color:#1980B6 !important;
+	}
+
+	.primary-slider .ui-slider .ui-slider-handle,
+	.switch.switch-primary > input:checked + .switch-label,
+	.evento-timeline_center li h3:before, 
+	.evento-timeline_center:after,
+	a.thumbnail.active,
+	a.thumbnail:hover {
+		border-color:#1980B6;
+	}
+	
+	.btn-primary,
+	.btn-primary:hover,
+	.btn-primary:active,
+	.btn-primary:focus {
+		border-color:#000000;
+	}
+
+	.open>.dropdown-toggle.btn-primary,
+	.pagination>.active>a,
+	.pagination>.active>a:hover {
+		border-color: #1980B6;
+	}
+	
+	.btn-primary,
+	.btn-primary:active,
+	.btn-primary:focus,
+	.btn-primary:hover {
+		border-color: #000000;
+	}
+
+	#topNav ul.dropdown-menu { /* submenu border top color */
+		border-top-color:#1980B6;
+	}
+	section.featured-grid div.row>div .ribbon:before,
+	.modal-content {
+		border-top-color:#1980B6;
+	}
+
+	#topNav ul.dropdown-menu {
+		border-color: #1980B6 #fff #fff;
+	}
+	#topNav div.submenu-dark ul.dropdown-menu {
+		border-color: #1980B6 #3F3F3F #3F3F3F;
+	}
+	#topNav div.submenu-color ul.dropdown-menu {
+		border-color: #1980B6 #3F3F3F #3F3F3F;
+	}
+	#topMain li.search .search-box {
+		border-top: #1980B6 2px solid;
+	}
+
+
+	/* COLOR DROP DOWN MENU */
+	#topNav div.submenu-color ul.dropdown-menu {
+		background-color:#1980B6;
+	}
+	#topNav div.submenu-color ul.dropdown-menu {
+		border-color: #888 #1980B6 #1980B6;
+	}
+
+	#topNav div.submenu-color ul.dropdown-menu a.dropdown-toggle {
+		background-image: url('../../images/submenu_light.png');
+	}
+	#topNav div.submenu-color ul.dropdown-menu li.active>a, 
+	#topNav div.submenu-color ul.dropdown-menu li.active:hover>a, 
+	#topNav div.submenu-color ul.dropdown-menu li.active:focus>a, 
+	#topNav div.submenu-color ul.dropdown-menu li:hover>a, 
+	#topNav div.submenu-color ul.dropdown-menu li:focus>a, 
+	#topNav div.submenu-color ul.dropdown-menu li:focus>a {
+		color:#fff;
+		background-color:rgba(0,0,0,0.15);
+	}
+	#topNav div.submenu-color ul.dropdown-menu li.divider {
+		background-color:rgba(255,255,255,0.3);
+	}
+	#topNav div.submenu-color ul.dropdown-menu>li a {
+		color:#fff;
+	}
+	#topNav div.submenu-color #topMain>li.mega-menu div.row div>ul>li>span {
+		color:#fff;
+	}
+	#topNav div.submenu-color #topMain>li.mega-menu div.row div { 
+		border-left: rgba(0,0,0,0.2) 1px solid;
+	}
+
+	
+	/* Theme Color Section */
+	section.theme-color,
+	section.theme-color div.heading-title.heading-dotted h1,
+	section.theme-color div.heading-title.heading-dotted h2,
+	section.theme-color div.heading-title.heading-dotted h3,
+	section.theme-color div.heading-title.heading-dotted h4,
+	section.theme-color div.heading-title.heading-dotted h5,
+	section.theme-color div.heading-title.heading-dotted h6 {
+		color:#fff;
+		background-color: #1980B6;
+	}
+	section.theme-color div.heading-title h1, 
+	section.theme-color div.heading-title h2, 
+	section.theme-color div.heading-title h3, 
+	section.theme-color div.heading-title h4, 
+	section.theme-color div.heading-title h5, 
+	section.theme-color div.heading-title h6 {
+		background-color: #1980B6;
+	}
+	section.theme-color div.heading-title h1 span, 
+	section.theme-color div.heading-title h2 span, 
+	section.theme-color div.heading-title h3 span, 
+	section.theme-color div.heading-title h4 span, 
+	section.theme-color div.heading-title h5 span, 
+	section.theme-color div.heading-title h6 span {
+		color:#fff;
+	}
+	section.theme-color a {
+		color:#fff;
+		text-decoration:none;
+	}
+	section.theme-color a:hover {
+		color:#111;
+	}
+	section.theme-color pre {
+		background-color:rgba(0,0,0,0.1);
+	}
+	section.theme-color div.heading-border-bottom.heading-color {
+	  border-bottom-color:rgba(255,255,255,0.5);
+	}
+
+
+
+
+/**	Vertical Menu
+*************************************************** **/
+body.menu-vertical #mainMenu.sidebar-vertical .sidebar-nav .navbar li:hover>a,
+body.menu-vertical #mainMenu.sidebar-vertical .dropdown-menu>.active>a, 
+body.menu-vertical #mainMenu.sidebar-vertical .dropdown-menu>.active>a:focus, 
+body.menu-vertical #mainMenu.sidebar-vertical .dropdown-menu>.active>a:hover,
+body.menu-vertical #mainMenu.sidebar-vertical .navbar-default .navbar-nav>.active>a,
+body.menu-vertical #mainMenu.sidebar-vertical .sidebar-nav .navbar li:hover>a {
+	color:#1980B6 !important;
+}
+
+
+
+
+
+/**	[Shortcode] Buttons
+*************************************************** **/
+section.dark .btn-default:hover {
+	color: #1980B6;
+	background-color:rgba(0,0,0,0.3);
+}
+
+
+/**	[Shortcode] Page Header
+*************************************************** **/
+	section.page-header .breadcrumb a:hover  {
+		color: #1980B6 !important; 
+		text-decoration:none;
+	}
+	
+	
+/**	[Shortcode] Dividers
+*************************************************** **/
+	div.divider.divider-color i {
+		color:#fff;
+	}
+	div.divider.divider-color:before,
+	div.divider.divider-color:after {
+		border-top:#1980B6 1px solid;
+	}
+	div.divider.divider-color i {
+		color:#1980B6;
+	}
+	div.divider.divider-circle.divider-color i {
+		color:#fff;
+		background-color: #1980B6;
+	}
+	div.divider.divider-border>a:hover>i {
+		color:#1980B6;
+	}
+
+
+/**	[Shortcode] Headings
+*************************************************** **/
+	div.heading-title.heading-line-single.heading-color:before,
+	div.heading-title.heading-line-double.heading-color:before {
+		border-color:#1980B6;
+	}
+	div.heading-border-bottom.heading-color {
+		border-bottom-color:#1980B6;
+	}
+	div.heading-title.heading-border.heading-color,
+	div.heading-title.heading-border.heading-inverse.heading-color {
+		border-color:#1980B6;
+	}
+	section.dark div.heading-title.heading-border-bottom {
+		border-bottom-color:#1980B6;
+	}
+
+/**	[Shortcode] Icon Boxes
+*************************************************** **/
+.box-icon a.box-icon-title:hover>h2 {
+	color:#1980B6;
+}
+.box-icon a.box-icon-title:hover>i {
+	color:#fff;
+	background-color:#1980B6;
+}
+.box-icon a.box-icon-more {
+	color:#111;
+}
+.box-icon a.box-icon-more:hover,
+section.dark .box-icon a.box-icon-more:hover {
+	color:#1980B6;
+}
+
+.box-video a.box-video-title:hover h2,
+.box-video a.box-image-title:hover h2 {
+	color:#1980B6;
+}
+
+.box-flip .box2 {
+	color:#fff;
+	background-color:#1980B6;
+}
+
+/* Publicações */
+.publicacao-item .publicacao-item-content {
+	overflow:hidden;
+	padding-left:10px;
+	position:relative;
+}
+
+
+/** Evento Timeline
+ **************************************************************** **/
+.evento-timeline {
+	position:relative;
+	padding-left:100px;
+}
+.evento-timeline.evento-timeline-inverse {
+	padding-left:0;
+	padding-right:100px;
+}
+.evento-timeline .evento-timeline-item {
+	position:relative;
+	min-height:150px;
+	display:block;
+	margin-bottom:30px;
+}
+.evento-timeline .evento-timeline-item-bordered {
+	border-left:#ccc 1px dashed;
+	padding-left:20px;
+}
+	section.dark .evento-timeline .evento-timeline-item-bordered {
+		border-left:rgba(255,255,255,0.2) 1px dashed;
+	}
+
+.evento-timeline.evento-timeline-inverse .evento-timeline-item-bordered {
+	border-right:#ccc 1px dashed;
+	border-left:0;
+	padding-right:20px;
+	padding-left:0;
+}
+
+/* horizontal line [left|center|right] */
+.evento-timeline>.evento-timeline-hline {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom:0;
+	margin-left: 50px;
+	width: 1px;
+	border-left:rgba(0,0,0,0.1) 1px dashed;
+	height: 100%;
+}
+	section.dark .evento-timeline>.evento-timeline-hline {
+		border-left-color:rgba(255,255,255,0.2);
+	}
+
+.evento-timeline.evento-timeline-inverse>.evento-timeline-hline {
+	left:auto;
+	right:0;
+	margin-left:0;
+	margin-right:30px;
+	border-left:0;
+	border-right:rgba(0,0,0,0.1) 1px dashed;
+}
+	section.dark .evento-timeline.evento-timeline-inverse>.evento-timeline-hline {
+		border-right-color:rgba(255,255,255,0.2);
+	}
+
+
+/* evento-timeline Eventos */
+.evento-timeline .evento-timeline-entry {
+	display: block;
+	border:rgba(0,0,0,0.1) 3px solid;
+	background-color:#ccc;
+	padding-top: 10px;
+	top: 20px;
+	z-index:10;
+	position:absolute;
+	left: -82px;
+	right: auto;
+	width: 64px;
+	height: 100px;
+	font-size: 26px;
+	text-align:center;
+	line-height:1;
+	font-weight:bold;
+	font-family:'Lato','Open Sans',Arial,Helvetica,sans-serif;
+}
+.evento-timeline .evento-timeline-entry>.evento-timeline-vline {
+	position: absolute;
+	top: 50%; 
+	margin-top:-1px;
+	right: -20px;
+	width: 20px;
+	height: 0;
+	border-top: 1px dashed #CCC;
+}
+	.evento-timeline.evento-timeline-inverse .evento-timeline-entry {
+		right: -102px;
+		left: auto;
+	}
+	.evento-timeline.evento-timeline-inverse .evento-timeline-entry>.evento-timeline-vline {
+		right:auto;
+		left: -40px;
+	}
+
+.evento-timeline .evento-timeline-entry>span {
+	display:block;
+	font-size:15px;
+	text-transform:uppercase;
+	font-weight:400;
+    margin: 3px;
+	font-family:'Open Sans',Arial,Helvetica,sans-serif;
+}
+section.alternate .evento-timeline .evento-timeline-entry {
+	background-color:#F9F9F9;
+}
+section.dark .evento-timeline .evento-timeline-entry {
+	color:#666;
+	background-color:#212121;
+	border-color:rgba(255,255,255,0.2);
+}
+
+section.dark .evento-timeline .evento-timeline-entry>.evento-timeline-vline {
+	border-top-color:rgba(255,255,255,0.2);
+}
+section.dark.alternate .evento-timeline .evento-timeline-entry {
+	background-color:#151515;
+}
+
+
+	/* timeline center */
+	.evento-timeline_center { 
+		margin: 0; 
+		position: relative;  
+		background: url('../images/timeline/timeline_top.png') no-repeat top center; 
+		padding-top: 9px; 
+	}
+	.evento-timeline_center:after { 
+		content: ""; 
+		width: 0px; 
+		height: 0px; 
+		border-width: 3px; 
+		border-style: solid; 
+		position: absolute; 
+		left: 50%; 
+		bottom: -10px; 
+		margin-left: -3px; 
+		display: block; 
+		z-index: 1; 
+		
+		-webkit-border-radius: 100%; 
+				border-radius: 100%; 
+	}
+	.evento-timeline_center li { 
+		padding: 0 0 25px 55%; 
+		position: relative; 
+		background: url('../images/timeline/timeline_right.png') no-repeat top center; 
+	}
+	.evento-timeline_center li:nth-child(even) { 
+		padding: 0 55% 25px 0; 
+		background: url('../images/timeline/timeline_left.png') no-repeat top center; 
+		text-align:right;
+	}
+
+	.evento-timeline_center li h3 { 
+		font-size: 30px; 
+		line-height: 35px; 
+	}
+	.evento-timeline_center li h3 span { 
+		position: absolute; 
+		right: 55%; 
+		top: 0px; 
+		font-size:13px;
+	}
+	.evento-timeline_center li h3:before { 
+		content: ""; 
+		width: 15px; 
+		height: 15px; 
+		border-width: 4px; 
+		border-style: solid; 
+		position: absolute; 
+		left: 50%; 
+		top: 11px; 
+		margin-left: -7px; 
+		display: block; 
+		z-index: 1; 
+		
+		-webkit-border-radius: 100%; 
+				border-radius: 100%; 
+	}
+	.evento-timeline_center li:nth-child(even) h3 { 
+		text-align: right; 
+	}
+	.evento-timeline_center li:nth-child(even) h3 span { 
+		left: 55%; 
+		right: auto;
+	}
+
+	.evento-timeline_center li .evento-timeline-desc { 
+		position: relative; 
+		font-size: 15px; 
+		line-height: 31px; 
+	}
+	.evento-timeline_center li .evento-timeline-desc:before { 
+		content: ""; 
+		width: 100%; 
+		height: 100%; 
+		position: absolute; 
+		left: -122%; 
+		top: 0; 
+	}
+	.evento-timeline_center li .evento-timeline-desc.evento-timeline-desc-line {
+		background: url('../images/timeline/textline.png') repeat-y; 
+	}
+	.evento-timeline_center li:nth-child(even) .evento-timeline-desc:before { 
+		left: auto; 
+		right: -122%; 
+	}
+	.evento-timeline_center li:nth-child(even) .evento-timeline-desc { 
+		text-align: right; 
+	}
+
+	.evento-timeline_center li h3:before, 
+	.evento-timeline_center:after {
+		border-color: #333;
+	}
+
+	@media only screen and (max-width: 650px) {
+		.evento-timeline_center { background-position: 11px top; }
+		.evento-timeline_center li { padding: 0 0 25px 70px !important; background: url('../images/timeline/timeline_right.png') no-repeat !important; background-position: -30px top !important; width: auto; }
+		.evento-timeline_center li h3 span { position:relative; display:block; right:auto; left:auto; padding:5px 0 !important; margin:0; }
+		.evento-timeline_center li:nth-child(even) h3 span { position:relative; display:block; right:auto; left:auto; padding:0; margin:0; }
+		.evento-timeline_center li h3 { font-size:24px; line-height:24px; }
+		.evento-timeline_center li h3,
+		.evento-timeline_center li:nth-child(even) h3 { text-align: left; }
+		.evento-timeline_center li h3:before { left: 13px; }
+		.evento-timeline_center li .evento-timeline-desc,
+		.evento-timeline_center li:nth-child(even) .evento-timeline-desc { text-align: left; }
+		.evento-timeline_center li .evento-timeline-desc:before { display: none; }
+		.evento-timeline_center:after { left: 13px; }
+	}
+/* /evento-timeline */
+
+/* evento post-item */
+.evento-post-item {
+	display:block;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	border-bottom:#eee 1px solid;
+	position:relative;
+}
+/* /evento post-item */
+
+/* box color */
+.box-mestre {
+	color:#FFF;
+	background-color:#000000 !important;
+}
+.box-formando {
+	color:#fff;
+	background-color:#993300 !important;
+}
+.box-professor {
+	color:#fff;
+	background-color:#990099 !important;
+}
+.box-intrutor-verde {
+	color:#fff;
+	background-color:#006600 !important;
+}
+.box-intrutor-azul {
+	color:#fff;
+	background-color:#0000CC !important;
+}
+
+
+.box-flip .box2 h1,
+.box-flip .box2 h2,
+.box-flip .box2 h3,
+.box-flip .box2 h4,
+.box-flip .box2 h5,
+.box-flip .box2 h6 {
+	color:#fff;
+}
+
+.box-static.box-border-top {
+	border-color:#1980B6;
+}
+
+
+/* /Eventos item */
+.eventos-item {
+	clear:both;
+	margin-bottom:30px;
+	min-height:132px;
+	position:relative;
+}
+	.eventos-item:after,
+	.eventos-item:before {
+		display:table;
+		content:" ";
+	}
+	.eventos-item:after {
+		clear: both;
+	}
+.eventos-item .eventos-thumbnail {
+	border:0;
+	padding:0;
+	width: 25%;
+	max-width:350px;
+	margin: 0 20px 0 0;
+	float:left;
+	position:relative;
+}
+	.eventos-item .eventos-thumbnail .eventos-sticky {
+		position:absolute;
+		left:0; bottom:-1px;
+		background-color:#74c6de;
+		color:#fff;
+		font-size: 11px;
+		font-weight: bold;
+		padding: 5px 12px;
+		text-shadow:#333 0 0 1px;
+	}
+	.eventos-item .eventos-thumbnail .eventos-sticky>i {
+		font-size:14px;
+		margin-right:8px;
+	}
+.eventos-item .eventos-date-wrapper {
+	text-align: center;
+	position:absolute;
+	left:0;
+	margin-right: 20px;
+	width: 65px;
+	padding-bottom: 20px;
+	background-color:rgba(0,0,0,0.1);
+}
+.eventos-item .eventos-date-wrapper:before {
+	content:' ';
+	position:absolute;
+	right:-10px;
+	top:6px;
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+
+	border-left: 10px solid rgba(0,0,0,0.1);
+}
+	.eventos-item .eventos-date-wrapper {
+		display: block;
+		font-size: 50px;
+		line-height: 1;
+		margin-bottom: 16px;
+	}
+	.eventos-item .eventos-date-wrapper  {
+		display: block;
+		font-size: 14px;
+		line-height: 1;
+		margin-bottom: 14px;
+	}
+	.eventos-date-month {
+		display: block;
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 1;
+		margin-bottom: 14px;
+	}
+	.eventos-date-day {
+		display: block;
+		font-size: 40px;
+		line-height: 1;
+		margin-top: 5px;
+		margin-bottom: 14px;
+	}
+	.eventos-item .eventos-date-wrapper .eventos-date-year {
+		display: block;
+		font-size: 17px;
+		line-height: 1;
+	}
+.eventos-item .eventos-item-content {
+	overflow:hidden;
+	padding-left:85px;
+	position:relative;
+}
+	.eventos-content-inner h3 {
+		margin-bottom:8px;
+		display:block;
+		margin-top:3px;
+	}
+	.eventos-content-inner .list-inline>li {
+		padding:0;
+	}
+
+@media only screen and (max-width: 768px) {
+	.eventos-item {
+		max-width:380px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.eventos-item .eventos-thumbnail {
+		float:none;
+		display:block;
+		margin-bottom:20px;
+		width:100%;
+	}
+}
+/* /Eventos item */
+
+/* Cartaz */
+.cartaz .cartazPequeno {
+    background: no-repeat center;
+    background-size: cover;    
+}
+
+.cartaz
+{
+    float: left;
+    /*display:inline-block;*/
+    /*border:2px solid red;
+    margin: 4px;*/
+}
+
+.div-news {
+    position: absolute;
+    left: 280px;
+}
+
+.div-eventos {
+    left: 20px;
+}
+
+/* /Cartaz */
+
+/* Encontre a Capoeira */
+.local-academia {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    left: 0px;
+    margin: 0 auto;
+}
+.professor-academia {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    left: 0px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 16px;
+}
+/* /Encontre a Capoeira */
+
+
+
+/**	[Shortcode] Navigations
+*************************************************** **/
+.navbar-primary {
+	border-color:#1980B6 !important;
+	background-color:#1980B6 !important;
+}
+
+
+/**	[Shortcode] Paginations
+*************************************************** **/
+section.dark .pagination > li.active>a,
+.pagination > li.active>a {
+	border-color:#1980B6;
+	background-color:#1980B6;
+}
+
+
+/** [Shortcode] Process Steps
+*************************************************** **/
+.process-wizard-primary > .process-wizard-step > .process-wizard-dot,
+.process-wizard-primary > .process-wizard-step > .progress > .progress-bar {
+	background:#1980B6;
+}
+.process-wizard-primary > .process-wizard-step > .process-wizard-dot:after {
+	background-color:rgba(0,0,0,0.4);
+}
+
+ul.process-steps li.active a,
+ul.process-steps li.active a:focus,
+ul.process-steps li.active:hover>a {
+	background-color:#1980B6 !important;
+	border-color:#1980B6 !important;
+}
+
+ul.process-steps li.active h1,
+ul.process-steps li.active h2,
+ul.process-steps li.active h3,
+ul.process-steps li.active h4,
+ul.process-steps li.active h5,
+ul.process-steps li.active h6 {
+	color:#1980B6;
+}
+
+
+
+/** [Shortcode] Process Steps
+*************************************************** **/
+div.mega-price-table .pricing-title, 
+div.mega-price-table .pricing-head, 
+div.mega-price-table .pricing.popular {
+	background-color:#1980B6;
+}
+
+
+div.mega-price-table .pricing:hover h4, 
+div.mega-price-table .pricing-table i.fa {
+	color:#1980B6;
+}
+
+
+
+/** Styled Icons
+ **************************************************************** **/
+section.dark i.ico-hover:hover,
+i.ico-hover:hover {
+	background-color:#1980B6;
+	border-color:#1980B6;
+}
+
+
+/** [Shortcode] Tabs
+ **************************************************************** **/
+.nav-tabs.nav-top-border>li.active>a,
+.nav-tabs.nav-top-border>li.active>a:hover {
+	border-top-color:#1980B6 !important;
+}
+.nav-tabs.nav-bottom-border>li.active>a,
+.nav-tabs.nav-bottom-border>li.active>a:hover {
+	border-bottom-color:#1980B6 !important;
+}
+.nav-tabs.nav-alternate>li.active>a {
+	background-color: #1980B6 !important;
+}
+.nav-tabs>li.active>a {
+	color: #1980B6 !important;
+}
+
+
+
+/** Sky Forms
+ **************************************************************** **/
+/**/
+/* normal state */
+/**/
+.sky-form .toggle i:before {
+	background-color: #1980B6;	
+}
+.sky-form .button {
+	background-color: #1980B6;
+}
+
+
+/**/
+/* checked state */
+/**/
+.sky-form .radio input + i:after {
+	background-color: #1980B6;	
+}
+.sky-form .checkbox input + i:after {
+	color: #1980B6;
+}
+.sky-form .radio input:checked + i,
+.sky-form .checkbox input:checked + i,
+.sky-form .toggle input:checked + i {
+	border-color: #1980B6;	
+}
+.sky-form .rating input:checked ~ label {
+	color: #1980B6;	
+}
+
+
+/** Hover Buttons
+ **************************************************************** **/
+.hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
+    box-shadow: inset 0 0 0 4px #1980B6, 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active,
+.hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active,
+.hvr-sweep-to-right:before,
+.hvr-sweep-to-left:before,
+.hvr-sweep-to-bottom:before,
+.hvr-sweep-to-top:before,
+.hvr-bounce-to-right:before,
+.hvr-bounce-to-left:before,
+.hvr-bounce-to-bottom:before,
+.hvr-bounce-to-top:before ,
+.hvr-radial-out:before,
+.hvr-radial-in,
+.hvr-rectangle-inm
+.hvr-rectangle-out:before,
+.hvr-shutter-in-horizontal,
+.hvr-shutter-out-horizontal:before,
+.hvr-shutter-in-vertical,
+.hvr-shutter-out-vertical:before,
+.hvr-underline-from-left:before,
+.hvr-underline-from-center:before,
+.hvr-underline-from-right:before,
+.hvr-overline-from-left:before,
+.hvr-overline-from-center:before,
+.hvr-overline-from-right:before,
+.hvr-underline-reveal:before,
+.hvr-overline-reveal:before {
+	background-color: #1980B6;
+}
