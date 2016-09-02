@@ -7074,7 +7074,7 @@ ul.search-history {
 	}
 	#footer address .footer-sprite {
 		margin-bottom:20px;
-		padding-left:30px; 
+		/*padding-left:30px; */
 		background:url('../images/footer_sprite.png') no-repeat 0 0;
 	}
 		#footer address .footer-sprite:last-child {

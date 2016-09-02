@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821153459) do
+ActiveRecord::Schema.define(version: 20160831233656) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "eventos", force: :cascade do |t|
+    t.string   "titulo",           limit: 150
+    t.text     "descricao"
+    t.string   "local"
+    t.datetime "data_hora_inicio"
+    t.datetime "data_hora_fim"
+    t.boolean  "aprovado"
+    t.integer  "usuario_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["usuario_id"], name: "index_eventos_on_usuario_id", using: :btree
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"
@@ -35,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160821153459) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_usuarios_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "eventos", "usuarios"
 end

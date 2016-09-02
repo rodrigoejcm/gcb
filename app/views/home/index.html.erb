@@ -1,2 +1,178 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section id="events">
+	<div class="container">
+		<div class="row">
+			<!-- DIV Publicacoes -->
+            <div class="col-sm-8">
+
+				<h3>Publicações Recentes /<span class="size-18">Notícias, Músicas, Técnicas</span></h3>
+                
+                <!-- news item -->
+				<div class="inews-item">
+					
+                    
+                    <div class="cartaz">
+						<img src="assets/images/Fotos_Capoeira/mortal.jpg" width='260px' height='140px' />
+					</div>
+					
+					<div class="publicacao-item-content">
+
+						
+
+						<div class="inews-content-inner div-news">
+
+							<h3 class="size-20"><a href="noticia.html">Encontro Internacional 2016</a></h3>
+							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
+								<li>
+									<a href="page-profile.html">
+										<i class="fa fa-user"></i> 
+										<span class="font-lato">Mestre Paulinho Sabiá</span>
+									</a>
+								</li>
+								<li>
+									<i class="fa fa-folder-open-o"></i> 
+									<a class="category" href="#">
+										<span class="font-lato">Batizado</span>
+									</a>
+								</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o"></i> 
+                                        <span class="font-lato">20 Setembro 2015</span>
+                                    </a>
+                                </li>
+							</ul>
+
+							<p>O "Encontro Internacional 2016" excepcionalmente será realizado em julho, do dia 25 a 30 de 2016. Tomamos essa providência por causa das olimpíadas no Brasil, divulguem.</p>
+						</div>
+					</div>
+				</div>
+				<!-- /news item -->
+                
+                <!-- news item -->
+				<div class="inews-item">
+					<div class="cartaz">
+						<img src="assets/images/Fotos_Capoeira/meninas.jpg" width='260px' height='140px' />
+					</div>
+                    
+                    <div class="publicacao-item-content">
+
+						
+
+						<div class="inews-content-inner div-news">
+
+							<h3 class="size-20"><a href="noticia.html">Encontro Anual dos Professores 2015</a></h3>
+							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
+								<li>
+									<a href="page-profile.html">
+										<i class="fa fa-user"></i> 
+										<span class="font-lato">Formanda Colibri</span>
+									</a>
+								</li>
+								<li>
+									<i class="fa fa-folder-open-o"></i> 
+
+									<a class="category" href="#">
+										<span class="font-lato">Encontro</span>
+									</a>
+								</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o"></i> 
+                                        <span class="font-lato">20 Setembro 2015</span>
+                                    </a>
+                                </li>
+							</ul>
+
+							<p>Encontro Anual dos Professores de 2015 será realizado em Las Vegas/NV nos EUA dos dia 30 de Outubro a 02 de Novembro.</p>
+						</div>
+						
+
+					</div>
+				</div>
+				<!-- /news item -->
+
+				<!-- news item -->
+				<div class="inews-item">
+					<div class="cartaz">
+						<img src="assets/images/Fotos_Capoeira/roda_de_rua.jpg" width='260px' height='140px' />
+					</div>
+                    
+					<div class="publicacao-item-content">
+
+						<div class="inews-content-inner div-news">
+
+							<h3 class="size-20"><a href="noticia.html">Batizado Infantil 2015</a></h3>
+							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
+								<li>
+									<a href="page-profile.html">
+										<i class="fa fa-user"></i> 
+										<span class="font-lato">Formada Francesa</span>
+									</a>
+								</li>
+								<li>
+									<i class="fa fa-folder-open-o"></i> 
+
+									<a class="category" href="#">
+										<span class="font-lato">Batizado</span>
+									</a>
+								</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o"></i> 
+                                        <span class="font-lato">20 Setembro 2015</span>
+                                    </a>
+                                </li>
+							</ul>
+
+							<p>Batizado Infantil dos alunos da Formada Francesa.</p>
+						</div>
+						
+
+					</div>
+				</div>
+				<!-- /news item -->
+                
+                <!-- /news item -->
+                <div>
+                	<div class="inews-content-inner">
+						<h3 class="size-14 text-left"><a href="noticias.html">Ver Todas</a></h3>
+                    </div>
+                </div>
+                <!-- /news item -->
+			</div>
+            <!-- DIV Publicacoes -->
+            
+            <!-- DIV Eventos -->
+            <div class="col-sm-4">
+
+				<h3>Próximos Eventos /<span class="size-18">GCB</span></h3>
+
+				 <% @ultimos_eventos.each do |evento| %>
+					<div class="event-item">
+						<div class="event-date-wrapper">
+							<span class="event-date-day"><%= evento.data_hora_inicio.to_time.strftime('%d')%></span>
+							<span class="event-date-month"><%= evento.data_hora_inicio.to_time.strftime('%^b')%></span>
+						</div>
+						<div class="event-content-wrapper">
+							<div class="event-content-inner-wrapper">
+								<h3 class="event-title"><a href="evento.html"><%= evento.titulo %></a></h3>
+								<div class="event-location"><%= evento.usuario.graduacao %> - <%= evento.usuario.nome %> </div>
+	                            <div class="event-location"><%= evento.local %> </div>
+							</div>
+	                       
+	                    </div>
+					</div>
+
+				<% end %>	
+					
+				<div>
+                	<div class="inews-content-inner">
+						<h3 class="size-14 text-blue text-right"><a href="eventos.html">Ver Todos</a></h3>
+					</div>
+                </div>
+
+			</div>
+            <!-- DIV Eventos -->
+		</div>
+	</div>
+</section>

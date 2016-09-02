@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Meus Eventos</h1>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Local do Evento</th>
+      <th>inicio</th>
+      <th>Fim</th>
+      <th>Evento Aprovado?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eventos.each do |evento| %>
+      <tr>
+        <td><%= evento.titulo %></td>
+        <td><%= evento.descricao %></td>
+        <td><%= evento.local %></td>
+        <td>
+          <%= evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
+          <br>
+          <%= evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+        </td>
+        <td>
+          <%= evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%>
+          <br>
+          <%= evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+        </td>
+ 
+        <td>
+          <% if evento.aprovado%>
+            O Evento foi Aprovado
+          <% else %>
+            O Evento ainda não foi Aprovado
+          <% end %>
+        </td>
+        <td><%= link_to 'Visualizar', evento, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar Evento', edit_evento_path(evento) , class: 'btn btn-info btn-xs'%></td>
+        <td><%= link_to 'Cancelar Evento', evento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_evento_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Cadastrar Novo Evento
+<% end %>
+
+

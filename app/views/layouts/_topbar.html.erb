@@ -1,4 +1,4 @@
-<!-- Top Bar -->
+
 <div id="topBar">
 	<div class="container">
 
@@ -12,16 +12,33 @@
 				<li>
 					<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MINHA CONTA</a>
 					<ul class="dropdown-menu pull-right">
-						<li><a tabindex="-1" href="#"><i class="fa fa-calendar"></i> Meus Eventos</a></li>
-						<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> Publicar Conteúdo</a></li>
-                        <li><a tabindex="-1" href="#"><i class="fa fa-group"></i> Autorizações Pendentes</a></li>
+						<li>
+							<%= link_to eventos_path do %>
+							    <i class="fa fa-calendar"></i> Meus Eventos
+							<% end %>
+						</li>
+						<!-- <li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> Publicar Conteúdo</a></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-group"></i> Autorizações Pendentes</a></li> -->
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> Meu Cadastro</a></li>
-                        <li><a tabindex="-1" href="#"><i class="fa fa-cogs"></i> Minhas Informações</a></li>
+
+                        <li>
+							<%= link_to edit_usuario_registration_path do %>
+							    <i class="fa fa-cog"></i> Meu Cadastro
+							<% end %>
+						</li>
+
+                        
+
+
+                  <!--       <li><a tabindex="-1" href="#"><i class="fa fa-cogs"></i> Minhas Informações</a></li> -->
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="#"><i class="fa fa-shopping-cart"></i> Meus Pedidos</a></li>
-						<li class="divider"></li>
-						<li><a tabindex="-1" href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
+<!--                         <li><a tabindex="-1" href="#"><i class="fa fa-shopping-cart"></i> Meus Pedidos</a></li>
+						<li class="divider"></li> -->
+						<li>
+							<%= link_to destroy_usuario_session_path , method: 'delete' do %>
+							    <i class="glyphicon glyphicon-off"></i> Sair
+							<% end %>
+						</li>
 					</ul>
                 </li>
                 <li>
@@ -78,4 +95,4 @@
 
 	</div>
 </div>
-<!-- /Top Bar -->
+<!-- /Top Bar

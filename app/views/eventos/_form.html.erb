@@ -1,0 +1,48 @@
+<%= form_for(evento) do |f| %>
+  <% if evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+      <ul>
+      <% evento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo, "Título:" %>
+    <br>
+    <%= f.text_field :titulo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao , "Descrição do Evento:" %>
+    <br>
+    <%= f.text_area :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :local , "Local do Evento:"%>
+    <br>
+    <%= f.text_field :local %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_hora_inicio,  "Data do início evento:"%>
+    <br>
+    <%= f.datetime_select :data_hora_inicio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_hora_fim , "Data de fim do evento:"%>
+    <br>
+    <%= f.datetime_select :data_hora_fim %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Cadastrar Novo Evento" , :class => "btn btn-warning btn-mini"%>
+  </div>
+<% end %>

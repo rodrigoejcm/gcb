@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @evento.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @evento.descricao %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @evento.local %>
+</p>
+
+<p>
+  <strong>Data - inicio:</strong>
+  <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
+  <br>
+  <%= @evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+
+          
+</p>
+
+<p>
+  <strong>Data - fim:</strong>
+  <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%>
+  <br>
+  <%= @evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+</p>
+
+<p>
+  <strong>Aprovado:</strong>
+  <% if @evento.aprovado%>
+    O Evento foi Aprovado
+  <% else %>
+    O Evento ainda não foi Aprovado
+  <% end %>
+</p>
+
+
+<%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
+<%= link_to 'Voltar', eventos_path %>
