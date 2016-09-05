@@ -40,6 +40,7 @@
   <% end %>
 </p>
 
-
-<%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
+<% if can? :update, @evento %>
+  <%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
+  <% end %>
 <%= link_to 'Voltar', eventos_path %>

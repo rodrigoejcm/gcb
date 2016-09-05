@@ -36,12 +36,7 @@ class Ability
     elsif usuario.professor? 
         can :read, Evento
         can :create, Evento
-        can :update, Evento do |evento|
-          evento.try(:ususario) == usuario
-        end
-        can :destroy, Evente do |evento|
-          item.try(:usuario) == usuario
-        end
+        can [:update, :destroy], Evento, :usuario => usuario
     end
   
   end

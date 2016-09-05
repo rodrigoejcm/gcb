@@ -3,6 +3,8 @@ class Usuario < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  before_create :set_default_role
   
   has_many :eventos
 
@@ -26,7 +28,10 @@ class Usuario < ApplicationRecord
   		self.role == "mestre"
 	end
       
-
+	private
+  		def set_default_role
+    		self.role ||= 'professor'
+  		end
 
 
 end
