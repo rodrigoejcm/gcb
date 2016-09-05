@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
+	############CONFIGURACAO ACTIVE ADMIN
 	def authenticate_active_admin_user!
 	   authenticate_usuario!
 
@@ -10,9 +11,23 @@ class ApplicationController < ActionController::Base
 	      redirect_to root_path
 	   end
 	end
+	############END CONFIGURACAO ACTIVE ADMIN
 
+	############CONFIGURACOES CANCAN
 	
-	
+	#overridig current_user por current usuario para o cancan
+	def current_ability
+  		@current_ability ||= Ability.new(current_usuario)
+	end
+
+	rescue_from CanCan::AccessDenied do |exception|
+    	redirect_to root_path, :alert => exception.message
+  	end
+  	
+  	############END CONFIGURACOES CANCAN
+
+
+
 	
 
 	protected
