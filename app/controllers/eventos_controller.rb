@@ -1,11 +1,23 @@
 class EventosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_usuario!, :except => [:show]
+
+  
+
+  
+  # GET /eventos
+  # GET /eventos.json
+  def home_show_all
+    @eventos = Evento.all
+  end
+
 
   # GET /eventos
   # GET /eventos.json
   def index
-    @eventos = Evento.all
+    #mostra os eventos em que o usuario tem permissao para dar update 
+   @eventos = Evento.accessible_by(current_ability, :update)
   end
 
   # GET /eventos/1

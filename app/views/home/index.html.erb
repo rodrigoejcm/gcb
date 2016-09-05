@@ -155,7 +155,7 @@
 						</div>
 						<div class="event-content-wrapper">
 							<div class="event-content-inner-wrapper">
-								<h3 class="event-title"><a href="evento.html"><%= evento.titulo %></a></h3>
+								<h3 class="event-title"><a href="<%= evento_path(evento) %>"><%= evento.titulo %></a></h3>
 								<div class="event-location"><%= evento.usuario.graduacao %> - <%= evento.usuario.nome %> </div>
 	                            <div class="event-location"><%= evento.local %> </div>
 							</div>
