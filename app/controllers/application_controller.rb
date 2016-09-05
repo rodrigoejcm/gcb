@@ -2,8 +2,18 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
+	def authenticate_active_admin_user!
+	   authenticate_usuario!
 
+	   unless current_usuario.role == :admin.to_s
+	      flash[:alert] = "Você não está autorizado para acessar essa área!"
+	      redirect_to root_path
+	   end
+	end
 
+	
+	
+	
 
 	protected
 

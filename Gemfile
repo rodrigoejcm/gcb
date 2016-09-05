@@ -48,7 +48,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'activeadmin' , github: 'activeadmin'
+
 
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
@@ -57,3 +57,5 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'rails_12factor', group: :production
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'cancancan'

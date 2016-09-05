@@ -35,14 +35,14 @@
 <!--                         <li><a tabindex="-1" href="#"><i class="fa fa-shopping-cart"></i> Meus Pedidos</a></li>
 						<li class="divider"></li> -->
 						<li>
-							<%= link_to destroy_usuario_session_path , method: 'delete' do %>
+							<%= link_to destroy_usuario_session_path , method: 'get' do %>
 							    <i class="glyphicon glyphicon-off"></i> Sair
 							<% end %>
 						</li>
 					</ul>
                 </li>
                 <li>
-                    <%= link_to("SAIR", destroy_usuario_session_path , method: 'delete') %>
+                    <%= link_to("SAIR", destroy_usuario_session_path , method: 'get') %>
                 </li>
                 <li>
 					<%= link_to("CONFIGURAÇÔES", edit_usuario_registration_path) %>
