@@ -11,8 +11,15 @@ class ApplicationController < ActionController::Base
 	   end
 	end
 
+	#overridig current_user por current usuario para o cancan
+	def current_ability
+  		@current_ability ||= Ability.new(current_usuario)
+	end
+
 	
-	
+
+
+
 	
 
 	protected
