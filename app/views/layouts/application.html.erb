@@ -19,8 +19,23 @@
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
 
+            <% if current_page?(root_path) || !usuario_signed_in? %>
+                 <!-- NAO EXIBE SIDEBAR -->
+                 <%= yield %>
+            <% else %>
+                 <!-- EXIBE SIDEBAR -->
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= render 'layouts/sidebar_usuario' %>
+                  </div>
+                  <div class="col-md-9">
+                    <%= yield %>       
+                  </div>
+                </div>
+            <% end %>
+
+
             
-            <%= yield %>
       </div>      
           <%= render 'layouts/footer' %>     
     </div><!-- /wrapper -->

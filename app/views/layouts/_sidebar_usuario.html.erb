@@ -1,0 +1,44 @@
+<div class="thumbnail text-center">
+	
+    <%= image_tag("avatar2.jpg", height: '600', width: '460')%>
+	<h2 class="size-17 margin-top-10 margin-bottom-0">
+        <%=current_usuario.apelido%>
+    </h2>
+    <h3 class="size-13 margin-top-0 margin-bottom-10 text-muted">
+        <%= current_usuario.nome + " " +current_usuario.sobrenome  %>
+    </h3>
+	<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted"><%=current_usuario.graduacao%></h3>
+</div>
+
+<!-- completed -->
+<div class="margin-bottom-30">
+   <!--  <label>88% das inforções cadastradas</label> -->
+    <!-- <div class="progress progress-xxs">
+        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%; min-width: 2em;"></div>
+    </div> -->
+</div>
+<!-- /completed -->
+
+<!-- SIDE NAV -->
+<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
+    <li class="list-group-item ">
+        <!-- CLASSE active para se for a pagina corrente -->
+        <%= link_to eventos_path do %>
+            <i class="fa fa-calendar"></i> MEUS EVENTOS
+        <% end %>
+    </li>
+    <li class="list-group-item">
+        <%= link_to edit_usuario_registration_path do %>
+            <i class="fa fa-cog"></i> MEU CADASTRO
+        <% end %>
+    </li>
+    <li>
+        <%= link_to destroy_usuario_session_path , method: 'get' do %>
+            <i class="glyphicon glyphicon-off"></i> SAIR
+        <% end %>
+    </li>
+   
+    
+</ul>
+<!-- /SIDE NAV -->
+

@@ -31,8 +31,12 @@ class Ability
 
     usuario ||= Usuario.new # guest user
     
-    if usuario.admin?
+    if !usuario.role
+        can :read, Evento
+    elsif usuario.admin?
         can :manage, :all
+    elsif usuario.mestre?
+        can :manage, Evento
     elsif usuario.professor? 
         can :read, Evento
         can :create, Evento
