@@ -20,12 +20,16 @@ class Usuario < ApplicationRecord
   		self.role == "professor"
 	end
 
-	def professor_premiun?
-  		self.role == "professor"
+	def professor_premium?
+  		self.role == "professor_premium"
 	end
 
 	def mestre?
   		self.role == "mestre"
+	end
+
+	def usuarioLimitado?
+		!self.admin? && !self.mestre? && !self.professor_premium?
 	end
       
 	private
