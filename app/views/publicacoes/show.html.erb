@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @publicacao.titulo %>
+</p>
+
+<p>
+  <strong>Texto publicacao:</strong>
+  <%= @publicacao.texto_publicacao %>
+</p>
+
+<p>
+  <strong>Aprovado:</strong>
+  <% if @evento.aprovado.ni?%>
+    O Evento ainda não foi Aprovado
+  <% elsif @evento.aprovado %>
+  	O Evento foi Aprovado
+  <% end %>
+  	O Evento não foi Aprovado
+  <% end %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @publicacao.image %>
+</p>
+
+<%= link_to 'Edit', edit_publicacao_path(@publicacao) %> |
+<%= link_to 'Back', publicacoes_path %>

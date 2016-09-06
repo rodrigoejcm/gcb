@@ -33,14 +33,32 @@ class Ability
     
     if !usuario.role
         can :read, Evento
+        can :read, Publicacao
     elsif usuario.admin?
         can :manage, :all
     elsif usuario.mestre?
         can :manage, Evento
+        can :manage, Publicacao
     elsif usuario.professor? 
+        #Evento
         can :read, Evento
         can :create, Evento
         can [:update, :destroy], Evento, :usuario => usuario
+        #Publicação
+        can :read, Publicacao
+        can :create, Publicacao
+        can [:update, :destroy], Publicacao, :usuario => usuario
+    end
+elsif usuario.professor_premium? 
+        #Evento
+        can :read, Evento
+        can :create, Evento
+        can [:update, :destroy], Evento, :usuario => usuario
+        #Publicação
+        can :read, Publicacao
+        can :create, Publicacao
+        can [:update, :destroy], Publicacao, :usuario => usuario
+
     end
   
   end

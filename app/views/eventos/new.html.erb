@@ -3,7 +3,17 @@
 	<div class="col-md-8 col-offset-2">
 		<h1>Cadastrar Novo Evento</h1>
 
-		<%= render 'form', evento: @evento %>
+		<%= form_for(@evento) do |f| %>
+
+			<%= render 'form', evento: @evento, f:f %>
+			
+			<div class="actions">
+   				<%= f.submit "Cadastrar Evento" , :class => "btn btn-warning btn-mini"%>
+  			
+			</div>
+
+		<% end  #end form renderizado%> 
+
 
 		<%= link_to 'Voltar', eventos_path %>
 	</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  #resources :publicacaos
+  resources :publicacoes
   #devise_for :admin_users, ActiveAdmin::Devise.config
   
   
@@ -10,8 +12,6 @@ Rails.application.routes.draw do
 
   get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'
   get '/proximos-eventos/:id', to: 'eventos#public_evento'
-
-  
 
 
   ActiveAdmin.routes(self)

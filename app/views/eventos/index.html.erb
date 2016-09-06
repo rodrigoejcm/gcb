@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Meus Eventos</h1>
+<% if current_usuario.admin? || current_usuario.mestre?  %>
+
+  <h1>Eventos Cadastrados</h1>
+
+<%else %>
+
+  <h1>Meus Eventos</h1>  
+
+<% end %>
+
+
 
 <p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']%> </p>
 <p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['pode']%> </p>

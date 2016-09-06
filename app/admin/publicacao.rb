@@ -1,6 +1,5 @@
-ActiveAdmin.register Evento do
-    config.per_page = 20
-
+ActiveAdmin.register Publicacao do
+config.per_page = 20
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,18 +13,16 @@ ActiveAdmin.register Evento do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-  permit_params :titulo, :descricao, :local, :usuario_id, :aprovado, :data_hora_inicio, :data_hora_fim
+ permit_params :titulo, :texto_publicacao, :usuario_id, :aprovado, :image
  
     index do
         column :titulo
-        column :descricao
-        column :local
+        column :texto_publicacao
         column :usuario
         column :aprovado
-        column :image do |evt|
-            url = evt.image_url
-            image_tag(url, size: '80')
+        column :image do |pub|
+        	url = pub.image_url
+        	image_tag(url, size: '80')
         end
         actions
     end
@@ -33,15 +30,11 @@ ActiveAdmin.register Evento do
     filter :titulo
  
     form do |f|
-        f.inputs "Eventos" do
+        f.inputs "Publicacoes" do
             f.input :titulo
-            f.input :descricao
-            f.input :local
-            f.input :aprovado, as: :radio, collection: {Sim: "true", Nao: "false"}
-            f.input :data_hora_inicio, as: :datetime_picker
-            f.input :data_hora_fim, as: :datetime_picker
+            f.input :texto_publicacao
+            f.input :aprovado, as: :radio, collection: {Sim: "true", Nao: "false", A_ser_aprovado: ""}
             f.input :image,  :as => :file ,:hint => image_tag(f.object.image_url, size: '100')
-            
             #f.input :usuario
             f.input :usuario,  :as => :select, :collection => Hash[Usuario.all.map{|b| [b.nome,b.id]}]
         end

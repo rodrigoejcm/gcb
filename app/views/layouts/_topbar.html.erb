@@ -9,9 +9,14 @@
 				<li class="text-welcome hidden-xs">
                     Bem vindo, <strong><%= current_usuario.nome %></strong>
                 </li>
-                
-
-                
+            
+                <% if current_usuario.admin? %>
+                	<li class="text-welcome hidden-xs">	
+                    	<%= link_to admin_root_path do %>
+                    		Área Administrativa
+                    	<%end%>
+                	</li>
+                <%end%>
                 
 				<li>
 					<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MINHA CONTA</a>

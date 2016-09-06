@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Publicacaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Texto publicacao</th>
+      <th>Usuario</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicacoes.each do |publicacao| %>
+      <tr>
+        <td><%= publicacao.titulo %></td>
+        <td><%= publicacao.texto_publicacao %></td>
+        <td><%= publicacao.usuario %></td>
+        <td><%= publicacao.image %></td>
+        <td><%= link_to 'Show', publicacao %></td>
+        <td><%= link_to 'Edit', edit_publicacao_path(publicacao) %></td>
+        <td><%= link_to 'Destroy', publicacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publicacao', new_publicacao_path %>

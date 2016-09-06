@@ -1,6 +1,15 @@
-<h1>Editing Evento</h1>
+<h1>Alterar Evento</h1>
 
-<%= render 'form', evento: @evento %>
 
-<%= link_to 'Show', @evento %> |
-<%= link_to 'Back', eventos_path %>
+<%= form_for(@evento) do |f| %>
+
+			<%= render 'form', evento: @evento, f:f %>
+			
+			<div class="actions">
+   				<%= f.submit "Salvar alterações do Evento" , :class => "btn btn-warning btn-mini"%>
+			</div>
+
+<% end %> 
+
+<%= link_to 'Visualizar', @evento %> |
+<%= link_to 'Voltar para tela de eventos', eventos_path %>
