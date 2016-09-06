@@ -12,6 +12,7 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
+      <th>Imagem</th>
       <th>Título</th>
       <th>Descrição</th>
       <th>Local do Evento</th>
@@ -25,6 +26,7 @@
   <tbody>
     <% @eventos.each do |evento| %>
       <tr>
+        <td><%=image_tag evento.image_url.to_s, size: '100'%></td>
         <td><%= evento.titulo %></td>
         <td><%= evento.descricao %></td>
         <td><%= evento.local %></td>

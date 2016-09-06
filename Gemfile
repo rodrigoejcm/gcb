@@ -59,3 +59,4 @@ gem "font-awesome-rails"
 gem 'rails_12factor', group: :production
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cancancan'
+gem 'carrierwave'

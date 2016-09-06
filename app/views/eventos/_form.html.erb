@@ -41,6 +41,12 @@
     <%= f.datetime_select :data_hora_fim %>
   </div>
 
+  <div class="field">
+    <%= f.label :image , "Imagem:"%>
+    <br>
+    <%= f.file_field :image %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Cadastrar Novo Evento" , :class => "btn btn-warning btn-mini"%>

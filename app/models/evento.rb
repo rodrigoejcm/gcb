@@ -1,3 +1,4 @@
 class Evento < ApplicationRecord
-  belongs_to :usuario
+  belongs_to :usuario 
+  mount_uploader :image, ImageUploader
 end
