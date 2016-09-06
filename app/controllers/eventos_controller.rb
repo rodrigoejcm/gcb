@@ -1,15 +1,14 @@
 class EventosController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :public_proximos_eventos
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_usuario!, :except => [:show]
+  before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos]
 
   
 
-  
-  # GET /eventos
-  # GET /eventos.json
-  def home_show_all
-    @eventos = Evento.all
+  #nao esta sendo utilizado
+  def public_proximos_eventos
+    @eventos = Evento.where(aprovado: true)
   end
 
 

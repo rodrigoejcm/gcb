@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'cadastrar', edit: 'configuracoes' }
   
   resources :eventos
+
+  get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'
+  get '/proximos-eventos/:id', to: 'eventos#public_evento'
+
   
 
 
