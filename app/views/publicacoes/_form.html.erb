@@ -21,6 +21,13 @@
     <%= f.text_area :texto_publicacao %>
   </div>
 
+  <div class="field">
+    <%= f.label :categoria_id %>
+    <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria %>
+    
+  </div>
+
+
 
   <div class="field">
     <%= f.label :image %>

@@ -48,8 +48,8 @@ class Ability
         can :read, Publicacao
         can :create, Publicacao
         can [:update, :destroy], Publicacao, :usuario => usuario
-    end
-elsif usuario.professor_premium? 
+    
+    elsif usuario.professor_premium? 
         #Evento
         can :read, Evento
         can :create, Evento

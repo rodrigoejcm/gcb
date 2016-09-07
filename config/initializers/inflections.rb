@@ -18,4 +18,6 @@
  ActiveSupport::Inflector.inflections do |inflect|
         inflect.irregular "Publicacao", "Publicacoes"
         inflect.irregular "publicacao", "publicacoes"
+        inflect.irregular "Categoria", "Categorias"
+        inflect.irregular "categoria", "categorias"
  end

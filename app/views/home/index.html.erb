@@ -5,132 +5,48 @@
             <div class="col-sm-8">
 
 				<h3>Publicações Recentes /<span class="size-18">Notícias, Músicas, Técnicas</span></h3>
-                
+				<% @ultimas_publicacoes.each do |publicacao| %>
                 <!-- news item -->
 				<div class="inews-item">
-					
-                    
                     <div class="cartaz">
-						<img src="assets/images/Fotos_Capoeira/mortal.jpg" width='260px' height='140px' />
+                    	<%=image_tag publicacao.image_url.to_s, width: '260', height: '140'%>
 					</div>
 					
 					<div class="publicacao-item-content">
-
-						
-
 						<div class="inews-content-inner div-news">
-
-							<h3 class="size-20"><a href="noticia.html">Encontro Internacional 2016</a></h3>
+							<h3 class="size-20"><a href="noticia.html"><%=publicacao.titulo%></a></h3>
 							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
 								<li>
 									<a href="page-profile.html">
 										<i class="fa fa-user"></i> 
-										<span class="font-lato">Mestre Paulinho Sabiá</span>
+										<span class="font-lato"><%= publicacao.usuario.graduacao.capitalize + " " + publicacao.usuario.apelido%></span>
 									</a>
 								</li>
 								<li>
 									<i class="fa fa-folder-open-o"></i> 
 									<a class="category" href="#">
-										<span class="font-lato">Batizado</span>
+										<span class="font-lato"><%=publicacao.categoria.nomeCategoria%></span>
 									</a>
 								</li>
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-clock-o"></i> 
-                                        <span class="font-lato">20 Setembro 2015</span>
+                                        <span class="font-lato">
+                                        <%=l publicacao.created_at, format: :short %>
+											
+                                        </span>
                                     </a>
                                 </li>
 							</ul>
 
-							<p>O "Encontro Internacional 2016" excepcionalmente será realizado em julho, do dia 25 a 30 de 2016. Tomamos essa providência por causa das olimpíadas no Brasil, divulguem.</p>
+							<p><%=publicacao.texto_publicacao.truncate(200)%></p>
 						</div>
 					</div>
 				</div>
+				<%end%>
 				<!-- /news item -->
                 
-                <!-- news item -->
-				<div class="inews-item">
-					<div class="cartaz">
-						<img src="assets/images/Fotos_Capoeira/meninas.jpg" width='260px' height='140px' />
-					</div>
-                    
-                    <div class="publicacao-item-content">
-
-						
-
-						<div class="inews-content-inner div-news">
-
-							<h3 class="size-20"><a href="noticia.html">Encontro Anual dos Professores 2015</a></h3>
-							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
-								<li>
-									<a href="page-profile.html">
-										<i class="fa fa-user"></i> 
-										<span class="font-lato">Formanda Colibri</span>
-									</a>
-								</li>
-								<li>
-									<i class="fa fa-folder-open-o"></i> 
-
-									<a class="category" href="#">
-										<span class="font-lato">Encontro</span>
-									</a>
-								</li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-clock-o"></i> 
-                                        <span class="font-lato">20 Setembro 2015</span>
-                                    </a>
-                                </li>
-							</ul>
-
-							<p>Encontro Anual dos Professores de 2015 será realizado em Las Vegas/NV nos EUA dos dia 30 de Outubro a 02 de Novembro.</p>
-						</div>
-						
-
-					</div>
-				</div>
-				<!-- /news item -->
-
-				<!-- news item -->
-				<div class="inews-item">
-					<div class="cartaz">
-						<img src="assets/images/Fotos_Capoeira/roda_de_rua.jpg" width='260px' height='140px' />
-					</div>
-                    
-					<div class="publicacao-item-content">
-
-						<div class="inews-content-inner div-news">
-
-							<h3 class="size-20"><a href="noticia.html">Batizado Infantil 2015</a></h3>
-							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
-								<li>
-									<a href="page-profile.html">
-										<i class="fa fa-user"></i> 
-										<span class="font-lato">Formada Francesa</span>
-									</a>
-								</li>
-								<li>
-									<i class="fa fa-folder-open-o"></i> 
-
-									<a class="category" href="#">
-										<span class="font-lato">Batizado</span>
-									</a>
-								</li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-clock-o"></i> 
-                                        <span class="font-lato">20 Setembro 2015</span>
-                                    </a>
-                                </li>
-							</ul>
-
-							<p>Batizado Infantil dos alunos da Formada Francesa.</p>
-						</div>
-						
-
-					</div>
-				</div>
-				<!-- /news item -->
+                
                 
                 <!-- /news item -->
                 <div>

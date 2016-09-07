@@ -66,4 +66,7 @@ Rails.application.configure do
 #      :enable_starttls_auto => true
 #}
 
+
+  config.i18n.default_locale = 'pt-BR'
+
 end

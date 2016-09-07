@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :eventos
 
   get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'
-  get '/proximos-eventos/:id', to: 'eventos#public_evento'
+  #get '/proximos-eventos/:id', to: 'eventos#public_evento'
+
+  get '/todas-publicacoes', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes'
+  #get '/proximos-eventos/:id', to: 'eventos#public_evento'
+
 
 
   ActiveAdmin.routes(self)

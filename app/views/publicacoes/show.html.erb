@@ -11,13 +11,16 @@
 </p>
 
 <p>
+  <strong>Categoria:</strong>
+  <%= @publicacao.categoria.nomeCategoria %>
+</p>
+
+<p>
   <strong>Aprovado:</strong>
-  <% if @evento.aprovado.ni?%>
-    O Evento ainda não foi Aprovado
-  <% elsif @evento.aprovado %>
-  	O Evento foi Aprovado
-  <% end %>
-  	O Evento não foi Aprovado
+  <% if @publicacao.aprovado?%>
+     Publicação Aprovado
+  <% else @publicacao.aprovado %>
+  	A Publicação ainda não foi Aprovada
   <% end %>
 </p>
 

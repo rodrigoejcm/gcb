@@ -6,7 +6,7 @@ class EventosController < ApplicationController
 
   
 
-  #nao esta sendo utilizado
+
   def public_proximos_eventos
     @eventos = Evento.where(aprovado: true)
   end

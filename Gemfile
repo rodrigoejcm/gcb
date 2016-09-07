@@ -60,3 +60,4 @@ gem 'rails_12factor', group: :production
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cancancan'
 gem 'carrierwave'
+gem 'rails-i18n', '~> 5.0.0'
