@@ -17,7 +17,9 @@ config.per_page = 20
  
     index do
         column :titulo
-        column :texto_publicacao
+        column :texto_publicacao do |pub|
+            pub.texto_publicacao.truncate(100)
+        end
         column :usuario do |pub|
         	pub.usuario.nome
         end
@@ -38,7 +40,7 @@ config.per_page = 20
         f.inputs "Publicacoes" do
             f.input :titulo
             f.input :texto_publicacao
-            f.input :aprovado, as: :radio, collection: {Sim: "true", Nao: "false"}
+            f.input :aprovado, as: :radio, collection: {Aprovado: "APROVADO", Reprovado: "REPROVADO", Indefinido: "INDEFINIDO" }
             f.input :image,  :as => :file ,:hint => image_tag(f.object.image_url, size: '100')
             #f.input :usuario
             f.input :usuario,  :as => :select, :collection => Hash[Usuario.all.map{|b| [b.nome,b.id]}]

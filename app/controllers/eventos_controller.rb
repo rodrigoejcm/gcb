@@ -5,10 +5,8 @@ class EventosController < ApplicationController
   before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos]
 
   
-
-
   def public_proximos_eventos
-    @eventos = Evento.where(aprovado: true).paginate(:page => params[:page], :per_page => 5)
+    @eventos = Evento.where(aprovado: "APROVADO").paginate(:page => params[:page], :per_page => 5)
   end
 
 

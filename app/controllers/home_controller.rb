@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   
   def index
-  	@ultimos_eventos = Evento.where(aprovado: true).limit(5)
+  	@ultimos_eventos = Evento.where(aprovado: "APROVADO").limit(5)
   	#@ultimas_publicacoes = Publicacao.where(aprovado: true).limit(3)
 
-  	@ultimas_publicacoes = Publicacao.where(aprovado: true).limit(5)
+  	@ultimas_publicacoes = Publicacao.where(aprovado: "APROVADO").limit(5)
 
   	
 

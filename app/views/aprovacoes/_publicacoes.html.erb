@@ -1,0 +1,35 @@
+
+<table class="table table-hover table-striped publicacao_aprovacao" >
+  <thead>
+    <tr>
+      
+      <th>Publicação</th>
+      <% if current_usuario.admin? || current_usuario.mestre?%>
+        <th>Usuario</th>
+      <%end%>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% aprovacao_publicacao.each do |publicacao| %>
+      <tr>
+        <td>
+          <b><%= publicacao.titulo %></b>
+          <br>
+          <%= publicacao.texto_publicacao.truncate(70) %>
+        </td>
+        <% if current_usuario.admin? || current_usuario.mestre?%>
+          <td><%= publicacao.usuario.apelido %></td>
+        <%end%>
+        <td>
+          <% if publicacao.aprovado == "INDEFINIDO"%>
+            <%= link_to 'Aprovar', edit_publicacao_path(publicacao), class: 'btn btn-primary btn-xs' %>
+          <% else %>
+            <%= link_to 'Visualizar Aprovação', publicacao, class: 'btn btn-primary btn-xs' %>
+          <% end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

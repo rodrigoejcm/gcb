@@ -1,0 +1,22 @@
+
+
+<br>
+<h3>Publicações Pendentes de Aprovação</h3>
+<%= render 'publicacoes', aprovacao_publicacao: publicacoes.where( aprovado: "INDEFINIDO") %>
+
+<hr>
+<br>
+
+<h3>Publicações Aprovadas</h3>
+<%= render 'publicacoes', aprovacao_publicacao: publicacoes.where( aprovado: "APROVADO") %>
+
+<hr>
+<br>
+
+<h3>Publicações Reprovadas</h3>
+<%= render 'publicacoes', aprovacao_publicacao: publicacoes.where( aprovado: "REPROVADO") %>
+<br>
+<br>
+<br>
+<br>
+<br>

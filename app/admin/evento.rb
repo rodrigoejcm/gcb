@@ -19,7 +19,9 @@ ActiveAdmin.register Evento do
  
     index do
         column :titulo
-        column :descricao
+        column :descricao do |evt|
+            evt.descricao.truncate(100)    
+        end
         column :local
         column :usuario
         column :aprovado
@@ -37,7 +39,7 @@ ActiveAdmin.register Evento do
             f.input :titulo
             f.input :descricao
             f.input :local
-            f.input :aprovado, as: :radio, collection: {Sim: "true", Nao: "false"}
+            f.input :aprovado, as: :radio, collection: {Aprovado: "APROVADO", Reprovado: "REPROVADO", Indefinido: "INDEFINIDO" }
             f.input :data_hora_inicio, as: :datetime_picker
             f.input :data_hora_fim, as: :datetime_picker
             f.input :image,  :as => :file ,:hint => image_tag(f.object.image_url, size: '100')

@@ -4,10 +4,11 @@ class PublicacoesController < ApplicationController
   before_action :set_publicacao, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_usuario!, :except => [:show, :public_publicacoes]
 
+
   
   #Exibicao das publicacoes aprovadas - todos os usuarios possuem acesso
   def public_publicacoes
-    @publicacoes = Publicacao.where(aprovado: true).paginate(:page => params[:page], :per_page => 5)
+    @publicacoes = Publicacao.where(aprovado: "APROVADO").paginate(:page => params[:page], :per_page => 5)
   end
 
 
@@ -32,6 +33,8 @@ class PublicacoesController < ApplicationController
   # GET /publicacaos/1/edit
   def edit
   end
+
+
 
   # POST /publicacaos
   # POST /publicacaos.json
@@ -84,6 +87,6 @@ class PublicacoesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def publicacao_params
       params.fetch(:publicacao, {})
-      params.require(:publicacao).permit( :titulo, :texto_publicacao, :usuario, :image, :categoria_id) # List here whitelisted params
+      params.require(:publicacao).permit( :titulo, :texto_publicacao, :usuario, :image, :categoria_id, :aprovado) # List here whitelisted params
     end
 end

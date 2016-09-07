@@ -1,0 +1,30 @@
+
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul id="tabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+    	<a href="#apro_publicacoes" aria-controls="apro_publicacoes" role="tab" data-toggle="tab">
+    		Aprovações - Publicações
+    	</a>
+    </li>
+    <li role="presentation">
+     	<a href="#apro_eventos" aria-controls="apro_eventos" role="tab" data-toggle="tab">
+     		Aprovações - Eventos 
+     	</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="apro_publicacoes">
+    	<%= render 'aprovacao_publicacoes', publicacoes: @publicacoes %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="apro_eventos">
+    	<%= render 'aprovacao_eventos', evento:  @eventos %>
+    </div>
+  </div>
+
+</div>
+

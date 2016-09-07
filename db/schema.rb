@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906232900) do
+ActiveRecord::Schema.define(version: 20160907173727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20160906232900) do
     t.string   "local"
     t.datetime "data_hora_inicio"
     t.datetime "data_hora_fim"
-    t.boolean  "aprovado"
+    t.string   "aprovado",                     default: "INDEFINIDO"
     t.integer  "usuario_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.string   "image"
     t.index ["usuario_id"], name: "index_eventos_on_usuario_id", using: :btree
   end
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 20160906232900) do
     t.text     "texto_publicacao"
     t.integer  "usuario_id"
     t.string   "image"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.boolean  "aprovado"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "aprovado",         default: "INDEFINIDO"
     t.integer  "categoria_id"
     t.index ["categoria_id"], name: "index_publicacoes_on_categoria_id", using: :btree
     t.index ["usuario_id"], name: "index_publicacoes_on_usuario_id", using: :btree

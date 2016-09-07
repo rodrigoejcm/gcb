@@ -16,12 +16,8 @@
 </p>
 
 <p>
-  <strong>Aprovado:</strong>
-  <% if @publicacao.aprovado?%>
-     Publicação Aprovado
-  <% else @publicacao.aprovado %>
-  	A Publicação ainda não foi Aprovada
-  <% end %>
+  <strong>Status da Aprovação:</strong>
+  <%= @publicacao.status_aprovacao%>
 </p>
 
 <p>

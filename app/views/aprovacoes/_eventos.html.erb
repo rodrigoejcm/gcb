@@ -1,24 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<% if current_usuario.admin? || current_usuario.mestre?  %>
-
-  <h1>Eventos Cadastrados</h1>
-
-<%else %>
-
-  <h1>Meus Eventos</h1>  
-
-<% end %>
-
-
-
-<p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']%> </p>
-<p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['pode']%> </p>
-
-<p>Pode cadastrar evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']%> </p>
-<p>Pode cadastrar editar? <%=podeCadastrarNovoEventoOuExcluirOuEditar['editar']%> </p>
-<p>Resumo do usuario: <%=podeCadastrarNovoEventoOuExcluirOuEditar['resumo_usuario_eventos']%> </p>
-
 <table class="table table-hover table-striped">
   <thead>
     <tr>
@@ -32,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @eventos.each do |evento| %>
+    <% aprovacao_eventos.each do |evento| %>
       <tr>
         <td><%=image_tag evento.image_url.to_s, size: '100'%></td>
         <td>
@@ -60,12 +39,3 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @eventos %>
-
-<br>
-
-<%= link_to new_evento_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-plus"></i> Cadastrar Novo Evento
-<% end %>
-
-

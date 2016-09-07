@@ -37,6 +37,13 @@
             <i class="fa fa-cog"></i> MEU CADASTRO
         <% end %>
     </li>
+    <% if current_usuario.admin? || current_usuario.mestre? %>
+        <li class="list-group-item">
+            <%= link_to aprovacoes_path do %>
+                <i class="fa fa-check"></i> APROVAÇÔES
+            <% end %>
+        </li>
+    <% end %>    
     <li>
         <%= link_to destroy_usuario_session_path , method: 'get' do %>
             <i class="glyphicon glyphicon-off"></i> SAIR

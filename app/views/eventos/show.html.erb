@@ -32,12 +32,9 @@
 </p>
 
 <p>
-  <strong>Aprovado:</strong>
-  <% if @evento.aprovado%>
-    O Evento foi Aprovado
-  <% else %>
-    O Evento ainda não foi Aprovado
-  <% end %>
+  <strong>Status da Aprovação:</strong>
+  <% if @evento.status_aprovacao%>
+   
 </p>
 
 <% if can? :update, @evento %>

@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
 
+  get '/aprovacoes', to: 'aprovacoes#aprovacoes', as: 'aprovacoes'
+  
+  
+
+
 
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

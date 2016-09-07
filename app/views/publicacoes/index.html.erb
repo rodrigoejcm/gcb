@@ -25,6 +25,7 @@
         <th>Usuario</th>
       <%end%>
       <th>Image</th>
+      <th>Aprovação</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -35,12 +36,13 @@
         <td>
           <b><%= publicacao.titulo %></b>
           <br><br>
-          <%= publicacao.texto_publicacao.truncate(200) %>
+          <%= publicacao.texto_publicacao.truncate(150) %>
         </td>
         <% if current_usuario.admin? || current_usuario.mestre?%>
           <td><%= publicacao.usuario.apelido %></td>
         <%end%>
         <td><%=image_tag publicacao.image_url.to_s, size: '100'%></td>
+        <td><%= publicacao.status_aprovacao %></td>
         <td><%= link_to 'Show', publicacao, class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Edit', edit_publicacao_path(publicacao), class: 'btn btn-info btn-xs' %></td>
         <td><%= link_to 'Destroy', publicacao, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></td>

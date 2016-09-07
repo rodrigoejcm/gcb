@@ -24,10 +24,15 @@
   <div class="field">
     <%= f.label :categoria_id %>
     <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria %>
-    
   </div>
 
+  <%if current_usuario.admin? || current_usuario.mestre?%>
+    <div class="field">
+      <%= f.label :aprovado %>
+      <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]] %>
+    </div>  
 
+  <%end%>
 
   <div class="field">
     <%= f.label :image %>
