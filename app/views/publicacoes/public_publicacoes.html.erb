@@ -1,3 +1,4 @@
 <% @publicacoes.each do |publicacao| %>
  <p><%= publicacao.titulo%></p>
 <% end %>
+<%= will_paginate @publicacoes %>

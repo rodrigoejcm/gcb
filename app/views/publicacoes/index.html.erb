@@ -1,13 +1,29 @@
+<% if current_usuario.admin? || current_usuario.mestre?  %>
+
+  <h1>Publicações Cadastradas</h1>
+
+<%else %>
+
+  <h1>Minhas Publicações</h1>  
+
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Publicacaos</h1>
+<%= link_to new_publicacao_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Nova Publicação
+<% end %>
 
-<table>
+
+
+<table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th>Titulo</th>
-      <th>Texto publicacao</th>
-      <th>Usuario</th>
+      
+      <th>Publicação</th>
+      <% if current_usuario.admin? || current_usuario.mestre?%>
+        <th>Usuario</th>
+      <%end%>
       <th>Image</th>
       <th colspan="3"></th>
     </tr>
@@ -16,18 +32,25 @@
   <tbody>
     <% @publicacoes.each do |publicacao| %>
       <tr>
-        <td><%= publicacao.titulo %></td>
-        <td><%= publicacao.texto_publicacao %></td>
-        <td><%= publicacao.usuario %></td>
-        <td><%= publicacao.image %></td>
-        <td><%= link_to 'Show', publicacao %></td>
-        <td><%= link_to 'Edit', edit_publicacao_path(publicacao) %></td>
-        <td><%= link_to 'Destroy', publicacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <b><%= publicacao.titulo %></b>
+          <br><br>
+          <%= publicacao.texto_publicacao.truncate(200) %>
+        </td>
+        <% if current_usuario.admin? || current_usuario.mestre?%>
+          <td><%= publicacao.usuario.apelido %></td>
+        <%end%>
+        <td><%=image_tag publicacao.image_url.to_s, size: '100'%></td>
+        <td><%= link_to 'Show', publicacao, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_publicacao_path(publicacao), class: 'btn btn-info btn-xs' %></td>
+        <td><%= link_to 'Destroy', publicacao, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= will_paginate @publicacoes %>
 <br>
 
-<%= link_to 'New Publicacao', new_publicacao_path %>
+
+

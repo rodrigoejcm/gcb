@@ -8,7 +8,7 @@ class EventosController < ApplicationController
 
 
   def public_proximos_eventos
-    @eventos = Evento.where(aprovado: true)
+    @eventos = Evento.where(aprovado: true).paginate(:page => params[:page], :per_page => 5)
   end
 
 
@@ -16,7 +16,7 @@ class EventosController < ApplicationController
   # GET /eventos.json
   def index
     #mostra os eventos em que o usuario tem permissao para dar update 
-   @eventos = Evento.accessible_by(current_ability, :update)
+   @eventos = Evento.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /eventos/1

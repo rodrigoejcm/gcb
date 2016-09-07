@@ -7,7 +7,7 @@ class PublicacoesController < ApplicationController
   
   #Exibicao das publicacoes aprovadas - todos os usuarios possuem acesso
   def public_publicacoes
-    @publicacoes = Publicacao.where(aprovado: true)
+    @publicacoes = Publicacao.where(aprovado: true).paginate(:page => params[:page], :per_page => 5)
   end
 
 
@@ -15,7 +15,7 @@ class PublicacoesController < ApplicationController
   # GET /publicacaos.json
   def index
     #mostra as publicacoes que o usuario tem acesso para dar ubdate
-    @publicacoes = Publicacao.accessible_by(current_ability, :update)
+    @publicacoes = Publicacao.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /publicacaos/1
