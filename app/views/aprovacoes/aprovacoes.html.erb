@@ -4,25 +4,35 @@
 
   <!-- Nav tabs -->
   <ul id="tabs" class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
+    <li role="presentation" class="<%= @tab == "apro_publicacoes" ? "active" : "" %>">
     	<a href="#apro_publicacoes" aria-controls="apro_publicacoes" role="tab" data-toggle="tab">
     		Aprovações - Publicações
     	</a>
     </li>
-    <li role="presentation">
+ 
+    <li role="presentation" class="<%= @tab == "apro_eventos" ? "active" : "" %>"">
      	<a href="#apro_eventos" aria-controls="apro_eventos" role="tab" data-toggle="tab">
      		Aprovações - Eventos 
      	</a>
     </li>
-  </ul>
 
+    <li role="presentation" class="<%= @tab == "apro_usuarios" ? "active" : "" %>">
+      <a href="#apro_usuarios" aria-controls="apro_usuarios" role="tab" data-toggle="tab">
+        Aprovações - Usuários 
+      </a>
+    </li>
+  </ul>
+<br>
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="apro_publicacoes">
+    <div role="tabpanel" class="tab-pane <%= @tab == "apro_publicacoes" ? "active" : "" %>" id="apro_publicacoes">
     	<%= render 'aprovacao_publicacoes', publicacoes: @publicacoes %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="apro_eventos">
-    	<%= render 'aprovacao_eventos', evento:  @eventos %>
+    <div role="tabpanel" class="tab-pane <%= @tab == "apro_eventos" ? "active" : "" %>" id="apro_eventos">
+    	<%= render 'aprovacao_eventos', eventos:  @eventos %>
+    </div>
+    <div role="tabpanel" class="tab-pane <%= @tab == "apro_usuarios" ? "active" : "" %>" id="apro_usuarios">
+      <%= render 'aprovacao_usuarios', usuarios:  @usuarios %>
     </div>
   </div>
 

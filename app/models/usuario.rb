@@ -31,6 +31,18 @@ class Usuario < ApplicationRecord
 	def usuarioLimitado?
 		!self.admin? && !self.mestre? && !self.professor_premium?
 	end
+
+	def active_for_authentication? 
+    	super && approved? 
+  	end 
+
+  	def inactive_message 
+    	if !approved? 
+      		:not_approved 
+    	else 
+      		super # Use whatever other message 
+    	end 
+  	end
       
 	private
   		def set_default_role

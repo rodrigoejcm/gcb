@@ -7,7 +7,7 @@
               
               <div class="row">
 
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 col-md-push-7 col-lg-push-8 col-sm-push-7">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                   <!-- ALERT -->
                   <!--
@@ -22,6 +22,8 @@
                       <%= devise_error_messages! %>
                     <header>
                       <i class="fa fa-users"></i> Cadastro
+                      <br>
+                      <p>Área destinada somente aos professores do Grupo Capoeira Brasil</p>
                     </header>
 
 
@@ -58,32 +60,67 @@
                           </label>
                         </div>
                       </div>
+                    </div>
+                    <div class="row">
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.select :graduacao, ['Calouro(a)', 'Graduado(a)', 'Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
+                          </label>      
+                        </div>   
+                      </div>
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.select :nome_professor, ['Rodrigo Capoeira', 'Bruno Berimbau', 'Paulinho Sabiá']  %> 
+                          </label>      
+                        </div>
+                      </div>
                     </div>                           
-                    <label class="input">
-                      <%= f.select :graduacao, ['Calouro(a)', 'Graduado(a)', 'Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
-                    </label>
-                    <label class="input">
-                      <%= f.select :nome_professor, ['Rodrigo Capoeira', 'Bruno Berimbau', 'Paulinho Sabiá']  %> 
-                    </label>
+                    
 
-                    <label class="input">
-                        <i class="ico-append fa fa-envelope"></i>
-                        <%= f.email_field :email, placeholder: "E-mail" %>
-                        <b class="tooltip tooltip-bottom-right">Necessário para verificar o cadastro</b>
-                    </label>
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-envelope"></i>
+                              <%= f.email_field :email, placeholder: "E-mail" %>
+                              <b class="tooltip tooltip-bottom-right">Necessário para verificar o cadastro</b>
+                          </label>      
+                        </div>
+                      </div>
+                    </div>
 
-                     <label class="input">
-                        <i class="ico-append fa fa-lock"></i>
-                        <% if @minimum_password_length %>
-                      
-                      <% end %>
-                      <%= f.password_field :password, autocomplete: "off", placeholder:"Senha" %>
-                    </label>
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-lock"></i>
+                              <% if @minimum_password_length %>
+                            
+                            <% end %>
+                            <%= f.password_field :password, autocomplete: "off", placeholder:"Senha" %>
+                          </label>     
+                        </div>
+                      </div>
+                    </div>
 
-                    <label class="input">
-                        <i class="ico-append fa fa-envelope"></i>
-                        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmação de Senha" %>
-                    </label>
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-envelope"></i>
+                              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmação de Senha" %>
+                          </label>      
+                        </div>
+                      </div>
+                    </div>
+
+                    
+
+                     
+
+                    
                  
 
                     <div class="margin-top-20">
@@ -100,16 +137,18 @@
                       </div>
                     </div>
 
-                    <%= render "devise/shared/links" %>
+                   
 
                       
                      
                   <%end%>
+                  <br>
+                  <%= render "devise/shared/links" %>
                   <!-- /register form -->
 
                 </div>
 
-                <div class="col-xs-12 col-md-7 col-sm-7 col-lg-8 col-lg-pull-4 col-md-pull-5 col-sm-pull-5">
+                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 ">
 
 
                   <h2 class="size-20 text-center-xs">Why Smarty?</h2>

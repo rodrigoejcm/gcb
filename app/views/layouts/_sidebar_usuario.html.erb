@@ -2,10 +2,12 @@
 	
     <%= image_tag("avatar2.jpg", height: '600', width: '460')%>
 	<h2 class="size-17 margin-top-10 margin-bottom-0">
-        <%=current_usuario.apelido%>
+        <%= current_usuario.apelido if !current_usuario.apelido.nil? %>
     </h2>
     <h3 class="size-13 margin-top-0 margin-bottom-10 text-muted">
-        <%= current_usuario.nome + " " +current_usuario.sobrenome  %>
+        <%= (current_usuario.nome  if !current_usuario.nome.nil?) %>
+            <%= " " %>
+        <%= (current_usuario.sobrenome  if !current_usuario.sobrenome.nil?) %>
     </h3>
 	<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted"><%=current_usuario.graduacao%></h3>
 </div>
@@ -39,7 +41,7 @@
     </li>
     <% if current_usuario.admin? || current_usuario.mestre? %>
         <li class="list-group-item">
-            <%= link_to aprovacoes_path do %>
+            <%= link_to aprovacoes_path(tab: "apro_publicacoes") do %>
                 <i class="fa fa-check"></i> APROVAÇÔES
             <% end %>
         </li>

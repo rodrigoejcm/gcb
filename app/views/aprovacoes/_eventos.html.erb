@@ -1,17 +1,16 @@
-<table class="table table-hover table-striped">
+<table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
     <tr>
       <th>Imagem</th>
       <th>Descrição Evento</th>
       <th>inicio</th>
       <th>Fim</th>
-      <th>Evento Aprovado?</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% aprovacao_eventos.each do |evento| %>
+    <% aprovacao_evento.each do |evento| %>
       <tr>
         <td><%=image_tag evento.image_url.to_s, size: '100'%></td>
         <td>
@@ -30,11 +29,13 @@
         </td>
  
         <td>
-          <%= evento.status_aprovacao%>
+          <% if evento.aprovado == "INDEFINIDO"%>
+            <%= link_to 'Aprovar', edit_evento_path(evento), class: 'btn btn-primary btn-xs' %>
+          <% else %>
+            <%= link_to 'Visualizar Aprovação', evento, class: 'btn btn-primary btn-xs' %>
+          <% end%>
         </td>
-        <td><%= link_to 'Visualizar', evento, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Editar Evento', edit_evento_path(evento) , class: 'btn btn-info btn-xs'%></td>
-        <td><%= link_to 'Cancelar Evento', evento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'  %></td>
+        
       </tr>
     <% end %>
   </tbody>

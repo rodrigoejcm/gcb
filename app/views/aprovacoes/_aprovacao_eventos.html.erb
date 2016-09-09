@@ -1,1 +1,22 @@
-APROVACAO EVENTOS
+
+
+<br>
+<h3>Eventos Pendentes de Aprovação</h3>
+<%= render 'eventos', aprovacao_evento: eventos.where( aprovado: "INDEFINIDO") %>
+
+<hr>
+<br>
+
+<h3>Eventos Aprovados</h3>
+<%= render 'eventos', aprovacao_evento: eventos.where( aprovado: "APROVADO") %>
+
+<hr>
+<br>
+
+<h3>Eventos Reprovados</h3>
+<%= render 'eventos', aprovacao_evento: eventos.where( aprovado: "REPROVADO") %>
+<br>
+<br>
+<br>
+<br>
+<br>

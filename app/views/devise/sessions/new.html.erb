@@ -10,9 +10,12 @@
                 <strong>Oh snap!</strong> Login Incorrect!
               </div> --><!-- /ALERT -->
 
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+
               <div class="box-static box-border-top padding-30">
                 <div class="box-title margin-bottom-30">
-                  <h2 class="size-20">Entrar</h2>
+                  <h2 class="size-20">Acesso dos usuários</h2>
                 </div>
 
                 
@@ -35,7 +38,7 @@
                     <% if devise_mapping.rememberable? -%>
                       <div class="form-group"">
                         <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
+                        <%= f.label :remember_me, "Lembrar"%>
                       </div>
                     <% end -%>
                                         

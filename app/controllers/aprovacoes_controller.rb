@@ -1,20 +1,17 @@
 class AprovacoesController < ApplicationController
-
- 
-
+    load_and_authorize_resource :class => AprovacoesController
+     
 	def aprovacoes
-      @publicacoes_aprovados = Publicacao.where(aprovado: "APROVADO")
-      @publicacoes_reprovados = Publicacao.where(aprovado: "REPROVADO")
-      @publicacoes_indefinidos = Publicacao.where(aprovado: "INDEFINIDO")
-      @publicacoes = Publicacao.all
-
-      @eventos_aprovados = Evento.where(aprovado: "APROVADO")
-      @eventos_reprovados = Evento.where(aprovado: "REPROVADO")
-      @eventos_indefinidos = Evento.where(aprovado: "INDEFINIDO")
-      @eventos = Evento.all
-
-
+			@tab = params[:tab]
+            @publicacoes = Publicacao.all
+            @usuarios = Usuario.where(approved: false)
+            @eventos = Evento.all
 	end
 
+
+	
+
+
+	
 
 end

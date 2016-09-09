@@ -30,15 +30,21 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     usuario ||= Usuario.new # guest user
+
+   
+    
     
     if !usuario.role
-        can :read, Evento
-        can :read, Publicacao
+        can :show, Evento, aprovado: "APROVADO"
+        can :show, Publicacao, aprovado: "APROVADO"
+        #can :show, Publicacao
     elsif usuario.admin?
         can :manage, :all
     elsif usuario.mestre?
         can :manage, Evento
         can :manage, Publicacao
+        can :manage, Aprovacao
+        
     elsif usuario.professor? 
         #Evento
         can :read, Evento

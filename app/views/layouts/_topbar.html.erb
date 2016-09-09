@@ -31,6 +31,13 @@
 							    <i class="fa fa-pencil"></i> Minhas Publicações
 							<% end %>
 						</li>
+						<% if current_usuario.admin? || current_usuario.mestre? %>
+					        <li>
+					            <%= link_to aprovacoes_path(tab: "apro_publicacoes") do %>
+					                <i class="fa fa-check"></i> Aprovações
+					            <% end %>
+					        </li>
+					    <% end %>    
 						<!-- <li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> Publicar Conteúdo</a></li>
                         <li><a tabindex="-1" href="#"><i class="fa fa-group"></i> Autorizações Pendentes</a></li> -->
                         <li class="divider"></li>

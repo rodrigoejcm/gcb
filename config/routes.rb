@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   get '/todas-publicacoes', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes'
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
+  get '/aprovacoes/aprovar-usuario/:id', to: 'usuarios#aprovar_usuario', as: 'aprovar-usuario'
+
 
   get '/aprovacoes', to: 'aprovacoes#aprovacoes', as: 'aprovacoes'
-  
+
+
   
 
 
