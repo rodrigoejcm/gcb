@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/inherited_resources.git
-  revision: ba9467db4817944591df35dfe340f4c05a948033
+  revision: 4434f0ae72f790cf371728838c927c338100555d
   specs:
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5.1)
@@ -70,7 +70,7 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.1)
-    autoprefixer-rails (6.4.0.2)
+    autoprefixer-rails (6.4.1)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -220,7 +220,7 @@ GEM
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.1)
+    sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
