@@ -1,0 +1,19 @@
+current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+/home/rodrigo/.rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20160909-14118-1hkls8p.rb extconf.rb
+creating Makefile
+
+current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+compiling crypt_gensalt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20160909-14118-12x5xks
