@@ -1,5 +1,5 @@
 current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/ffi-1.9.14/ext/ffi_c
-/home/rodrigo/.rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20160909-14118-183nc2w.rb extconf.rb
+/home/rodrigo/.rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20160909-29258-v1dzz1.rb extconf.rb
 checking for ffi_call() in -lffi... yes
 checking for ffi_prep_closure()... yes
 checking for ffi_raw_call()... yes
@@ -49,4 +49,4 @@ linking shared-object ffi_c.so
 
 current directory: /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/ffi-1.9.14/ext/ffi_c
 make "DESTDIR=" install
-/usr/bin/install -m 0755 ffi_c.so ./.gem.20160909-14118-h4imac
+/usr/bin/install -m 0755 ffi_c.so ./.gem.20160909-29258-338lxv

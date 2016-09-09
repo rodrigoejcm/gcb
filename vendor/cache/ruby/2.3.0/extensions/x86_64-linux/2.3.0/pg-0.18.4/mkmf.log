@@ -927,7 +927,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/x86_64-linux -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/ruby/backward -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0 -I. -I/usr/include/postgresql     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat  -fPIC conftest.c  -L. -L/home/rodrigo/.rvm/rubies/ruby-2.3.0/lib -Wl,-R/home/rodrigo/.rvm/rubies/ruby-2.3.0/lib -L/usr/lib/x86_64-linux-gnu -Wl,-R/usr/lib/x86_64-linux-gnu -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -lpq  -Wl,-rpath,'/../lib' -Wl,-R'/../lib' -lruby -lpq  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
-/tmp/ccZBObgV.o: na função `t':
+/tmp/ccwbPjWP.o: na função `t':
 /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/pg-0.18.4/ext/conftest.c:14: referência indefinida a `rb_enc_alias'
 collect2: error: ld returned 1 exit status
 checked program was:
@@ -1090,7 +1090,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/x86_64-linux -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0/ruby/backward -I/home/rodrigo/.rvm/rubies/ruby-2.3.0/include/ruby-2.3.0 -I. -I/usr/include/postgresql     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat  -fPIC conftest.c  -L. -L/home/rodrigo/.rvm/rubies/ruby-2.3.0/lib -Wl,-R/home/rodrigo/.rvm/rubies/ruby-2.3.0/lib -L/usr/lib/x86_64-linux-gnu -Wl,-R/usr/lib/x86_64-linux-gnu -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -lpq  -Wl,-rpath,'/../lib' -Wl,-R'/../lib' -lruby -lpq  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
-/tmp/ccmt6Qkz.o: na função `t':
+/tmp/cc3uADIp.o: na função `t':
 /home/rodrigo/workspace/gcb/vendor/cache/ruby/2.3.0/gems/pg-0.18.4/ext/conftest.c:14: referência indefinida a `rb_w32_wrap_io_handle'
 collect2: error: ld returned 1 exit status
 checked program was:
