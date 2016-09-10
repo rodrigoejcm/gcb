@@ -50,16 +50,24 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+#gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+gem 'inherited_resources', git: 'git://github.com/activeadmin/inherited_resources.git'
+
+
 
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'rails_12factor', group: :production
-gem 'activeadmin', github: 'gregbell/active_admin'
+
+#gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin' , git: 'git://github.com/gregbell/active_admin.git'
+
 gem 'cancancan'
 gem 'carrierwave'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'jquery-datatables-rails'
+gem 'elastic-beanstalk'
