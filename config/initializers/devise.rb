@@ -14,7 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'teste@vemgerir.86.lt'
 
-  #config.secret_key = ENV[‘DEVISE_SECRET_KEY’]
+  config.secret_key = 'c40f57d80b7cdcb1b600609a80fd34aba7e93d9779c1e22f2f3e9d4d382a2b1340c96c8b62983021aab2514f85ef65c16bb5300fb18a28b2fcde296b4c14eb0f'
   
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
