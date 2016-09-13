@@ -10,6 +10,10 @@
 # Ignore bundler config.
 /pkg/*
 
+/config/application.yml
+/config/database.yml
+
+
 # Ignore bundler config.
 /vendor/bundle
 
