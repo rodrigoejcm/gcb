@@ -13,8 +13,13 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+environment ENV.fetch("RAILS_ENV") { "production" }
 
+#novo
+#bind "unix://#{shared_path}/sockets/puma.socket"
+#pidfile "#{root}/puma/puma.pid"
+#stdout_redirect "#{root}/puma/puma.log", "#{root}/puma/puma_error.log"
+#novo
 
 
 # Specifies the number of `workers` to boot in clustered mode.
@@ -32,7 +37,9 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # you need to make sure to reconnect any threads in the `on_worker_boot`
 # block.
 #
-# preload_app!
+#modificado tb
+preload_app!
+#modificado tb
 
 # The code in the `on_worker_boot` will be called if you are using
 # clustered mode by specifying a number of `workers`. After each worker
