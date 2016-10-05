@@ -85,7 +85,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'http://ec2-52-67-131-151.sa-east-1.compute.amazonaws.com/' }
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
