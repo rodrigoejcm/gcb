@@ -47,6 +47,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
 
 end
 

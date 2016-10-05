@@ -92,9 +92,12 @@ Rails.application.configure do
         :address              => "mail10.redehost.com.br",
         :port                 => 587,
         :domain               => "mail10.redehost.com.br",
-        :user_name            => "rodrigo@estudiolunar.com.br",
-        :password             => "Lunar12345!",
+        :user_name            => ENV['user_name'],
+        :password             => ENV['password'],
         :authentication       => :plain,
         :enable_starttls_auto => true
   }
+
+  config.i18n.default_locale = 'pt-BR'
+
 end
