@@ -1,4 +1,42 @@
-<% @eventos.each do |evento| %>
- <p><%= evento.titulo%></p>
-<% end %>
-<%= will_paginate @eventos %>
+
+
+
+<section id="events">
+	<div class="container">
+
+
+				<h3>Próximos Eventos /<span class="size-18">GCB</span></h3>
+
+				 <% @eventos.each do |evento| %>
+					<div class="row">
+
+					<!-- DIV Eventos -->
+						<div class="col-md-2 col-sm-2">
+							<figure class="margin-bottom-20">
+								<%=image_tag evento.image_url.to_s , class: "img-responsive"%>
+							</figure>
+						</div>
+						<div class="col-md-10 col-sm-10">
+							<div class="event-item">
+								
+								<div class="event-date-wrapper">
+									<span class="event-date-day"><%= evento.data_hora_inicio.to_time.strftime('%d')%></span>
+									<span class="event-date-month"><%= evento.data_hora_inicio.to_time.strftime('%^b')%></span>
+								</div>
+								<div class="event-content-wrapper">
+									<div class="event-content-inner-wrapper">
+										<h3 class="event-title"><a href="<%= evento_path(evento) %>"><%= evento.titulo %></a></h3>
+										<div class="event-location"><%= evento.usuario.graduacao %> - <%= evento.usuario.nome %> </div>
+			                            <div class="event-location"><%= evento.local %> </div>
+			                            <div class="event-location"><%= evento.descricao %> </div>
+									</div>
+			                       
+			                    </div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+				<%= will_paginate @eventos %>	
+	</div>
+        
+</section>

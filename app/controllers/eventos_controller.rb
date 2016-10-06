@@ -6,7 +6,7 @@ class EventosController < ApplicationController
 
   
   def public_proximos_eventos
-    @eventos = Evento.where(aprovado: "APROVADO").paginate(:page => params[:page], :per_page => 5)
+    @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
   end
 
 
