@@ -27,7 +27,7 @@ class EventosController < ApplicationController
     if podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['pode']
       @evento = Evento.new
     else
-      redirect_to eventos_path, alert: podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['justificativa'] 
+      redirect_to eventos_path, notice: podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['justificativa'].to_s 
     end
   end
 
