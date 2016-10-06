@@ -41,6 +41,15 @@
     <%= f.datetime_select :data_hora_fim %>
   </div>
 
+  <%if current_usuario.admin? || current_usuario.mestre?%>
+    <div class="field">
+      <%= f.label :aprovado, "Aprovação" %>
+      <br>
+      <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]] %>
+    </div>  
+
+  <%end%>
+
   <div class="field">
     <%= f.label :image , "Imagem:"%>
     <br>
