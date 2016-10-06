@@ -40,7 +40,6 @@ class EventosController < ApplicationController
   def create
     if podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['pode']
       @evento = Evento.new(evento_params)
-      @evento.aprovado = false
       @evento.usuario = current_usuario
 
 

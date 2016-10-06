@@ -2,7 +2,7 @@
 <p class="alert label label-warning"><%= alert %></p>
 <br><br>
 <h3>Eventos Pendentes de Aprovação</h3>
-<%= render 'eventos', aprovacao_evento: eventos.where( aprovado: "f") %>
+<%= render 'eventos', aprovacao_evento: eventos.where( aprovado: "INDEFINIDO") %>
 
 <hr>
 <br>
