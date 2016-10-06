@@ -57,7 +57,7 @@
         </td>
         <td><%= link_to 'Visualizar', evento, class: 'btn btn-primary btn-xs' %><br>
         <%= link_to 'Editar Evento', edit_evento_path(evento) , class: 'btn btn-info btn-xs'%><br>
-        <%= link_to 'Cancelar Evento', evento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'  %></td>
+        <%= link_to 'Cancelar Evento', evento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o evento?' }, class: 'btn btn-danger btn-xs'  %></td>
       </tr>
     <% end %>
   </tbody>

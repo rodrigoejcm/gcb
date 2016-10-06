@@ -73,7 +73,7 @@ class PublicacoesController < ApplicationController
   def destroy
     @publicacao.destroy
     respond_to do |format|
-      format.html { redirect_to publicacaos_url, notice: 'Publicação excluĩda com sucesse.' }
+      format.html { redirect_to publicacoes_url, notice: 'Publicação excluĩda com sucesse.' }
       format.json { head :no_content }
     end
   end

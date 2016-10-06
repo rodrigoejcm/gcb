@@ -46,7 +46,7 @@
         <td>
           <%= link_to 'Visualizar', publicacao, class: 'btn btn-primary btn-xs' %><br>
           <%= link_to 'Editat', edit_publicacao_path(publicacao), class: 'btn btn-info btn-xs' %><br>
-          <%= link_to 'Excluir', publicacao, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></td>
+          <%= link_to 'Excluir', publicacao, method: :delete, data: { confirm: 'Tem certeza que dseja excluir a publicação?'}, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
