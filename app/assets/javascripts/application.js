@@ -17,9 +17,6 @@
 //= require turbolinks
 //= require_tree .
 
-$('#tabs a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+
 
 

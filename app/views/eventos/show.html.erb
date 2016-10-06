@@ -33,11 +33,11 @@
 
 <p>
   <strong>Status da Aprovação:</strong>
-  <% if @evento.status_aprovacao%>
+  <% if @evento.status_aprovacao%> <% end %>
    
 </p>
 
 <% if can? :update, @evento %>
   <%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
-  <% end %>
+<% end %>
 <%= link_to 'Voltar', eventos_path %>

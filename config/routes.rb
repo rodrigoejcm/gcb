@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
   get '/aprovacoes/aprovar-usuario/:id', to: 'usuarios#aprovar_usuario', as: 'aprovar-usuario'
+  get '/aprovacoes/bloquear-usuario/:id', to: 'usuarios#bloquear_usuario', as: 'bloquear-usuario'
 
 
   get '/aprovacoes', to: 'aprovacoes#aprovacoes', as: 'aprovacoes'

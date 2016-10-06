@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-	 before_action :set_usuario, only: [:aprovar_usuario]
+	 before_action :set_usuario, only: [:aprovar_usuario, :bloquear_usuario]
 
 
 	def aprovar_usuario
@@ -19,6 +19,24 @@ class UsuariosController < ApplicationController
 
     
 	end
+
+  def bloquear_usuario
+
+    @usuario.approved = false
+
+      respond_to do |format|
+        if @usuario.update(usuario_params)
+          format.html { redirect_to aprovacoes_path(tab: "apro_usuarios"), notice: 'Usuário Bloqueado com sucesso.' }
+          format.json { render :show, status: :ok, location: @usuario }
+        else
+          format.html { render :edit }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
+      end
+      
+
+    
+  end
 
 	private
     # Use callbacks to share common setup or constraints between actions.

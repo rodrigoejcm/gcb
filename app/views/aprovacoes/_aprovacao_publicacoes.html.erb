@@ -1,6 +1,6 @@
-
-
-<br>
+<p class="notice label label-primary"><%= notice %></p>
+<p class="alert label label-warning"><%= alert %></p>
+<br><br>
 <h3>Publicações Pendentes de Aprovação</h3>
 <%= render 'publicacoes', aprovacao_publicacao: publicacoes.where( aprovado: "INDEFINIDO") %>
 
