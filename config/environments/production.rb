@@ -91,10 +91,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
         :address              => "mail10.redehost.com.br",
         :port                 => 587,
-        :domain               => "mail10.redehost.com.br",
+        :domain               => "mail.estudiolunar.com.br",
         :user_name            => ENV['user_name'],
         :password             => ENV['password'],
-        :authentication       => :plain,
+        :authentication       => :login,
         :enable_starttls_auto => true
   }
 
