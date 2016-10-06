@@ -6,37 +6,37 @@
   
 
     <div class="field">
-    <%= f.label :nome ,placeholder: "Nome:"%><br />
+    <%= f.label :nome , "Nome:"%><br />
     <%= f.text_field :nome, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :sobrenome ,placeholder: "Sobrenome:"%><br />
+    <%= f.label :sobrenome , "Sobrenome:"%><br />
     <%= f.text_field :sobrenome%>
   </div>
 
   <div class="field">
-    <%= f.label :apelido ,placeholder: "Apelido:"%><br />
+    <%= f.label :apelido , "Apelido:"%><br />
     <%= f.text_field :apelido%>
   </div>  
 
   <div class="field">
-    <%= f.label :sexo ,placeholder: "Sexo:"%><br />
+    <%= f.label :sexo , "Sexo:"%><br />
     <%= f.select :sexo, [['Masculino', 'M'], ['Feminino', 'F']] , prompt: "Sexo"%>
   </div>  
 
   <div class="field">
-    <%= f.label :graduacao ,placeholder: "Graduação:" %><br />
+    <%= f.label :graduacao , "Graduação:" %><br />
     <%= f.select :graduacao, ['Calouro(a)', 'Graduado(a)', 'Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
   </div>  
 
   <div class="field">
-    <%= f.label :nome_professor ,placeholder: "Nome do Professor:" %><br />
+    <%= f.label :nome_professor , "Nome do Professor:" %><br />
     <%= f.text_field :nome_professor%>
   </div>  
 
   <div class="field">
-    <%= f.label :email ,placeholder: "E-mail:" %><br />
+    <%= f.label :email , "E-mail:" %><br />
     <%= f.email_field :email %>
   </div>
 
@@ -45,13 +45,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :current_password, placeholder: "Senha Atual" %> <i>(Favor inserir a sua senha para confirmar as alterações do seu cadastro)</i><br />
+    <%= f.label :current_password, "Senha Atual" %> 
+      <i>(Favor inserir a sua senha para confirmar as alterações do seu cadastro)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+
+<br><br>
 
   <div class="actions">
     <%= f.submit "Alterar Cadastro" %>
   </div>
 <% end %>
+
 
 <%= link_to "Voltar", :back %>

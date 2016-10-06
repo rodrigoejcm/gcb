@@ -29,10 +29,8 @@
 
 <p>
   <strong>Status da Aprovação:</strong>
-  <% if @evento.status_aprovacao%> 
-
-  <% end %>
-   
+  <% @evento.status_aprovacao%> 
+  
 </p>
 
 <% if can? :update, @evento %>

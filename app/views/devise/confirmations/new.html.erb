@@ -1,16 +1,59 @@
-<h2>Resend confirmation instructions</h2>
+<section>
+        <div class="container">
+          
+          <div class="row">
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="col-md-6 col-md-offset-3">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+              <!-- ALERT -->
+              <!-- <div class="alert alert-mini alert-danger margin-bottom-30">
+                <strong>Oh snap!</strong> Login Incorrect!
+              </div> --><!-- /ALERT -->
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
 
-<%= render "devise/shared/links" %>
+              <div class="box-static box-border-top padding-30">
+                <div class="box-title margin-bottom-30">
+                  <h2 class="size-20" style="text-align:center;">Não recebeu o e-mail de confirmação?</h2>
+                </div>
+
+                
+
+                <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+				  <%= devise_error_messages! %>
+
+				  <div class="clearfix">
+					  <div class="form-group">
+					    
+					    <%= f.email_field :email, autofocus: true,class:'form-control', placeholder:'E-mail',  value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+					  </div>
+
+				  </div>
+				  <br>
+				  <div class="row">
+                    
+                                        
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                      <%= f.submit "Reenviar e-mail de confirmação", class:'btn btn-primary' %>
+                    </div>
+                    
+                  </div>
+
+
+
+				<% end %>	
+
+
+
+              </div>
+              
+              <div class="margin-top-30 text-center">
+                <%= render "devise/shared/links" %>             
+              </div>
+
+            </div>
+          </div>
+          
+        </div>
+      </section>

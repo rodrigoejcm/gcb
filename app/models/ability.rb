@@ -41,9 +41,8 @@ class Ability
     elsif usuario.admin?
         can :manage, :all
     elsif usuario.mestre?
-        can :manage, Evento
-        can :manage, Publicacao
-        can :manage, Aprovacao
+         can :manage, :all
+        
         
     elsif usuario.professor? 
         #Evento
