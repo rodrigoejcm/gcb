@@ -1,4 +1,99 @@
-<% @publicacoes.each do |publicacao| %>
- <p><%= publicacao.titulo%></p>
-<% end %>
-<%= will_paginate @publicacoes %>
+
+<section>
+
+
+		<div class="row">
+
+			<!-- RIGHT -->
+			<div class="col-md-9 col-sm-9">
+
+				<% @publicacoes.each do |publicacao| %>
+				<div class="row">
+					<!-- POST ITEM -->
+					<div class="blog-post-item col-md-12 col-sm-12">
+
+						<!-- IMAGE -->
+						<figure class="margin-bottom-20">
+							<%=image_tag publicacao.image_url.to_s , class: "img-responsive"%>
+						</figure>
+
+						<h2><a href="blog-single-default.html"><%= publicacao.titulo%></a></h2>
+
+						<ul class="blog-post-info list-inline">
+							<li>
+								<a href="#">
+									<i class="fa fa-clock-o"></i> 
+									<span class="font-lato"><%=l publicacao.created_at, format: :long %></span>
+								</a>
+							</li>
+							<li>
+								<i class="fa fa-folder-open-o"></i> 
+
+								<a class="category" href="#">
+									<span class="font-lato"><%= publicacao.categoria.nomeCategoria%></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-user"></i> 
+									<span class="font-lato"><%= publicacao.usuario.graduacao.capitalize + " " + publicacao.usuario.apelido%></span>
+								</a>
+							</li>
+						</ul>
+
+						<p><%=publicacao.texto_publicacao%></p>
+
+						
+					</div>
+					<!-- /POST ITEM -->
+				</div>
+				<% end %>
+				<div class="row">
+					<!-- POST ITEM -->
+					<div class="col-md-12 col-sm-12">
+						<%= will_paginate @publicacoes %>
+					</div>
+				</div>
+			</div>
+			<!-- LEFT -->
+			<div class="col-md-3 col-sm-3">
+				<!-- INLINE SEARCH -->
+				<div class="inline-search clearfix margin-bottom-30">
+					<form action="" method="get" class="widget_search">
+						<input type="search" placeholder="Buscar..." id="s" name="s" class="serch-input">
+						<button type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</form>
+				</div>
+				<!-- /INLINE SEARCH -->
+
+				<hr />
+
+				<!-- side navigation -->
+				<div class="side-nav margin-bottom-60 margin-top-30">
+
+					<div class="side-nav-head">
+						<button class="fa fa-bars"></button>
+						<h4>CATEGORIAS</h4>
+					</div>
+					<ul class="list-group list-group-bordered list-group-noicon uppercase">
+						<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(2)</span> NOTÌCIAS</a></li>
+						<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(2)</span> MÚSICAS</a></li>
+						<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(3)</span> WORKSHOPS</a></li>
+						<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(5)</span> BATIZADO</a></li>
+						<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(1)</span> TÉCNICAS</a></li>
+
+					</ul>
+					<!-- /side navigation -->
+
+				
+				</div>
+
+			</div>
+
+		</div>
+
+	
+</section>
+			<!-- / -->

@@ -8,7 +8,7 @@ class PublicacoesController < ApplicationController
   
   #Exibicao das publicacoes aprovadas - todos os usuarios possuem acesso
   def public_publicacoes
-    @publicacoes = Publicacao.where(aprovado: "APROVADO").paginate(:page => params[:page], :per_page => 5)
+    @publicacoes = Publicacao.where(aprovado: "APROVADO").order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
 

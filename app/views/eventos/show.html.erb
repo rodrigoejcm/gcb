@@ -2,34 +2,40 @@
 
 <p>
   <strong>Titulo:</strong>
+  <br>
   <%= @evento.titulo %>
 </p>
 
 <p>
   <strong>Descricao:</strong>
+  <br>
   <%= @evento.descricao %>
 </p>
 
 <p>
   <strong>Local:</strong>
+  <br>
   <%= @evento.local %>
 </p>
 
 <p>
-  <strong>inicio do Evento:</strong>
+  <strong>Data e hora de início do Evento:</strong>
+  <br>
   <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
 
           
 </p>
 
 <p>
-  <strong>Fim do Evento:</strong>
+  <strong>Data e hora de Fim do Evento:</strong>
+  <br>
   <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_fim.to_time.strftime('%H:%m ')%>
 </p>
 
 <p>
   <strong>Status da Aprovação:</strong>
-  <% @evento.status_aprovacao%> 
+  <br>
+  <%= @evento.status_aprovacao%> 
   
 </p>
 
