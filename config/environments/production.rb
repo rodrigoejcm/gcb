@@ -89,7 +89,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-        :address              => "mail10.redehost.com.br",
+        :address              => "smtp.estudiolunar.com.br",
         :port                 => 587,
         :domain               => "mail.estudiolunar.com.br",
         :user_name            => ENV['user_name'],
