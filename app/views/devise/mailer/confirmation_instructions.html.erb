@@ -1,5 +1,5 @@
 <p>Bem vindo ao portal do Grupo Capoeira Brasil, <%= @email %>!</p>
 
-<p>É necessário confirmar sua conta através do link:</p>
+<p>E necessario confirmar sua conta atraves do link:</p>
 
-<p><%= link_to 'Confirmar Conta no portal do Grupo Capoeira Brasil ', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
