@@ -16,24 +16,22 @@
 </p>
 
 <p>
-  <strong>Data - inicio:</strong>
-  <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
-  <br>
-  <%= @evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+  <strong>inicio do Evento:</strong>
+  <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
 
           
 </p>
 
 <p>
-  <strong>Data - fim:</strong>
-  <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%>
-  <br>
-  <%= @evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+  <strong>Fim do Evento:</strong>
+  <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_fim.to_time.strftime('%H:%m ')%>
 </p>
 
 <p>
   <strong>Status da Aprovação:</strong>
-  <% if @evento.status_aprovacao%> <% end %>
+  <% if @evento.status_aprovacao%> 
+
+  <% end %>
    
 </p>
 

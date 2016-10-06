@@ -46,7 +46,7 @@ class EventosController < ApplicationController
 
       respond_to do |format|
         if @evento.save
-          format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
+          format.html { redirect_to @evento, notice: 'Evento criado com sucesso.' }
           format.json { render :show, status: :created, location: @evento }
         else
           format.html { render :new }
@@ -55,7 +55,7 @@ class EventosController < ApplicationController
       end
     
     else
-      redirect_to eventos_path, alert: podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['justificativa'] 
+      redirect_to eventos_path, notice: podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['justificativa'].to_s
     end
   end
 
@@ -65,7 +65,7 @@ class EventosController < ApplicationController
     if podeCadastrarNovoEventoOuExcluirOuEditar['editar']['pode']
       respond_to do |format|
         if @evento.update(evento_params)
-          format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
+          format.html { redirect_to @evento, notice: 'Evento alterado com sucesso.' }
           format.json { render :show, status: :ok, location: @evento }
         else
           format.html { render :edit }
@@ -73,7 +73,7 @@ class EventosController < ApplicationController
         end
       end
     else
-       redirect_to eventos_path, alert: podeCadastrarNovoEventoOuExcluirOuEditar['editar']['justificativa'] 
+       redirect_to eventos_path, notice: podeCadastrarNovoEventoOuExcluirOuEditar['editar']['justificativa'].to_s 
     end
   end
 
@@ -83,11 +83,11 @@ class EventosController < ApplicationController
     if podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['pode']
       @evento.destroy
       respond_to do |format|
-        format.html { redirect_to eventos_url, notice: 'Evento was successfully destroyed.' }
+        format.html { redirect_to eventos_url, notice: 'Evento escluido com sucesso.' }
         format.json { head :no_content }
       end
     else
-      redirect_to eventos_path, alert: podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['justificativa'] 
+      redirect_to eventos_path, notice: podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['justificativa'] 
     end
   end
 

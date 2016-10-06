@@ -1,7 +1,7 @@
 <%= form_for(publicacao) do |f| %>
   <% if publicacao.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(publicacao.errors.count, "error") %> prohibited this publicacao from being saved:</h2>
+      <h2><%= pluralize(publicacao.errors.count, "error") %> erros impediram da publicação ser salva:</h2>
 
       <ul>
       <% publicacao.errors.full_messages.each do |message| %>
@@ -12,33 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :titulo %>
+    <%= f.label :titulo, "Título" %>
+    <br>
     <%= f.text_field :titulo %>
   </div>
 
   <div class="field">
-    <%= f.label :texto_publicacao %>
+    <%= f.label :texto_publicacao, "Texto Publicação:" %>
+    <br>
     <%= f.text_area :texto_publicacao %>
   </div>
 
   <div class="field">
     <%= f.label :categoria_id %>
+    <br>
     <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria %>
   </div>
 
   <%if current_usuario.admin? || current_usuario.mestre?%>
     <div class="field">
-      <%= f.label :aprovado %>
+      <%= f.label :aprovado, "Aprovação" %>
+      <br>
       <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]] %>
     </div>  
 
   <%end%>
 
   <div class="field">
-    <%= f.label :image %>
+    <%= f.label :image, "Imagem para publicação" %>
+    <br>
     <%= f.file_field :image %>
   </div>
-
+<br>
   <div class="actions">
     <%= f.submit %>
   </div>

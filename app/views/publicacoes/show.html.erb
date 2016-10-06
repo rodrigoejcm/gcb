@@ -2,28 +2,33 @@
 
 <p>
   <strong>Titulo:</strong>
+  <br>
   <%= @publicacao.titulo %>
 </p>
 
 <p>
   <strong>Texto publicacao:</strong>
+  <br>
   <%= @publicacao.texto_publicacao %>
 </p>
 
 <p>
   <strong>Categoria:</strong>
+  <br>
   <%= @publicacao.categoria.nomeCategoria %>
 </p>
 
 <p>
   <strong>Status da Aprovação:</strong>
+  <br>
   <%= @publicacao.status_aprovacao%>
 </p>
 
 <p>
   <strong>Image:</strong>
+  <br>
   <%= @publicacao.image %>
 </p>
 
-<%= link_to 'Edit', edit_publicacao_path(@publicacao) %> |
-<%= link_to 'Back', publicacoes_path %>
+<%= link_to 'Editar Publicação', edit_publicacao_path(@publicacao) %> |
+<%= link_to 'Voltar', publicacoes_path %>
