@@ -41,7 +41,7 @@ class PublicacoesController < ApplicationController
   def create
     @publicacao = Publicacao.new(publicacao_params)
     @publicacao.usuario = current_usuario
-    @publicacao.aprovado = false
+    
 
     respond_to do |format|
       if @publicacao.save
@@ -59,7 +59,7 @@ class PublicacoesController < ApplicationController
   def update
     respond_to do |format|
       if @publicacao.update(publicacao_params)
-        format.html { redirect_to @publicacao, notice: 'Publicação alterada com sucesse.' }
+        format.html { redirect_to @publicacao, notice: 'Publicação alterada com sucesso.' }
         format.json { render :show, status: :ok, location: @publicacao }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class PublicacoesController < ApplicationController
   def destroy
     @publicacao.destroy
     respond_to do |format|
-      format.html { redirect_to publicacoes_url, notice: 'Publicação excluĩda com sucesse.' }
+      format.html { redirect_to publicacoes_url, notice: 'Publicação excluĩda com sucesso.' }
       format.json { head :no_content }
     end
   end
