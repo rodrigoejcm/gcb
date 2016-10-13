@@ -2759,7 +2759,7 @@ section.dark.page-header ul.page-options a {
 		margin-left:-3px;
 		position:relative;
 		border-right:rgba(0,0,0,0.1) 1px solid;
-		color: white.
+		color: white;
 	}
 	#topBar ul.top-links>li:hover >.dropdown-menu,
 	#mainMenu ul.top-links>li:hover >.dropdown-menu {
