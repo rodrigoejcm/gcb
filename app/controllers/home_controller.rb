@@ -13,5 +13,8 @@ class HomeController < ApplicationController
   	#end
   end
 
+  def sobre
+  		
+  end
 
 end

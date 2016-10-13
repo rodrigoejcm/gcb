@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get '/aprovacoes', to: 'aprovacoes#aprovacoes', as: 'aprovacoes'
 
+  get '/sobre', to: 'home#sobre', as: 'sobre'
+
 
   
 
