@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   resources :eventos
 
   get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'
+  get '/proximos-eventos/evento/:id', to: 'eventos#public_evento', as: 'publico-evento'
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
   get '/todas-publicacoes', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes'
+  get '/todas-publicacoes/:nomeCategoria', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes-categoria'
+  get '/todas-publicacoes/publicacao/:id', to: 'publicacoes#public_publicacao', as: 'publico-publicacao'
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
   get '/aprovacoes/aprovar-usuario/:id', to: 'usuarios#aprovar_usuario', as: 'aprovar-usuario'

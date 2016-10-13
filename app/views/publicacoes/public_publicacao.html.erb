@@ -7,61 +7,48 @@
 			<!-- RIGHT -->
 			<div class="col-md-9 col-sm-9">
 
-				<h2>Publicações</h2>
-
-				<% @publicacoes.each do |publicacao| %>
 				<div class="row">
 					<!-- POST ITEM -->
 					<div class="blog-post-item col-md-12 col-sm-12">
 
+						<h2><a href="blog-single-default.html"><%= @publicacao.titulo%></a></h2>
+
 						<!-- IMAGE -->
-						<figure class="margin-bottom-20 imagem-publicacoes" style="background-image: url('<%=publicacao.image_url.to_s%>');">
+						<figure class="margin-bottom-20 imagem-publicacoes" style="background-image: url('<%=@publicacao.image_url.to_s%>');">
 
 						</figure>
 
-						<h2>
-							<%= link_to( publico_publicacao_path(publicacao)) do %>
-								<%=publicacao.titulo%>
-							<% end %>
-						</h2>
+						
 
 						<ul class="blog-post-info list-inline">
 							<li>
 								<a href="#">
 									<i class="fa fa-clock-o"></i> 
-									<span class="font-lato"><%=l publicacao.created_at, format: :long %></span>
+									<span class="font-lato"><%=l @publicacao.created_at, format: :long %></span>
 								</a>
 							</li>
 							<li>
 								<i class="fa fa-folder-open-o"></i> 
 
 								<a class="category" href="#">
-									<span class="font-lato"><%= publicacao.categoria.nomeCategoria%></span>
+									<span class="font-lato"><%= @publicacao.categoria.nomeCategoria%></span>
 								</a>
 							</li>
 							<li>
 								<a href="#">
 									<i class="fa fa-user"></i> 
-									<span class="font-lato"><%= publicacao.usuario.graduacao.capitalize + " " + publicacao.usuario.apelido%></span>
+									<span class="font-lato"><%= @publicacao.usuario.graduacao.capitalize + " " + @publicacao.usuario.apelido%></span>
 								</a>
 							</li>
 						</ul>
 
-						<p><%=publicacao.texto_publicacao.truncate(600)%><%= link_to " Ler mais", publico_publicacao_path(publicacao) %></p>
-
-
+						<p><%=@publicacao.texto_publicacao%></p>
 						
 						
 					</div>
 					<!-- /POST ITEM -->
 				</div>
-				<% end %>
-				<div class="row">
-					<!-- POST ITEM -->
-					<div class="col-md-12 col-sm-12">
-						<%= will_paginate @publicacoes %>
-					</div>
-				</div>
+
 			</div>
 			<!-- LEFT -->
 			<div class="col-md-3 col-sm-3">
@@ -76,14 +63,12 @@
 				</div> -->
 				<!-- /INLINE SEARCH -->
 
-			<!-- 	<hr /> -->
+				<!-- <hr /> -->
 
 				<!-- side navigation -->
-				<div class="side-nav margin-bottom-60 margin-top-30">
+				<div class="side-nav margin-bottom-60">
 
-					<%= render 'sidebar_publicacao', categorias: @categorias %>
-
-					<!-- /side navigation -->
+					<%= render 'sidebar_publicacao', categorias:@categorias %>
 					<hr>
 	                <%= render 'layouts/sidebar_fb' %>
 

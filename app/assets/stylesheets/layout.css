@@ -1143,6 +1143,24 @@ section.dark.page-header ul.page-options a {
 	   -moz-transition: all .300s;
 		 -o-transition: all .300s;
 			transition: all .300s;
+
+	position: absolute;
+    /* top: -40px; */
+    height: 196px;
+    border-right: 5px solid black;
+    border-bottom: 3px solid black;
+    background-color: white;
+    padding: 10px;
+
+}
+
+#header a.logo-home>img {
+	height:90px;
+	-webkit-transition: all .300s;
+	   -moz-transition: all .300s;
+		 -o-transition: all .300s;
+			transition: all .300s;
+
 }
 #header a.logo.logo-responsive>img {
 	height:100%; /* used on center - example: page-coming-soon-1.html */
@@ -2654,8 +2672,9 @@ section.dark.page-header ul.page-options a {
 	*/
 	#topBar {
 		display:block;
-		background-color:#fff;
+		background-color: black;
 		border-bottom:rgba(0,0,0,0.05) 1px solid;
+		color:white;
 	}
 	#topBar>.border-bottom {
 		border-bottom:rgba(0,0,0,0.05) 1px solid;
@@ -2732,6 +2751,7 @@ section.dark.page-header ul.page-options a {
 	#topBar ul.top-links {
 		float:left;
 		margin:0;
+		
 	}
 	#topBar ul.top-links>li {
 		padding:0;
@@ -2739,7 +2759,7 @@ section.dark.page-header ul.page-options a {
 		margin-left:-3px;
 		position:relative;
 		border-right:rgba(0,0,0,0.1) 1px solid;
-		
+		color: white.
 	}
 	#topBar ul.top-links>li:hover >.dropdown-menu,
 	#mainMenu ul.top-links>li:hover >.dropdown-menu {
@@ -2751,7 +2771,7 @@ section.dark.page-header ul.page-options a {
 	#topBar ul.top-links>li>a {
 		padding:10px;
 		font-size:12px;
-		color:#151515;
+		color:white;
 		display:block;
 		text-decoration:none;
 	}
@@ -6081,7 +6101,7 @@ section.dark #portfolio h3 {
  **************************************************************** **/
 .blog-post-item {
 	display:block;
-	margin-bottom:80px;
+	margin-bottom:40px;
 	padding-bottom:60px;
 	border-bottom:#eee 1px solid;
 	position:relative;

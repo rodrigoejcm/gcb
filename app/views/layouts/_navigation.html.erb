@@ -33,9 +33,22 @@
 			<!-- /BUTTONS -->
 
 			<!-- Logo -->
-			<a class="logo pull-left" href="index.html">
-				<%= image_tag("logo_color.png" , class:'flag-lang') %> 
-			</a>
+			<% if current_page?(root_path) %>
+				<% if usuario_signed_in?  %>
+					<a class="logo pull-left" href="#">
+						<%= image_tag("logo_color.png" , class:'flag-lang', style:'top:-40px;') %>
+					</a>
+				<% else %>
+					<a class="logo pull-left" href="#">
+						<%= image_tag("logo_color.png" , class:'flag-lang' ) %>
+					</a>
+				<% end %>
+
+			<%else%>
+					<a class="logo-home pull-left" href="#">
+						<%= image_tag("logo_color.png" , class:'flag-lang') %>
+					</a>
+			<% end %>
 
 			<div class="navbar-collapse pull-right nav-main-collapse collapse submenu-dark">
 				<nav class="nav-main">
@@ -63,9 +76,11 @@
 								ENCONTRE A CAPOEIRA
 							</a>
 						</li>
-						<li>
-							<a id="sidepanel_btn" href="#" class="fa fa-bars"></a>
-						</li>
+						<% if !usuario_signed_in? %>
+							 <li>  
+	                    		<%= link_to("ENTRAR", new_usuario_session_path) %>
+	                		</li>
+	                	<%end%>
 					</ul>
 
 				</nav>

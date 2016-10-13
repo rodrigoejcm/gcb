@@ -1,0 +1,19 @@
+<div class="side-nav-head">
+	<button class="fa fa-bars"></button>
+	<h4>CATEGORIAS</h4>
+</div>
+<ul class="list-group list-group-bordered list-group-noicon uppercase">
+
+	<% @categorias.each do |categoria| %>
+
+	<li class="list-group-item">
+		<%= link_to( todas_publicacoes_categoria_path( :nomeCategoria => categoria[0][:nomeCategoria])) do %>
+			<span class="size-11 text-muted pull-right">(<%=categoria[1]%>)</span>
+			<%=categoria[0][:nomeCategoria]%>
+		<% end %>
+
+	</li>
+	
+	<% end %>
+</ul>
+<!-- /side navigation -->

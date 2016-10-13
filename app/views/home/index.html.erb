@@ -10,13 +10,19 @@
 				<% @ultimas_publicacoes.each do |publicacao| %>
                 <!-- news item -->
 				<div class="inews-item">
-                    <div class="cartaz">
-                    	<%=image_tag publicacao.image_url.to_s, width: '260', height: '140'%>
+                    <div class="cartaz" style="background-image: url('<%=publicacao.image_url.to_s%>');">
+                    	
 					</div>
 					
 					<div class="publicacao-item-content">
 						<div class="inews-content-inner div-news">
-							<h3 class="size-20"><a href="#"><%=publicacao.titulo%></a></h3>
+							
+							<h3 class="size-20">
+								<%= link_to( publico_publicacao_path(publicacao)) do %>
+									<%=publicacao.titulo%>
+								<% end %>
+							</h3>
+
 							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
 								<li>
 									<a href="#">
@@ -73,7 +79,7 @@
 						</div>
 						<div class="event-content-wrapper">
 							<div class="event-content-inner-wrapper">
-								<h3 class="event-title"><a href="<%= evento_path(evento) %>"><%= evento.titulo %></a></h3>
+								<h3 class="event-title"><a href="<%= publico_evento_path(evento) %>"><%= evento.titulo %></a></h3>
 								<div class="event-location"><%= evento.usuario.graduacao %> - <%= evento.usuario.nome %> </div>
 	                            <div class="event-location"><%= evento.local %> </div>
 							</div>
@@ -88,6 +94,10 @@
 						<h3 class="size-14 text-blue text-right"><a href="<%= proximos_eventos_path%>">Ver Todos</a></h3>
 					</div>
                 </div>
+
+                <hr>
+
+                 <%= render 'layouts/sidebar_fb' %>
 
 			</div>
             <!-- DIV Eventos -->

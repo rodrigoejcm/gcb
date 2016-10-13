@@ -1,14 +1,17 @@
 class EventosController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :public_proximos_eventos
-  before_action :set_evento, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos]
+  before_action :set_evento, only: [:show, :edit, :update, :destroy, :public_evento]
+  before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos, :public_evento]
 
   
   def public_proximos_eventos
     @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
   end
 
+  def public_evento
+    #setado pelo before action
+  end
 
   # GET /eventos
   # GET /eventos.json

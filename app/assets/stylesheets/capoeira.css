@@ -777,16 +777,43 @@ section.dark.alternate .evento-timeline .evento-timeline-entry {
 
 /* Cartaz */
 .cartaz .cartazPequeno {
-    background: no-repeat center;
-    background-size: cover;    
+    
 }
 
 .cartaz
 {
     float: left;
+    width: 260px;
+    height: 140px;
+    background-position: center center;
+    background-size: cover;    
     /*display:inline-block;*/
     /*border:2px solid red;
     margin: 4px;*/
+}
+
+
+.cartaz-evento
+{
+    float: left;
+    width: 100%;
+    height: 120px;
+    background-position: center center;
+    background-size: cover;    
+    /*display:inline-block;*/
+    /*border:2px solid red;
+    margin: 4px;*/
+}
+
+.event-item-eventos{
+	padding-top: 20px !important;
+	height: 120px;
+}
+
+.imagem-publicacoes{
+	height: 400px;
+	background-position: center center;
+    background-size: cover;
 }
 
 .div-news {

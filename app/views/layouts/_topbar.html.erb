@@ -1,4 +1,5 @@
 
+<% if usuario_signed_in? %>
 <div id="topBar">
 	<div class="container">
 
@@ -7,7 +8,7 @@
 			<% if usuario_signed_in? %>
 			
 				<li class="text-welcome hidden-xs">
-                    Bem vindo, <strong><%= current_usuario.nome %></strong>
+                    Bem vindo, <strong><%= current_usuario.apelido %></strong>
                 </li>
             
                 <% if current_usuario.admin? %>
@@ -19,7 +20,7 @@
                 <%end%>
                 
 				<li>
-					<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MINHA CONTA</a>
+					<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs" style="color:white;"></i> MINHA CONTA</a>
 					<ul class="dropdown-menu pull-right">
 						<li>
 							<%= link_to eventos_path do %>
@@ -113,4 +114,5 @@
 
 	</div>
 </div>
+<%end%>
 <!-- /Top Bar

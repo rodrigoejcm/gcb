@@ -36,12 +36,15 @@ class Ability
     
     if !usuario.role
         can :show, Evento, aprovado: "APROVADO"
+        can :public_evento, Evento
         can :show, Publicacao, aprovado: "APROVADO"
-        #can :show, Publicacao
+        can :public_publicacao, Publicacao
+        can :public_publicacoes, Publicacao
+
     elsif usuario.admin?
         can :manage, :all
     elsif usuario.mestre?
-         can :manage, :all
+        can :manage, :all
         
         
     elsif usuario.professor? 
