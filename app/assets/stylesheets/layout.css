@@ -1124,7 +1124,6 @@ section.dark.page-header ul.page-options a {
 #header {
 	position: relative;
 	left:0; top:0; right:0;
-	z-index:1000;
 	background-color:#fff;
 	border-bottom: rgba(0,0,0,0.05) 1px solid;
 
@@ -1151,6 +1150,7 @@ section.dark.page-header ul.page-options a {
     border-bottom: 3px solid black;
     background-color: white;
     padding: 10px;
+    z-index: 900;
 
 }
 
@@ -3450,7 +3450,7 @@ section.dark.page-header ul.page-options a {
 	filter: alpha(opacity=90);
 	text-decoration:none;
 	display:none;
-	z-index: 1000;
+	
 
 	-webkit-border-radius: 2px !important;
 	-moz-border-radius: 2px !important;

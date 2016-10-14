@@ -27,3 +27,44 @@ h3, .h3
 .btn
   margin-bottom: 15px
 
+/* The ribbons */
+
+.corner-ribbon
+  width: 300px
+  background: #e43
+  font-size: 13px
+  font-weight: bold
+  position: absolute
+  top: 25px
+  left: -50px
+  text-align: center
+  line-height: 50px
+  letter-spacing: 1px
+  color: #f0f0f0
+  transform: rotate(-45deg)
+  -webkit-transform: rotate(-45deg)
+  z-index: 1000
+
+/* Custom styles */
+
+.corner-ribbon.sticky
+  position: fixed
+
+
+.corner-ribbon.shadow
+  box-shadow: 0 0 3px rgba(0,0,0,.3)
+
+
+/* Different positions */
+
+
+.corner-ribbon.top-right
+  top: 40px
+  left: -86px
+  transform: rotate(-45deg)
+  -webkit-transform: rotate(-45deg)
+
+/* Colors */
+
+.corner-ribbon.blue
+  background: #39d

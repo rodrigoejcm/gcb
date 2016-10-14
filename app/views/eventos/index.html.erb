@@ -11,6 +11,11 @@
 <% end %>
 
 
+<%= link_to new_evento_path, class: 'btn btn-success' do %>
+  <i class="fa fa-calendar-plus-o"></i> Cadastrar Novo Evento
+<% end %>
+
+
 
 <!-- <p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']%> </p>
 <p>Pode excluir evento? <%=podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['pode']%> </p>
@@ -22,10 +27,9 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th>Imagem</th>
-      <th>Descrição Evento</th>
-      <th>Incio</th>
-      <th>Fim</th>
+      <th>Eventos</th>
+      <th style="width: 250px;"></th>
+      <th>Local/Horário</th>
       <th>Evento Aprovado?</th>
       <th></th>
     </tr>
@@ -34,30 +38,46 @@
   <tbody>
     <% @eventos.each do |evento| %>
       <tr>
-        <td><%=image_tag evento.image_url.to_s, size: '100'%></td>
         <td>
+          <%=image_tag evento.image_url.to_s, size: '100'%>
+        </td>
+        <td>
+          <br>
           <b><%= evento.titulo %></b>
           <br>
-          <%= evento.descricao.truncate(100) %>
-          <br>
-          Local: <%= evento.local %>
-        <td>
-          <%= evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
-          <br>
-          <%= evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+          <%= evento.descricao.truncate(50) %>
+          
         </td>
         <td>
-          <%= evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%>
           <br>
-          <%= evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+          <%= evento.local %>
+          <br>
+          <i class="fa fa-calendar hidden-xs"></i> <%= evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
+          <br>
+          <i class="fa fa-clock-o hidden-xs"></i> <%= evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
         </td>
+        
  
         <td>
-          <%= evento.status_aprovacao%>
+          <br>
+          <span class="label <%=evento.status_aprovacao_cor%>">
+            <%= evento.status_aprovacao%>
+          </span>
         </td>
-        <td><%= link_to 'Visualizar', evento, class: 'btn btn-primary btn-xs' %><br>
-        <%= link_to 'Editar Evento', edit_evento_path(evento) , class: 'btn btn-info btn-xs'%><br>
-        <%= link_to 'Cancelar Evento', evento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o evento?' }, class: 'btn btn-danger btn-xs'  %></td>
+        <td>
+          <br>
+          <%= link_to(evento) do %>
+            <i class="fa fa-calendar-o"></i> Visualizar Evento
+          <% end %>
+          <br>
+          <%= link_to(edit_evento_path(evento)) do %>
+            <i class="fa fa-pencil"></i> Editar Evento
+          <% end %>
+          <br>
+          <%= link_to(evento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o evento?' }) do %>
+            <i class="fa fa-trash-o"></i> Excluir Evento
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -65,9 +85,5 @@
 <%= will_paginate @eventos %>
 
 <br>
-
-<%= link_to new_evento_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-plus"></i> Cadastrar Novo Evento
-<% end %>
 
 

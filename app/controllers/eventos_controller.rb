@@ -66,6 +66,11 @@ class EventosController < ApplicationController
   def update
     if podeCadastrarNovoEventoOuExcluirOuEditar['editar']['pode']
       respond_to do |format|
+
+        if !current_usuario.admin? && !current_usuario.mestre?
+          @evento.aprovado = 'INDEFINIDO'          
+        end
+
         if @evento.update(evento_params)
           format.html { redirect_to @evento, notice: 'Evento alterado com sucesso.' }
           format.json { render :show, status: :ok, location: @evento }
