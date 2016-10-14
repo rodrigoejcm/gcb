@@ -6,7 +6,7 @@ class AprovacoesController < ApplicationController
             @publicacoes = Publicacao.all
             #@usuarios = Usuario.where(approved: false)
             @usuarios = Usuario.where(role: "professor")
-            @eventos = Evento.all
+            @eventos = Evento.where('data_hora_inicio > ?', DateTime.now)
 	end
 
 

@@ -1,7 +1,7 @@
 <p class="notice label label-primary"><%= notice %></p>
 <p class="alert label label-warning"><%= alert %></p>
 <br><br>
-<h3>Usuários Pendentes de Aporvação</h3>
+<h3>Usuários Pendentes de Aprovação</h3>
 
 <table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
@@ -32,9 +32,9 @@
   </tbody>
 </table>
 
-<br><br
+<br><br>
 
-<h3>Usuários Pendentes de Aporvação</h3>
+<h3>Usuários Aprovados</h3>
 
 <table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
@@ -65,4 +65,35 @@
   </tbody>
 </table>
 
-<br><br><br>
+<br><br>
+
+<h3>Usuários Rejeitados</h3>
+
+<!-- <table class="table table-hover table-striped tabela_aprovacao"">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Apelido</th>
+      <th>Graduação</th>
+      <th>Professor</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% usuarios.where(approved: true).each do |usuario| %>
+      <tr>
+        <td><%= usuario.nome%></td>
+        <td><%= usuario.sobrenome %></td>
+        <td><%= usuario.apelido %></td>
+        <td><%= usuario.graduacao %></td>
+        <td><%= usuario.nome_professor %></td>
+        <td>
+          <%= link_to 'Bloquear acesso', bloquear_usuario_url(usuario), method: :get, data: { confirm: 'Tem certeza que deseja bloquear o acesso do usuario?'}, class: 'btn btn-danger btn-xs' %>   
+        </td>
+     </tr>
+
+    <% end %>
+  </tbody>
+</table> -->
