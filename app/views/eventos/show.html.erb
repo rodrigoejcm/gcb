@@ -21,7 +21,7 @@
 <p>
   <strong>Data e hora de início do Evento:</strong>
   <br>
-  <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+  <%= @evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_inicio.to_time.strftime('%H:%M ')%>
 
           
 </p>
@@ -29,7 +29,7 @@
 <p>
   <strong>Data e hora de Fim do Evento:</strong>
   <br>
-  <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+  <%= @evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%> - <%= @evento.data_hora_fim.to_time.strftime('%H:%M ')%>
 </p>
 
 <p>
@@ -39,6 +39,16 @@
   
 </p>
 
+<p>
+  <br>
+  <% if @evento.image? %> 
+       <strong>Imagem:</strong>
+        <br>
+        <%= image_tag(@evento.image_url, height:'120') %> 
+      <% end %> 
+</p>
+
+<br>
 <% if can? :update, @evento %>
   <%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
 <% end %>

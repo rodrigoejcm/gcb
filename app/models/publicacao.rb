@@ -11,7 +11,16 @@ class Publicacao < ApplicationRecord
   		else
   			return "A Publicação ainda não foi aprovada."
   		end
-	end
+	  end
 
+    def status_aprovacao_cor
+      if self.aprovado == "APROVADO"
+        return "label-success"
+      elsif self.aprovado == "REPROVADO" 
+        return "label-danger"
+      else
+        return "label-warning"
+      end
+    end
 
 end

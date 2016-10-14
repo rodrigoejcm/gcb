@@ -81,3 +81,8 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'jquery-datatables-rails'
 gem 'elastic-beanstalk'
+
+#gem 'momentjs-rails', '>= 2.15.1'
+#gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
+gem "time_splitter" , '>= 1.1.0'
+#gem "jquery-fileupload-rails"

@@ -19,34 +19,44 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-      
-      <th>Publicação</th>
-      <% if current_usuario.admin? || current_usuario.mestre?%>
-        <th>Usuario</th>
-      <%end%>
-      <th>Image</th>
-      <th>Aprovação</th>
-      <th></th>
+      <th style="width:110px;">Publicação</th>
+      <th ></th>
+      <th ></th>
     </tr>
   </thead>
 
   <tbody>
     <% @publicacoes.each do |publicacao| %>
       <tr>
+        <td><%=image_tag publicacao.image_url.to_s, size: '100'%></td>
         <td>
           <b><%= publicacao.titulo %></b>
-          <br><br>
-          <%= publicacao.texto_publicacao.truncate(150) %>
+          <br>
+          <% if current_usuario.admin? || current_usuario.mestre?%>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <%= publicacao.usuario.apelido %>
+          <% end %>
+          <br>
+          <span class="label <%=publicacao.status_aprovacao_cor%>">
+            <%= publicacao.status_aprovacao%>
+          </span>
+          <br>
+          <br>
+          <%= publicacao.texto_publicacao.truncate(100) %>
         </td>
-        <% if current_usuario.admin? || current_usuario.mestre?%>
-          <td><%= publicacao.usuario.apelido %></td>
-        <%end%>
-        <td><%=image_tag publicacao.image_url.to_s, size: '100'%></td>
-        <td><%= publicacao.status_aprovacao %></td>
         <td>
-          <%= link_to 'Visualizar', publicacao, class: 'btn btn-primary btn-xs' %><br>
-          <%= link_to 'Editat', edit_publicacao_path(publicacao), class: 'btn btn-info btn-xs' %><br>
-          <%= link_to 'Excluir', publicacao, method: :delete, data: { confirm: 'Tem certeza que dseja excluir a publicação?'}, class: 'btn btn-danger btn-xs' %></td>
+          <%= link_to(publicacao) do %>
+            <i class="fa fa-calendar-o"></i> Ver Publicação
+          <% end %>
+          <br>
+          <%= link_to(edit_publicacao_path(publicacao)) do %>
+            <i class="fa fa-pencil"></i> Editar Publicação
+          <% end %>
+          <br>
+          <%= link_to(publicacao, method: :delete, data: { confirm: 'Tem certeza que dseja excluir a publicação?' }) do %>
+            <i class="fa fa-trash-o"></i> Excluir Publicação
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

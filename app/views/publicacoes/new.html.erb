@@ -1,5 +1,14 @@
 <h1>Nova Publicaçãao</h1>
 
-<%= render 'form', publicacao: @publicacao, categorias:@categorias %>
+
+<%= form_for(@publicacao) do |f| %>
+	
+	<%= render 'form', publicacao: @publicacao, categorias:@categorias, f:f  %>
+
+	<div class="actions">
+		<%= f.submit "Criar Publicação" , :class => "btn btn-warning btn-mini"%>
+	</div>
+
+<% end %>
 
 <%= link_to 'Voltar', publicacoes_path %>

@@ -6,7 +6,11 @@
 			<%= render 'form', evento: @evento, f:f %>
 			
 			<div class="actions">
-   				<%= f.submit "Salvar alterações do Evento" , :class => "btn btn-warning btn-mini"%>
+				<%if !current_usuario.admin? && !current_usuario.mestre?%>
+   					<%= f.submit "Salvar alterações do Evento",  data: { confirm: 'Atenção: Após alteração do Evento, será necessário uma nova aprovação.' },:class => "btn btn-warning btn-mini"%>
+				<% else %>
+					<%= f.submit "Salvar alterações do Evento",:class => "btn btn-warning btn-mini"%>
+				<% end %>
 			</div>
 
 <% end %> 

@@ -1,4 +1,4 @@
-<%= form_for(publicacao) do |f| %>
+
   <% if publicacao.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(publicacao.errors.count, "error") %> erros impediram da publicação ser salva:</h2>
@@ -11,40 +11,70 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :titulo, "Título" %>
-    <br>
-    <%= f.text_field :titulo %>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <%= f.label :titulo, "Título:" %>
+      <br>
+      <div class="input-group">
+        <%= f.text_field :titulo, class: 'form-control', placeholder: 'Título da Publicação' %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :texto_publicacao, "Texto Publicação:" %>
-    <br>
-    <%= f.text_area :texto_publicacao %>
+<div class="row">
+    <div class="col-md-12">
+      <%= f.label :texto_publicacao , "Publicação:" %>
+      <br>
+      <div class="input-group">
+        <%= f.text_area :texto_publicacao, class: 'form-control', placeholder: 'Texto da Publicação', cols: 60, rows: 10  %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
+<div class="row">
+  <div class="col-md-6 col-sm-12 col-xm-12">
     <%= f.label :categoria_id %>
     <br>
-    <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria %>
+    <div class="input-group">
+      <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria, class: 'form-control' %>
+    </div>
   </div>
+</div>
 
   <%if current_usuario.admin? || current_usuario.mestre?%>
-    <div class="field">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xm-12">
       <%= f.label :aprovado, "Aprovação" %>
       <br>
-      <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]] %>
-    </div>  
+      <div class="input-group">
+        <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]], class: 'form-control' %>
+      </div>
+    </div>
+  </div>   
 
   <%end%>
 
-  <div class="field">
-    <%= f.label :image, "Imagem para publicação" %>
-    <br>
-    <%= f.file_field :image %>
+ 
+   <div class="row">
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      <div class="input-group">
+        <% if @publicacao.image? %> 
+        <%= f.label :image , "Alterar Imagem:"%>
+        <%else%>
+        <%= f.label :image , "Imagem:"%>
+        <% end %>
+        <br>
+       <%= f.file_field :image, id:'foto-evento' %>
+       <%= f.hidden_field :image_cache %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <% if @publicacao.image? %> 
+        <%= f.label :image , "Imagem Atual:"%>
+        <br>
+        <%= image_tag(@publicacao.image_url, height:'50') %> 
+      <% end %>  
+    </div>
   </div>
-<br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+

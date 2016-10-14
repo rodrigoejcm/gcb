@@ -25,9 +25,12 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
   <br>
-  <%= @publicacao.image %>
+  <% if @publicacao.image? %> 
+       <strong>Imagem:</strong>
+        <br>
+        <%= image_tag(@publicacao.image_url, height:'120') %> 
+      <% end %> 
 </p>
 
 <%= link_to 'Editar Publicação', edit_publicacao_path(@publicacao) %> |

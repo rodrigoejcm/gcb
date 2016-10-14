@@ -2,6 +2,14 @@ class Evento < ApplicationRecord
   	belongs_to :usuario 
   	mount_uploader :image, ImageUploader
 
+    validates :titulo, presence: true
+    validates :titulo, presence: true
+    validates :data_hora_inicio, presence: true
+    validates :data_hora_fim, presence: true
+    
+    extend TimeSplitter::Accessors
+    split_accessor :data_hora_inicio,:data_hora_fim
+
 
 	def status_aprovacao
   		if self.aprovado == "APROVADO"

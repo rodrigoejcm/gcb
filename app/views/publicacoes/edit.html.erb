@@ -1,6 +1,14 @@
 <h1>Alterar Publicação</h1>
 
-<%= render 'form', publicacao: @publicacao %>
+<%= form_for(@publicacao) do |f| %>
+	
+	<%= render 'form', publicacao: @publicacao, f:f  %>
+
+	<div class="actions">
+		<%= f.submit "Alterar Publicação", :class =>"btn btn-warning btn-mini" %>
+	</div>
+
+<% end %>
 
 <%= link_to 'Visualizar', @publicacao %> |
 <%= link_to 'Voltar', publicacoes_path %>

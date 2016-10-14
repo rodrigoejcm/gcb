@@ -11,59 +11,134 @@
     </div>
   <% end %>
 
-  <div class="input-group">
-    <%= f.label :titulo, "Título:" %>
-    <br>
-    <%= f.text_field :titulo, class: 'form-control', placeholder: 'Título do Evento' %>
-  </div>
-
-  <br>
-
-  <div class="input-group">
-    <%= f.label :descricao , "Descrição:" %>
-    <br>
-    <%= f.text_area :descricao, class: 'form-control', placeholder: 'Descrição do Evento', cols: 60, rows: 10  %>
-  </div>
-  
-  <br>
-  
-  <%= f.label :local , "Local do Evento:"%>
-  <br>
-  <div class="input-group">
-    <div class="input-group-addon">
-      <i class="fa fa-home" aria-hidden="true"></i>    
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <%= f.label :titulo, "Título:" %>
+      <br>
+      <div class="input-group">
+        <%= f.text_field :titulo, class: 'form-control', placeholder: 'Título do Evento' %>
+      </div>
     </div>
-    <%= f.text_field :local, class: 'form-control' %>
   </div>
 
-  <br>
-
-  <%= f.label :data_hora_inicio,  "Data e hora de início do evento:"%>
-  <br>
-  <div class="input-group">
-    <%= f.datetime_select :data_hora_inicio, class: 'form-control' %>
+   <div class="row">
+    <div class="col-md-12">
+      <%= f.label :descricao , "Descrição:" %>
+      <br>
+      <div class="input-group">
+        <%= f.text_area :descricao, class: 'form-control', placeholder: 'Descrição do Evento', cols: 60, rows: 10  %>
+      </div>
+    </div>
   </div>
 
-  <%= f.label :data_hora_fim , "Data e hora do fim do evento:"%>
-  <br>
-  <div class="input-group">
-      <%= f.datetime_select :data_hora_fim, class: 'form-control' %>
+   <div class="row">
+    <div class="col-md-8 col-sm-12 col-xm-12">
+      <%= f.label :local , "Local do Evento:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-home" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_field :local, class: 'form-control', placeholder: 'Local do Evento'%>
+      </div>
+    </div>
   </div>
 
-  <%if current_usuario.admin? || current_usuario.mestre?%>
-    <div class="field">
+  <div class="row">
+
+    <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :data_hora_inicio,  "Data (Início do Evento):"%>
+      <br>
+      <div class="input-group date" id="datetimepicker-inicio">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+        <%= f.date_field :data_hora_inicio_date, class: 'form-control' %>
+        
+     </div>      
+    </div>
+      <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :data_hora_inicio,  "Hora (Início do Evento):"%>
+      <br>
+      <div class="input-group date" id="datetimepicker-fim">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+       <%= f.time_field :data_hora_inicio_time, class: 'form-control' %>
+      </div>    
+    </div>
+
+  </div>
+  
+  <div class="row">
+
+    <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :data_hora_fim,  "Data (Fim do Evento):"%>
+      <br>
+      <div class="input-group date" id="datetimepicker-inicio">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+        <%= f.date_field :data_hora_fim_date, class: 'form-control' %>
+        
+     </div>      
+    </div>
+      <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :data_hora_fim,  "Hora (Fim do Evento):"%>
+      <br>
+      <div class="input-group date" id="datetimepicker-fim">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+       <%= f.time_field :data_hora_fim_time, class: 'form-control' %>
+      </div>    
+    </div>
+
+  </div>
+  
+
+
+ 
+  <div class="row">
+    
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      
+      <div class="input-group">
+        <% if @evento.image? %> 
+        <%= f.label :image , "Alterar Imagem:"%>
+        <%else%>
+        <%= f.label :image , "Imagem:"%>
+        <% end %>
+        <br>
+       <%= f.file_field :image, id:'foto-evento' %>
+       <%= f.hidden_field :image_cache %>
+       
+      </div>
+    </div>
+    <div class="col-md-4">
+      <% if @evento.image? %> 
+        <%= f.label :image , "Imagem Atual:"%>
+        <br>
+        <%= image_tag(@evento.image_url, height:'50') %> 
+      <% end %>  
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xm-12">
+    <%if current_usuario.admin? || current_usuario.mestre?%>
       <%= f.label :aprovado, "Aprovação" %>
       <br>
-      <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]] %>
-    </div>  
+      <div class="input-group">
+        <%= f.select :aprovado, [["Aprovado", "APROVADO"], ["Reprovado", "REPROVADO"], ["A definir", "INDEFINIDO"]], class: 'form-control' %>
+      </div>  
 
-  <%end%>
-
-  <div class="field">
-    <%= f.label :image , "Imagem:"%>
-    <br>
-    <%= f.file_field :image %>
+    <%end%>      
+    </div>
   </div>
+
 
 
   

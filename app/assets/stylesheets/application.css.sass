@@ -18,6 +18,7 @@
 @import "bootstrap"
 @import font-awesome
 
+
 h1, .h1,
 h2, .h2,
 h3, .h3 
@@ -68,3 +69,24 @@ h3, .h3
 
 .corner-ribbon.blue
   background: #39d
+
+/* FIM DO RIBBON */
+
+.btn-file
+  position: relative
+  overflow: hidden
+
+.btn-file input[type=file]
+  position: absolute
+  top: 0
+  right: 0
+  min-width: 100%
+  min-height: 100%
+  font-size: 100px
+  text-align: right
+  filter: alpha(opacity=0)
+  opacity: 0
+  outline: none
+  background: white
+  cursor: inherit
+  display: block
