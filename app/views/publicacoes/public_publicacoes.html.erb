@@ -47,7 +47,7 @@
 							</li>
 						</ul>
 
-						<p><%=publicacao.texto_publicacao.truncate(600)%><%= link_to " Ler mais", publico_publicacao_path(publicacao) %></p>
+						<p><%=strip_tags(publicacao.texto_publicacao).truncate(600)%><%= link_to " Ler mais", publico_publicacao_path(publicacao) %></p>
 
 
 						

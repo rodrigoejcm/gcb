@@ -110,6 +110,8 @@ class PublicacoesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def publicacao_params
       params.fetch(:publicacao, {})
-      params.require(:publicacao).permit( :titulo, :texto_publicacao, :usuario, :image, :categoria_id, :aprovado, :nomeCategoria) # List here whitelisted params
+      params.require(:publicacao).permit( :titulo, :texto_publicacao, :usuario,
+                                          :image, :categoria_id, :aprovado, 
+                                          :nomeCategoria, :bootsy_image_gallery_id) # List here whitelisted params
     end
 end

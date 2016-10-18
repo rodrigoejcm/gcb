@@ -26,7 +26,7 @@
       <%= f.label :texto_publicacao , "Publicação:" %>
       <br>
       <div class="input-group">
-        <%= f.text_area :texto_publicacao, class: 'form-control', placeholder: 'Texto da Publicação', cols: 60, rows: 10  %>
+        <%= f.bootsy_area :texto_publicacao, class: 'form-control', style: 'width: 100%;', placeholder: 'Texto da Publicação', rows: 12, 'data-bootsy-locale': 'pt-BR' %>
       </div>
     </div>
   </div>
@@ -59,9 +59,9 @@
     <div class="col-md-5 col-sm-12 col-xm-12">
       <div class="input-group">
         <% if @publicacao.image? %> 
-        <%= f.label :image , "Alterar Imagem:"%>
+        <%= f.label :image , "Alterar Imagem de Destaque:"%>
         <%else%>
-        <%= f.label :image , "Imagem:"%>
+        <%= f.label :image , "Imagem de Destaque:"%>
         <% end %>
         <br>
        <%= f.file_field :image, id:'foto-evento' %>
@@ -70,7 +70,7 @@
     </div>
     <div class="col-md-4">
       <% if @publicacao.image? %> 
-        <%= f.label :image , "Imagem Atual:"%>
+        <%= f.label :image , "Imagem de Destaque Atual:"%>
         <br>
         <%= image_tag(@publicacao.image_url, height:'50') %> 
       <% end %>  

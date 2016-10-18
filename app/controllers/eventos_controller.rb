@@ -170,7 +170,7 @@ class EventosController < ApplicationController
       params.require(:evento).permit( :titulo, :descricao, :local, 
                                       :data_hora_inicio, :data_hora_inicio_time,:data_hora_inicio_date,
                                       :data_hora_fim, :data_hora_fim_time, :data_hora_fim_date, 
-                                      :aprovado, :usuario, :image, :image_cache) # List here whitelisted params
+                                      :aprovado, :usuario, :image, :image_cache, :bootsy_image_gallery_id) # List here whitelisted params
 
     end
 end

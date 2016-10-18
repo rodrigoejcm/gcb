@@ -19,20 +19,20 @@
         style="background-image:url(<%= asset_path 'Fotos_Capoeira/roda_croc.jpg' %>)"> 
 
         
-              <div class="display-table">
-          <div class="display-table-cell vertical-align-middle">
-            <div class="container">
+          <div class="display-table">
+            <div class="display-table-cell vertical-align-middle">
+              <div class="container">
 
-              <div class="row">
-                <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
+                <div class="row">
+                  <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
 
-                  <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">Grupo Capoeira Brasil</h1>
-                  <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s"></p>
+                    <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">Grupo Capoeira Brasil</h1>
+                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s"></p>
+                  </div>
                 </div>
+          
               </div>
-        
             </div>
-          </div>
         </div>
       </section>
 
@@ -41,19 +41,11 @@
 
     <div id="wrapper">
       <div class="container">
+
             <br>
 
-            <% if 
-                current_page?(root_path) ||
-                current_page?(todas_publicacoes_path) ||
-                current_page?(proximos_eventos_path) ||
-                current_page?(sobre_path) ||
-                !usuario_signed_in? 
-            %>
-                 <!-- NAO EXIBE SIDEBAR -->
-                 <%= yield %>
-            <% else %>
-                 <!-- EXIBE SIDEBAR -->
+            <% if exibe_sidebar_usuario? %>
+                
                 <div class="row">
                   <div class="col-md-3">
                     <%= render 'layouts/sidebar_usuario' %>
@@ -62,6 +54,10 @@
                     <%= yield %>       
                   </div>
                 </div>
+            
+            <% else %>
+                 <!-- EXIBE SIDEBAR -->
+                <%= yield %>
             <% end %>
 
 

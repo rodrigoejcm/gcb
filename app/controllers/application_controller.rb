@@ -26,9 +26,31 @@ class ApplicationController < ActionController::Base
   	
   	############END CONFIGURACOES CANCAN
 
+  	#Definerestrições para exibir sidebar_usuario
+  	def exibe_sidebar_usuario?
+  		if 
+		(controller_name == 'eventos' && action_name == 'public_evento') ||
+		(controller_name == 'eventos' && action_name == 'public_proximos_eventos') ||
+		(controller_name == 'publicacoes' && action_name == 'public_publicacao') ||
+		(controller_name == 'publicacoes' && action_name == 'public_publicacoes') ||
+		controller_name == 'home' ||
+		!usuario_signed_in?
 
+            return false
 
+        else
+
+        	return true
+
+       	end
+  	end
 	
+
+  	##### HELPER METHODS
+	
+	helper_method :exibe_sidebar_usuario?
+
+	##### END HELPER METHODS
 
 	protected
 

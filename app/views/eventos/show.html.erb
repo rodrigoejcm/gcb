@@ -9,7 +9,8 @@
 <p>
   <strong>Descricao:</strong>
   <br>
-  <%= @evento.descricao %>
+  <%= @evento.descricao.html_safe %>
+  <br style="clear:left;">
 </p>
 
 <p>

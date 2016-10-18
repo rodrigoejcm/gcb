@@ -47,7 +47,8 @@
                                 </li>
 							</ul>
 
-							<p><%=publicacao.texto_publicacao.truncate(200)%></p>
+							<p>
+								<%=strip_tags(publicacao.texto_publicacao).truncate(200) %></p>
 						</div>
 					</div>
 				</div>

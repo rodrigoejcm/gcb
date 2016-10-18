@@ -32,7 +32,7 @@
 			                            	<%= @evento.data_hora_inicio.to_time.strftime('%H:%M') %> - <%= @evento.data_hora_fim.to_time.strftime('%H:%M') %>  
 			                            </div>
 			                            <hr>
-			                            <div class="event-location"><%= @evento.descricao %> </div>
+			                            <div class="event-location"><%= @evento.descricao.html_safe %> </div>
 									</div>
 			                       
 			                    </div>

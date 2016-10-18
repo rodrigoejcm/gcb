@@ -1,4 +1,5 @@
 class Evento < ApplicationRecord
+    include Bootsy::Container
   	belongs_to :usuario 
   	mount_uploader :image, ImageUploader
 

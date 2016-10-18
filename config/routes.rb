@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
 
   #resources :publicacaos
@@ -8,6 +9,12 @@ Rails.application.routes.draw do
   
   devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'cadastrar', edit: 'configuracoes' }
   
+
+#  resources :usuarios do
+#    resourses :perfil
+#  end
+
+
   resources :eventos
 
   get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'

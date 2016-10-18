@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -85,4 +86,5 @@ gem 'elastic-beanstalk'
 #gem 'momentjs-rails', '>= 2.15.1'
 #gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
 gem "time_splitter" , '>= 1.1.0'
+gem 'bootsy'
 #gem "jquery-fileupload-rails"

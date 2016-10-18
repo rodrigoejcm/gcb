@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
-//= require turbolinks
+//= require bootsy
+
 //= require_tree .
 
-
+//turbolinks (ativar quando o bootsy suportar trubolink)
 
 

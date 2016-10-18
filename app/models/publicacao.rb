@@ -1,4 +1,5 @@
 class Publicacao < ApplicationRecord
+    include Bootsy::Container
   	belongs_to :usuario
   	belongs_to :categoria
   	mount_uploader :image, PostImagesUploader

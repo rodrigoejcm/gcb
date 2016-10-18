@@ -45,7 +45,7 @@
           <br>
           <b><%= evento.titulo %></b>
           <br>
-          <%= evento.descricao.truncate(50) %>
+          <%= strip_tags(evento.descricao).truncate(50) %>
           
         </td>
         <td>
@@ -68,6 +68,10 @@
           <br>
           <%= link_to(evento) do %>
             <i class="fa fa-calendar-o"></i> Visualizar Evento
+          <% end %>
+          <br>
+          <%= link_to(publico_evento_path(evento)) do %>
+            <i class="fa fa-eye"></i> Preview Evento
           <% end %>
           <br>
           <%= link_to(edit_evento_path(evento)) do %>
