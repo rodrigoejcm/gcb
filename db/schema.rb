@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017203615) do
+ActiveRecord::Schema.define(version: 20161020214202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20161017203615) do
     t.index ["usuario_id"], name: "index_eventos_on_usuario_id", using: :btree
   end
 
+  create_table "perfis", force: :cascade do |t|
+    t.string   "imagemPerfil"
+    t.integer  "usuario_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "descricao"
+    t.string   "imagemCapa"
+    t.index ["usuario_id"], name: "index_perfis_on_usuario_id", using: :btree
+  end
+
   create_table "publicacoes", force: :cascade do |t|
     t.string   "titulo"
     t.text     "texto_publicacao"
@@ -107,6 +117,7 @@ ActiveRecord::Schema.define(version: 20161017203615) do
   end
 
   add_foreign_key "eventos", "usuarios"
+  add_foreign_key "perfis", "usuarios"
   add_foreign_key "publicacoes", "categorias"
   add_foreign_key "publicacoes", "usuarios"
 end

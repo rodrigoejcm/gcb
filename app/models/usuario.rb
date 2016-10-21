@@ -7,6 +7,8 @@ class Usuario < ApplicationRecord
   before_create :set_default_role
   
   has_many :eventos
+  has_many :publicacoes
+  has_one :perfil
 
   	def role?(r)
 		role.include? r.to_s
@@ -31,6 +33,11 @@ class Usuario < ApplicationRecord
 	def usuarioLimitado?
 		!self.admin? && !self.mestre? && !self.professor_premium?
 	end
+
+  def possuiPerfil?
+    !self.perfil.nil?
+  end
+
 
 	def active_for_authentication? 
     	super && approved? 

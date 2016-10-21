@@ -40,6 +40,14 @@
 
 
     <div id="wrapper">
+    
+
+    <% if pagina_perfil_publica? %>
+
+      <%= yield %>
+
+    <% else %>
+
       <div class="container">
 
             <br>
@@ -54,16 +62,16 @@
                     <%= yield %>       
                   </div>
                 </div>
-            
             <% else %>
                  <!-- EXIBE SIDEBAR -->
-                <%= yield %>
+                  <%= yield %>
             <% end %>
+      </div>    
 
+    <% end %>
 
-            
-      </div>      
           <%= render 'layouts/footer' %>     
+
     </div><!-- /wrapper -->
 
   </body>

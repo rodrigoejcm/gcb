@@ -1,0 +1,98 @@
+<section id="slider" class="height-300 parallax parallax-2 parallax-slider" 
+  style="background-image: url('<%=@perfil.imagemCapa_url.to_s%>')"> 
+
+  
+    <div class="display-table capa">
+      <div class="display-table-cell vertical-align-middle">
+        <div class="container perfil_publico_capa">
+
+          <div class="row">
+            
+            <div class="col-md-3">
+              <div class="imagemPerfil" style="background-image: url('<%=@perfil.imagemPerfil_url.to_s%>')"></div>
+            </div>
+            <div class="col-md-3 coluna_textos">
+              <div class="textoPerfil">
+                <p class="apelido"><%=@perfil.usuario.apelido%></p>
+                <p class="graduacao"><%=@perfil.usuario.graduacao%></p> 
+              </div>
+            </div>
+
+          </div>
+    
+        </div>
+      </div>
+  </div>
+
+
+</section>
+
+<div class="container perfil_publico_textos">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+        <%=@perfil.descricao%>
+     </div>
+  </div>
+  <hr>
+  <br>
+  <div class="row">
+     <div class="col-md-5 col-md-offset-1">
+        <h3>Próximos Eventos / <span class="size-18">GCB</span> / <span class="size-18"><%=@perfil.usuario.apelido%></span></h3>
+        <br>
+         <% @eventos.each do |evento| %>
+          <div class="event-item evento_perfil">
+            <div class="event-date-wrapper">
+              <span class="event-date-day"><%= evento.data_hora_inicio.to_time.strftime('%d')%></span>
+              <span class="event-date-month"><%= evento.data_hora_inicio.to_time.strftime('%^b')%></span>
+            </div>
+            <div class="event-content-wrapper">
+              <div class="event-content-inner-wrapper">
+                <h3 class="event-title"><a href="<%= publico_evento_path(evento) %>"><%= evento.titulo %></a></h3>
+                <div class="event-location"><%= evento.local %> </div>
+              </div>
+            </div>
+          </div>
+        <% end %> 
+     </div>
+
+     <div class="col-md-5 ">
+        <h3>Minhas publicações</h3>
+        <br>
+        <% @publicacoes.each do |publicacao| %>
+                <!-- news item -->
+        <div class="publicacao">
+          <h4 class="size-16">
+            <%= link_to( publico_publicacao_path(publicacao)) do %>
+              <%=publicacao.titulo%>
+            <% end %>
+          </h4>
+
+          <ul class="blog-post-info list-inline noborder nopadding">
+            <li>
+              <i class="fa fa-folder-open-o"></i> 
+              <a class="category" href="#">
+                <span class="font-lato"><%=publicacao.categoria.nomeCategoria%></span>
+              </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-clock-o"></i> 
+                    <span class="font-lato">
+                    <%=l publicacao.created_at, format: :short %>
+
+                    </span>
+                </a>
+            </li>
+          </ul>
+
+          <p><%=strip_tags(publicacao.texto_publicacao).truncate(70) %></p>
+        </div>
+
+        <%end%>
+     </div>
+
+  </div>
+
+</div>
+
+

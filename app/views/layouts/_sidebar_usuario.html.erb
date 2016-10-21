@@ -1,6 +1,14 @@
 <div class="thumbnail text-center">
 	
-    <%= image_tag("avatar2.jpg", height: '600', width: '460')%>
+
+    <% if current_usuario.possuiPerfil?%>
+         <div class="avatar" style="background-image: url('<%=current_usuario.perfil.imagemPerfil_url.to_s%>');"></div> 
+    <% else %>
+         <%= image_tag("avatar2.jpg", height: '600', width: '460')%>
+    <% end %>    
+
+   
+
 	<h2 class="size-17 margin-top-10 margin-bottom-0">
         <%= current_usuario.apelido if !current_usuario.apelido.nil? %>
     </h2>
@@ -37,6 +45,11 @@
     <li class="list-group-item">
         <%= link_to edit_usuario_registration_path do %>
             <i class="fa fa-cog"></i> MEU CADASTRO
+        <% end %>
+    </li>
+    <li class="list-group-item">
+        <%= link_to perfil_usuario_path do %>
+            <i class="fa fa-user"></i> MEU PERFIL
         <% end %>
     </li>
     <% if current_usuario.admin? || current_usuario.mestre? %>

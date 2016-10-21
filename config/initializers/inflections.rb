@@ -22,4 +22,7 @@
         inflect.irregular "categoria", "categorias"
         inflect.irregular "aprovacao", "aprovacoes"
         inflect.plural "aprovacoes", "aprovacao"
+        inflect.irregular "Perfil", "Perfis"
+        inflect.irregular "perfil", "perfis"
+        inflect.plural "perfis", "perfil"
  end

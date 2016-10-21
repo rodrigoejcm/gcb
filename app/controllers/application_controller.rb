@@ -44,11 +44,20 @@ class ApplicationController < ActionController::Base
 
        	end
   	end
+
+
+  	def pagina_perfil_publica?
+  		if (controller_name == 'perfis' && action_name == 'public_show')
+  			return true
+  		else
+  			return false
+  		end
+  	end	
 	
 
   	##### HELPER METHODS
 	
-	helper_method :exibe_sidebar_usuario?
+	helper_method :exibe_sidebar_usuario?,:pagina_perfil_publica?
 
 	##### END HELPER METHODS
 

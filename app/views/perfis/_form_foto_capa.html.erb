@@ -1,0 +1,36 @@
+<%= form_for(perfil) do |f| %>
+  <% if perfil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perfil.errors.count, "error") %> prohibited this perfil from being saved:</h2>
+
+      <ul>
+      <% perfil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="row">
+    
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      
+      <div class="input-group">
+        <% if @perfil.imagemCapa? %> 
+        <%= f.label :imagemCapa , "Alterar Imagem de capa do Perfil:"%>
+        <%else%>
+        <%= f.label :imagemCapa , "Fazer upload de Imagem de Capa do Perfil:"%>
+        <% end %>
+        <br>
+       <%= f.file_field :imagemCapa  %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Atualizar Perfil',  :class => 'btn btn-primary btn-md'%>
+  </div>
+
+  <br>
+<% end %>

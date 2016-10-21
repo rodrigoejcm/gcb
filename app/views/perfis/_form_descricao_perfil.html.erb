@@ -1,0 +1,32 @@
+<%= form_for(perfil) do |f| %>
+  <% if perfil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perfil.errors.count, "error") %> prohibited this perfil from being saved:</h2>
+
+      <ul>
+      <% perfil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="row">
+    
+    <div class="col-md-10 col-sm-12 col-xm-12">
+      
+      <div class="input-group">
+        <%= f.label :descricao , "Descrição do Perfil:"%>
+        <br>
+       <%= f.text_area :descricao, class: 'form-control', cols: '60', rows: '10'  %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Atualizar Perfil',  :class => 'btn btn-primary btn-md'%>
+  </div>
+
+  <br>
+<% end %>
