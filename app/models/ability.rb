@@ -56,6 +56,10 @@ class Ability
         can :read, Publicacao
         can :create, Publicacao
         can [:update, :destroy], Publicacao, :usuario => usuario
+        can :public_publicacao, Publicacao
+        can :public_publicacoes, Publicacao
+        can :public_evento, Evento
+        can :public_eventos, Evento
     
     elsif usuario.professor_premium? 
         #Evento
@@ -66,6 +70,10 @@ class Ability
         can :read, Publicacao
         can :create, Publicacao
         can [:update, :destroy], Publicacao, :usuario => usuario
+        can :public_publicacao, Publicacao
+        can :public_publicacoes, Publicacao
+        can :public_evento, Evento
+        can :public_eventos, Evento
 
     end
   
