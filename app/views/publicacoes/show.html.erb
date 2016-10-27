@@ -33,5 +33,11 @@
       <% end %> 
 </p>
 
-<%= link_to 'Editar Publicação', edit_publicacao_path(@publicacao) %> |
+<% if can? :update, @publicacao %>
+  <%= link_to 'Editar Publicação', edit_publicacao_path(@publicacao) %> |
+  <%= link_to(publico_publicacao_path(@publicacao)) do %>
+    <i class="fa fa-eye"></i> Preview Publicação
+  <% end %> |
+<% end %>
+
 <%= link_to 'Voltar', publicacoes_path %>

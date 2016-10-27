@@ -5,7 +5,7 @@
       
       <th>Publicação</th>
       <% if current_usuario.admin? || current_usuario.mestre?%>
-        <th>Usuario</th>
+        <th>Usuário</th>
       <%end%>
       <th></th>
     </tr>
@@ -17,7 +17,7 @@
         <td>
           <b><%= publicacao.titulo %></b>
           <br>
-          <%= publicacao.texto_publicacao.truncate(70) %>
+          <%= strip_tags(publicacao.texto_publicacao).truncate(70) %>
         </td>
         <% if current_usuario.admin? || current_usuario.mestre?%>
           <td><%= publicacao.usuario.apelido %></td>

@@ -15,6 +15,7 @@
 //= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
 //= require bootsy
+//= require google_analytics
 
 //= require_tree .
 

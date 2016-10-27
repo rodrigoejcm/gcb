@@ -14,11 +14,11 @@ class PublicacoesController < ApplicationController
     if params[:nomeCategoria]
     
       @categoria = Categoria.where(nomeCategoria: params[:nomeCategoria])
-      @publicacoes = Publicacao.where(aprovado: "APROVADO", categoria: @categoria).order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+      @publicacoes = Publicacao.where(aprovado: "APROVADO", categoria: @categoria).order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
     
     else
     
-      @publicacoes = Publicacao.where(aprovado: "APROVADO").order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+      @publicacoes = Publicacao.where(aprovado: "APROVADO").order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
     
     end
 
@@ -35,8 +35,15 @@ class PublicacoesController < ApplicationController
   # GET /publicacaos.json
   def index
     #mostra as publicacoes que o usuario tem acesso para dar ubdate
-    @publicacoes = Publicacao.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
+    @publicacoes = Publicacao.where(usuario: current_usuario).accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
   end
+
+
+    def index_professores
+    #setado pelo before action
+    @publicacoes = Publicacao.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 10)
+  end
+
 
   # GET /publicacaos/1
   # GET /publicacaos/1.json

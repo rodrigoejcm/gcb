@@ -52,5 +52,11 @@
 <br>
 <% if can? :update, @evento %>
   <%= link_to 'Editar Evento', edit_evento_path(@evento) %> |
+
+   <%= link_to(publico_evento_path(@evento)) do %> 
+      <i class="fa fa-eye"></i> Preview Evento 
+    <% end %> |
+
 <% end %>
+
 <%= link_to 'Voltar', eventos_path %>

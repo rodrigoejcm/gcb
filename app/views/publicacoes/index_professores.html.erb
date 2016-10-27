@@ -1,14 +1,7 @@
-
-
-  <h1>Minhas Publicações</h1>  
-
+<h1>Publicações Cadastrados pelos Professores</h1>
 
 <% unless notice.blank? %>
   <p id="notice"><%= notice %></p>
-<% end %>
-
-<%= link_to new_publicacao_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-plus"></i> Nova Publicação
 <% end %>
 
 
@@ -30,6 +23,10 @@
           <b><%= publicacao.titulo %></b>
           <br>
 
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <%= publicacao.usuario.apelido %>
+
+          <br>
           <span class="label <%=publicacao.status_aprovacao_cor%>">
             <%= publicacao.status_aprovacao%>
           </span>

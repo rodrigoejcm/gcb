@@ -1,0 +1,47 @@
+<h3>Professores do Portal GCB</h3>
+<br>
+<table class="table table-hover table-striped tabela_aprovacao"">
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th></th>
+    <!--   <th>Nome</th> -->
+      <th>Participação</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td>
+          <% if usuario.possuiPerfil?%>
+               <div class="avatar_lista_usuarios" style="background-image: url('<%=usuario.perfil.imagemPerfil_url.to_s%>');"></div> 
+          <% else %>
+               <%= image_tag("avatar2.jpg", height: '110', width: '110')%>
+          <% end %>    
+        </td>
+        <td>
+          <%= usuario.graduacao %> <%= usuario.apelido %>
+          <br> 
+          Corda: 
+          <br> 
+          <span class="nomeprofessor"> Professor: <%= usuario.nome_professor %> </span>
+        </td>
+        <td>
+          <span class="participacao-inicio"> Iniciou na capoeira: dd/mm/aaaa </span>
+          <br>
+          <span class="participacao-gcb"> Iniciou no GCB: dd/mm/aaaa </span>
+          <br>
+          <span class="participacao-membro"> Membro do site: <%= l usuario.created_at, format: :mes_ano %></span>
+        </td>
+
+	   </tr>
+
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>

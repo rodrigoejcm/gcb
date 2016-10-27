@@ -2,14 +2,10 @@
 
 
 
-  <h1>Meus Eventos</h1>  
+<h1>Eventos Cadastrados pelos Professores</h1>
 
+<br>
 
-
-
-<%= link_to new_evento_path, class: 'btn btn-success' do %>
-  <i class="fa fa-calendar-plus-o"></i> Cadastrar Novo Evento
-<% end %>
 
 
 
@@ -40,6 +36,9 @@
         <td>
           <br>
           <b><%= evento.titulo %></b>
+          <br>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <%= evento.usuario.graduacao %> <%= evento.usuario.apelido %>
           <br>
           <%= strip_tags(evento.descricao).truncate(50) %>
           

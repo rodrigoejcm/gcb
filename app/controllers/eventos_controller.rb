@@ -17,8 +17,14 @@ class EventosController < ApplicationController
   # GET /eventos.json
   def index
     #mostra os eventos em que o usuario tem permissao para dar update 
-   @eventos = Evento.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
+    @eventos = Evento.where(usuario: current_usuario).accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
   end
+
+  def index_professores
+    #setado pelo before action
+    @eventos = Evento.accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 10)
+  end
+
 
   # GET /eventos/1
   # GET /eventos/1.json

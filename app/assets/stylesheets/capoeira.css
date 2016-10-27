@@ -1002,3 +1002,11 @@ i.ico-hover:hover {
 .hvr-overline-reveal:before {
 	background-color: #1980B6;
 }
+
+
+.avatar_lista_usuarios{
+	height: 110px;
+	width: 110px;
+	background-position: center center;
+    background-size: cover;  
+}

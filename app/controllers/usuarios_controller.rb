@@ -33,10 +33,12 @@ class UsuariosController < ApplicationController
           format.json { render json: @usuario.errors, status: :unprocessable_entity }
         end
       end
-      
-
-    
   end
+
+  def lista_usuarios
+    @usuarios = Usuario.where(approved: :true)
+  end
+
 
 	private
     # Use callbacks to share common setup or constraints between actions.

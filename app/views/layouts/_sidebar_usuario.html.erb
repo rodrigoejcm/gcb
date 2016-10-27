@@ -52,20 +52,39 @@
             <i class="fa fa-user"></i> MEU PERFIL
         <% end %>
     </li>
-    <% if current_usuario.admin? || current_usuario.mestre? %>
-        <li class="list-group-item">
-            <%= link_to aprovacoes_path(tab: "apro_publicacoes") do %>
-                <i class="fa fa-check"></i> APROVAÇÔES
-            <% end %>
-        </li>
-    <% end %>    
+
     <li>
         <%= link_to destroy_usuario_session_path , method: 'get' do %>
             <i class="glyphicon glyphicon-off"></i> SAIR
         <% end %>
     </li>
    
-    
 </ul>
+<% if current_usuario.admin? || current_usuario.mestre? %>
+    <ul class="side-nav-admin side-nav list-group margin-bottom-60" id="sidebar-nav-admin">
+            <li class="list-group-item">
+                <%= link_to aprovacoes_path(tab: "apro_publicacoes") do %>
+                    <i class="fa fa-check"></i> APROVAÇÔES
+                <% end %>
+            </li>
+            <li class="list-group-item">
+                <%= link_to lista_usuarios_path do %>
+                    <i class="fa fa-users"></i> PROFESSORES
+                <% end %>
+            </li>
+            <li class="list-group-item">
+                <%= link_to index_publicacoes_professores_path do %>
+                    <i class="fa fa-list-alt"></i> PUBLICAÇÕES DOS PROFESSORES
+                <% end %>
+            </li>
+
+
+            <li class="list-group-item">
+                <%= link_to index_eventos_professores_path do %>
+                    <i class="fa fa-calendar-check-o"></i> EVENTOS DOS PROFESSORES
+                <% end %>
+            </li>
+    </ul>
+<% end %>
 <!-- /SIDE NAV -->
 

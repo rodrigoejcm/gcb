@@ -3,8 +3,8 @@
     <tr>
       <th>Imagem</th>
       <th>Descrição Evento</th>
-      <th>inicio</th>
-      <th>Fim</th>
+      <th>Usuário</th>
+      <th>Data</th>
       <th></th>
     </tr>
   </thead>
@@ -15,17 +15,16 @@
         <td><%=image_tag evento.image_url.to_s, size: '100'%></td>
         <td>
           <b><%= evento.titulo %></b>
-          <%= evento.descricao.truncate(100) %>
-          Local: <%= evento.local %>
-        <td>
-          <%= evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%>
+          <%= strip_tags(evento.descricao).truncate(100) %>
           <br>
-          <%= evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+          <b>Local:</b> <%= evento.local %>
+        <td>
+           <%= evento.usuario.graduacao %> <%= evento.usuario.apelido %>
         </td>
         <td>
-          <%= evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%>
-          <br>
-          <%= evento.data_hora_fim.to_time.strftime('%H:%m ')%>
+          <%= evento.data_hora_inicio.to_time.strftime('%d/%m/%Y')%> - <%= evento.data_hora_inicio.to_time.strftime('%H:%m ')%>
+          <hr>
+          <%= evento.data_hora_fim.to_time.strftime('%d/%m/%Y')%> - <%= evento.data_hora_fim.to_time.strftime('%H:%m ')%>
         </td>
  
         <td>

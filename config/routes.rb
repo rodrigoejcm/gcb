@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   
   
   devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'cadastrar', edit: 'configuracoes' }
-  
+  get 'lista_usuarios' , to: 'usuarios#lista_usuarios', as: 'lista_usuarios'
+
+
 
   #PERFIL
   
@@ -28,12 +30,20 @@ Rails.application.routes.draw do
   #END PERFIL
 
 
+
+  #--EVENTOS----------------------------
+  
   resources :eventos
 
+  get '/eventos-professores', to: 'eventos#index_professores', as: 'index_eventos_professores'
   get '/proximos-eventos', to: 'eventos#public_proximos_eventos', as: 'proximos-eventos'
   get '/proximos-eventos/evento/:id', to: 'eventos#public_evento', as: 'publico-evento'
   #get '/proximos-eventos/:id', to: 'eventos#public_evento'
 
+  #END EVENTOS
+
+
+  get '/publicacoes-professores', to: 'publicacoes#index_professores', as: 'index_publicacoes_professores'
   get '/todas-publicacoes', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes'
   get '/todas-publicacoes/:nomeCategoria', to: 'publicacoes#public_publicacoes', as: 'todas-publicacoes-categoria'
   get '/todas-publicacoes/publicacao/:id', to: 'publicacoes#public_publicacao', as: 'publico-publicacao'

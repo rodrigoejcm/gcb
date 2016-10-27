@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   	@ultimos_eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).limit(5)
   	#@ultimas_publicacoes = Publicacao.where(aprovado: true).limit(3)
 
-  	@ultimas_publicacoes = Publicacao.where(aprovado: "APROVADO").order(created_at: :desc).limit(5)
+  	@ultimas_publicacoes = Publicacao.where(aprovado: "APROVADO").order(created_at: :desc).limit(4)
 
   	
 

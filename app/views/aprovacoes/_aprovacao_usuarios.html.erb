@@ -6,9 +6,8 @@
 <table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
       <th>Apelido</th>
+      <th>Nome</th>
       <th>Graduação</th>
       <th>Professor</th>
       <th></th>
@@ -18,9 +17,8 @@
   <tbody>
     <% usuarios.where(approved: false).each do |usuario| %>
       <tr>
-        <td><%= usuario.nome%></td>
-        <td><%= usuario.sobrenome %></td>
         <td><%= usuario.apelido %></td>
+        <td><%= usuario.nome%> <%= usuario.sobrenome %></td>
         <td><%= usuario.graduacao %></td>
         <td><%= usuario.nome_professor %></td>
         <td>
@@ -39,9 +37,8 @@
 <table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
       <th>Apelido</th>
+      <th>Nome</th>
       <th>Graduação</th>
       <th>Professor</th>
       <th></th>
@@ -51,9 +48,8 @@
   <tbody>
     <% usuarios.where(approved: true).each do |usuario| %>
       <tr>
-        <td><%= usuario.nome%></td>
-        <td><%= usuario.sobrenome %></td>
         <td><%= usuario.apelido %></td>
+        <td><%= usuario.nome%> <%= usuario.sobrenome %></td>
         <td><%= usuario.graduacao %></td>
         <td><%= usuario.nome_professor %></td>
         <td>
@@ -67,8 +63,8 @@
 
 <br><br>
 
-<h3>Usuários Rejeitados</h3>
-
+<!-- <h3>Usuários Rejeitados</h3>
+ -->
 <!-- <table class="table table-hover table-striped tabela_aprovacao"">
   <thead>
     <tr>
