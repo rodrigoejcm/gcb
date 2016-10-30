@@ -1,5 +1,5 @@
 <section id="events">
-	<div class="container">
+
 		<div class="row">
 			<!-- DIV Publicacoes -->
 			<p class="notice"><%= notice %></p>
@@ -27,7 +27,7 @@
 								<li>
 									<a href="#">
 										<i class="fa fa-user"></i> 
-										<span class="font-lato"><%= publicacao.usuario.graduacao.capitalize + " " + publicacao.usuario.apelido%></span>
+										<span class="font-lato"><%= publicacao.usuario.apelidoCompleto %></span>
 									</a>
 								</li>
 								<li>
@@ -81,7 +81,7 @@
 						<div class="event-content-wrapper">
 							<div class="event-content-inner-wrapper">
 								<h3 class="event-title"><a href="<%= publico_evento_path(evento) %>"><%= evento.titulo %></a></h3>
-								<div class="event-location"><%= evento.usuario.graduacao %> - <%= evento.usuario.nome %> </div>
+								<div class="event-location"><%= evento.usuario.apelidoCompleto %> </div>
 	                            <div class="event-location"><%= evento.local %> </div>
 							</div>
 	                       
@@ -103,5 +103,5 @@
 			</div>
             <!-- DIV Eventos -->
 		</div>
-	</div>
+
 </section>

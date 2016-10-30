@@ -1,0 +1,34 @@
+
+@media only screen and (max-width: 980px) {
+	
+	.navbar-collapse{
+		
+		z-index:	1000;
+		height:		100vh !important;
+	}
+
+
+	#header #topNav #topMain>li>a {
+		height: inherit !important;
+		line-height: 40px !important;
+		text-align: right;
+		padding-top: inherit !important;
+	}
+
+	#topMain li {
+    	text-align:	 right;
+	}
+
+	#topNav div.nav-main-collapse {
+    	position: absolute;
+    	top: 60px;
+    	right: 0%;
+
+	}
+
+	#topNav nav.nav-main{
+		
+	}
+
+}
+

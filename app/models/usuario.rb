@@ -10,7 +10,7 @@ class Usuario < ApplicationRecord
   has_many :publicacoes
   has_one :perfil
 
-  	def role?(r)
+  def role?(r)
 		role.include? r.to_s
 	end
 
@@ -38,6 +38,43 @@ class Usuario < ApplicationRecord
     !self.perfil.nil?
   end
 
+  def graduacaoGenero
+
+    if self.sexo == 'M'
+      
+      if self.graduacao == 'Instrutor(a)'
+        return 'Instrutor'
+      elsif self.graduacao == 'Professor(a)'
+        return 'Professor'
+      elsif self.graduacao == 'Formando(a)'
+        return 'Formando'
+      elsif self.graduacao == 'Formado(a)'
+        return 'Formado'
+      elsif self.graduacao == 'Mestre(a)'
+        return 'Mestre'
+      end
+
+    elsif self.sexo == 'F'
+      if self.graduacao == 'Instrutor(a)'
+        return 'Instrutora'
+      elsif self.graduacao == 'Professor(a)'
+        return 'Professora'
+      elsif self.graduacao == 'Formando(a)'
+        return 'Formanda'
+      elsif self.graduacao == 'Formado(a)'
+        return 'Formada'
+      elsif self.graduacao == 'Mestre(a)'
+        return 'Mestre'
+      end
+    else
+      return self.graduacao
+    end 
+ 
+  end
+
+  def apelidoCompleto
+    return graduacaoGenero << ' ' << self.apelido 
+  end
 
 	def active_for_authentication? 
     	super && approved? 
