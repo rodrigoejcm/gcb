@@ -73,7 +73,11 @@ class Usuario < ApplicationRecord
   end
 
   def apelidoCompleto
-    return graduacaoGenero << ' ' << self.apelido 
+    if graduacaoGenero.nil?
+      return self.graduacao << ' ' << self.apelido
+    else  
+      return graduacaoGenero << ' ' << self.apelido
+    end
   end
 
 	def active_for_authentication? 
