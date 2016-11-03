@@ -16,8 +16,6 @@ class UsuariosController < ApplicationController
         end
       end
     	
-
-    
 	end
 
   def bloquear_usuario
@@ -36,7 +34,7 @@ class UsuariosController < ApplicationController
   end
 
   def lista_usuarios
-    @usuarios = Usuario.where(approved: :true)
+    @usuarios = Usuario.where(approved: :true).order(:apelido)
   end
 
 

@@ -17,12 +17,21 @@ Rails.application.routes.draw do
   
   get '/perfil', to: 'perfis#show', as: 'perfil_usuario'
   get '/perfil_professor/:id', to: 'perfis#public_show', as: 'perfil_publico_usuario'
+  # PERFIL - FOTO PERFIL
   get '/perfil/incluir_foto' , to: 'perfis#incluir_foto' , as: 'perfil_nova_foto'
   get '/perfil/alterar_foto' , to: 'perfis#alterar_foto' , as: 'perfil_alterar_foto'
+  # PERFIL - FOTO CAPA
   get '/perfil/incluir_foto_capa' , to: 'perfis#incluir_foto_capa' , as: 'perfil_nova_foto_capa'
   get '/perfil/alterar_foto_capa' , to: 'perfis#alterar_foto_capa' , as: 'perfil_alterar_foto_capa'
+  # PERFIL - DESCRICAO
   get '/perfil/incluir_descricao' , to: 'perfis#incluir_descricao' , as: 'perfil_nova_descricao' 
-  get '/perfil/alterar_descricao' , to: 'perfis#alterar_descricao' , as: 'perfil_alterar_descricao' 
+  get '/perfil/alterar_descricao' , to: 'perfis#alterar_descricao' , as: 'perfil_alterar_descricao'
+  # PERFIL - DATAS
+  get '/perfil/incluir_datas' , to: 'perfis#incluir_datas' , as: 'perfil_novas_datas' 
+  get '/perfil/alterar_datas' , to: 'perfis#alterar_datas' , as: 'perfil_alterar_datas'
+  # PERFIL - CORDA
+  get '/perfil/incluir_corda' , to: 'perfis#incluir_corda' , as: 'perfil_nova_corda' 
+  get '/perfil/alterar_corda' , to: 'perfis#alterar_corda' , as: 'perfil_alterar_corda' 
 
   #put '/editar_perfil/:id', to: 'perfis#update', as: 'update_perfil'
   resources :perfis, only: [:update, :create]

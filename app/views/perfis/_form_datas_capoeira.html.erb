@@ -1,0 +1,48 @@
+<%= form_for(perfil) do |f| %>
+  <% if perfil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perfil.errors.count, "error") %> impediram o perfil de ser salvo:</h2>
+
+      <ul>
+      <% perfil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      <%= f.label :datacap,  "Data de início na capoeira:"%>
+      <br>
+      <div class="input-group date" id="datetimepicker-iniciocap">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+        <%= f.date_field :datacap, class: 'form-control' %>
+     </div>      
+    </div>
+
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      <%= f.label :datagcb,  "Data de ingresso no Grupo Capoeira Brasil:"%>
+      <br>
+      <div class="input-group date"">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+        <%= f.date_field :datagcb, class: 'form-control' %>
+       </div>      
+      </div>
+
+  </div>
+
+<br>
+  <div class="actions">
+    <%= f.submit 'Atualizar Perfil',  :class => 'btn btn-primary btn-md'%>
+  </div>
+
+  <br>
+<% end %>

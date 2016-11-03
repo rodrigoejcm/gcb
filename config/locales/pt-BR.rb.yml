@@ -40,6 +40,8 @@ pt-BR:
     - Sábado
     formats:
       default: "%d/%m/%Y"
+      mes_ano: "%m/%Y"
+      nome_mes_ano: "%B/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
       medium:  "%d %B %Y" 

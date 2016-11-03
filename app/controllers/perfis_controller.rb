@@ -2,7 +2,9 @@ class PerfisController < ApplicationController
 
   before_action :set_perfil, only: [  :show, :incluir_foto, :alterar_foto, 
                                       :incluir_descricao, :alterar_descricao, 
-                                      :incluir_foto_capa, :alterar_foto_capa, :update]
+                                      :incluir_foto_capa, :alterar_foto_capa, :update,
+                                      :incluir_datas, :alterar_datas,
+                                      :incluir_corda, :alterar_corda]
 
   before_action :set_perfil_by_id, only: [:public_show ]
 
@@ -32,6 +34,22 @@ class PerfisController < ApplicationController
   end
 
   def alterar_descricao
+    
+  end
+
+  def incluir_corda
+    
+  end
+
+  def alterar_corda
+    
+  end
+
+  def incluir_datas
+    
+  end
+
+  def alterar_datas
     
   end
 
@@ -92,7 +110,7 @@ class PerfisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perfil_params
-      params.require(:perfil).permit( :usuario_id, :imagemPerfil, :descricao, :imagemCapa ) # List here whitelisted params
+      params.require(:perfil).permit( :usuario_id, :imagemPerfil, :descricao, :imagemCapa, :datacap, :datagcb, :corda ) # List here whitelisted params
     end
 
 end

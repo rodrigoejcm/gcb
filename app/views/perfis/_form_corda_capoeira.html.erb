@@ -11,19 +11,22 @@
     </div>
   <% end %>
 
- <div class="row">
-    
-    <div class="col-md-10 col-sm-12 col-xm-12">
-      
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xm-12">
+      <%= f.label :corda,  "Corda na capoeira:"%>
+      <br>
       <div class="input-group">
-        <%= f.label :descricao , "Descrição do Perfil:"%>
-        <br>
-       <%= f.text_area :descricao, class: 'form-control', cols: '60', rows: '10'  %>
-      </div>
+      <%= f.select :corda, ['Azul', 'Verde', 'Roxa', 'Marrom', 'Preta' ], prompt: 'Informe a sua corda', class: 'form-control'%> 
+     </div>      
     </div>
+
 
   </div>
 
+<br>
   <div class="actions">
     <%= f.submit 'Atualizar Perfil',  :class => 'btn btn-primary btn-md'%>
   </div>

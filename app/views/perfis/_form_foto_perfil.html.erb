@@ -1,7 +1,7 @@
 <%= form_for(perfil) do |f| %>
   <% if perfil.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(perfil.errors.count, "error") %> prohibited this perfil from being saved:</h2>
+      <h2><%= pluralize(perfil.errors.count, "error") %>  impediram o perfil de ser salvo:</h2>
 
       <ul>
       <% perfil.errors.full_messages.each do |message| %>

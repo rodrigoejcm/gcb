@@ -6,8 +6,32 @@
 
 	<p class="alert alert-info" role="alert"> <%=current_usuario.apelido%>, você ainda nao possui um perfil. </p>
 
+	<%= link_to perfil_nova_foto_path , class: 'btn btn-primary btn-xs'  do %>
+		<i class="fa fa-camera"></i> Incluir Foto do Perfil
+	<% end %>
+
+	<%= link_to perfil_nova_foto_capa_path , class: 'btn btn-primary btn-xs'  do %>
+		<i class="fa fa-picture-o"></i> Incluir Foto de Capa
+	<% end %>
+
+	<%= link_to perfil_nova_descricao_path , class: 'btn btn-primary btn-xs'  do %>
+		<i class="fa fa-align-right"></i> Incluir Descrição do Perfil
+	<% end %>
+
 <%else%>
 
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+	  		<div class="infoPerfil">
+		    	<ul>
+		    		<li class="apelido"><%=@perfil.usuario.apelidoCompleto%></li>
+		    		<li class="nome"><%=@perfil.usuario.nome%> <%=@perfil.usuario.sobrenome%>  </li>
+
+		    	</ul>    
+			</div>
+		</div>
+	</div>
+	<br>
 	<div class="row">
 		<div class="col-md-2">
 	  		<div class="imagemPerfil">
@@ -17,93 +41,130 @@
 		         <%= image_tag("avatar2.jpg", height: '150')%>
 		      <% end %>  
 			</div>
+			<br>
+			<%if @perfil.possuiImagem?%>
+
+				<%= link_to perfil_alterar_foto_path, class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-camera"></i> Alterar Foto do Perfil
+				<% end %>
+				
+			<%else%>
+				
+				<%= link_to perfil_nova_foto_path , class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-camera"></i> Incluir Foto do Perfil
+				<% end %>
+
+			<% end %>
 		</div>
-		<div class="col-md-4">
-	  		<div class="infoPerfil">
-		    	<ul>
-		    		<li class="apelido"><%=@perfil.usuario.apelido%></li>
-		    		<li class="nome"><%=@perfil.usuario.nome%> <%=@perfil.usuario.sobrenome%>  </li>
-		    		<li class="graduacao"><%=@perfil.usuario.graduacao%></li>
-		    	</ul>    
-			</div>
+
+		<div class="col-md-9 col-md-offset-1">
+		
+	  		<div class="imagemCapa">
+				<div class="image" style="background-image: url('<%=@perfil.imagemCapa_url.to_s%>');"></div>
+	  		</div>
+	
+			<br>
+			<%if @perfil.possuiImagemCapa?%>
+
+				<%= link_to perfil_alterar_foto_capa_path, class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-picture-o"></i> Alterar Foto de Capa
+				<% end %>
+				
+			<%else%>
+				
+				<%= link_to perfil_nova_foto_capa_path , class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-picture-o"></i> Incluir Foto de Capa
+				<% end %>
+
+			<% end %>
 		</div>
+		
+
 	</div>
 
 	<br>	
 
-	<% if @perfil.possuiImagemCapa? %>
-
-		<div class="row">
-			<div class="col-md-12">
-		  		<div class="imagemCapa">
-					<div class="image" style="background-image: url('<%=@perfil.imagemCapa_url.to_s%>');"></div>
-		  		</div>
+	<div class="row">
+			<div class="col-md-6">
+				<div class="datas_capoiera">
+					<ul>
+						<li>
+							
+							Data de Início na Capoeira<br>
+							<i class="fa fa-calendar"></i> <%=@perfil.dataInicioCapoeira %>
+						</li>
+						<br>
+						<li>
+							Data de Início no Grupo Capoeira Brasil <br>
+						<i class="fa fa-calendar"></i> <%=@perfil.dataInicioGCB %>
+						</li>
+					</ul>
+				</div>
+			<br>
+			<%if @perfil.possuiDataGcb? || @perfil.possuiDataCap? %>
+				<%= link_to perfil_alterar_datas_path, class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-calendar-o"></i> Alterar Datas da Capoeira
+				<% end %>
+			<%else%>
+				<%= link_to  perfil_novas_datas_path , class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-calendar-o"></i> Incluir Datas da Capoeira
+				<% end %>
+			<% end %>
 			</div>
-		</div>
+</div>
+		
+	<br>
 
-	<% end %>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="corda" style="color: white; background-color: <%= @perfil.cordaCapoeira[1]%> !important;">
+				Corda <%= @perfil.cordaCapoeira[0] %>
+			</div>
+			<br>
+			<%if @perfil.possuiDataGcb? || @perfil.possuiDataCap? %>
+				<%= link_to perfil_alterar_corda_path, class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-calendar-o"></i> Alterar Corda
+				<% end %>
+			<%else%>
+				<%= link_to  perfil_novas_corda_path , class: 'btn btn-primary btn-xs'  do %>
+					<i class="fa fa-calendar-o"></i> Incluir Carda
+				<% end %>
+			<% end %>
+		</div>		
+	</div>
 
 	<br>
 
-	<% if @perfil.possuiDescricao? %>
-
-		<div class="row">
-			<div class="col-md-12">
-		  		<div class="descricaoPerfil">
+	<div class="row">
+		<div class="col-md-12">
+			<%if @perfil.possuiDescricao?%>
+				<div class="descricaoPerfil">
 					<%= @perfil.descricao%>
 		  		</div>
-			</div>
+				<br>
+				<%= link_to perfil_alterar_descricao_path, class: 'btn btn-primary btn-xs'  do %>
+				<i class="fa fa-align-right"></i> Alterar Descrição do Perfil
+				<% end %>
+			<%else%>
+				<div class="descricaoPerfil">
+					Você não possui um descrição para o seu perfil.
+		  		</div>
+		  		<br>
+				<%= link_to perfil_nova_descricao_path , class: 'btn btn-primary btn-xs'  do %>
+				<i class="fa fa-align-right"></i> Incluir Descrição do Perfil
+				<% end %>
+			<% end %>
 		</div>
-
-	<% end %>
-
-
+	</div>
 <% end %>
 
 <br>
 
-<%if @perfil.possuiImagem?%>
-
-	<%= link_to perfil_alterar_foto_path, class: 'btn btn-primary btn-md'  do %>
-		<i class="fa fa-camera"></i> Alterar Foto do Perfil
-	<% end %>
-	
-<%else%>
-	
-	<%= link_to perfil_nova_foto_path , class: 'btn btn-primary btn-md'  do %>
-		<i class="fa fa-camera"></i> Incluir Foto do Perfil
-	<% end %>
-
-<% end %>
-
-<%if @perfil.possuiImagemCapa?%>
-
-	<%= link_to perfil_alterar_foto_capa_path, class: 'btn btn-primary btn-md'  do %>
-		<i class="fa fa-picture-o"></i> Alterar Foto de Capa
-	<% end %>
-	
-<%else%>
-	
-	<%= link_to perfil_nova_foto_capa_path , class: 'btn btn-primary btn-md'  do %>
-		<i class="fa fa-picture-o"></i> Incluir Foto de Capa
-	<% end %>
-
-<% end %>
 
 
-<%if @perfil.possuiDescricao?%>
 
-	<%= link_to perfil_alterar_descricao_path, class: 'btn btn-primary btn-md'  do %>
-		<i class="fa fa-align-right"></i> Alterar Descrição do Perfil
-	<% end %>
-	
-<%else%>
-	
-	<%= link_to perfil_nova_descricao_path , class: 'btn btn-primary btn-sm'  do %>
-		<i class="fa fa-align-right"></i> Incluir Descrição do Perfil
-	<% end %>
 
-<% end %>
+
 
 <%if current_usuario.possuiPerfil?%>
 

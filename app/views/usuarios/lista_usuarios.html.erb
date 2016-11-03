@@ -22,18 +22,41 @@
           <% end %>    
         </td>
         <td>
-          <%= usuario.graduacao %> <%= usuario.apelido %>
+          <%= usuario.apelidoCompleto %>
           <br> 
           Corda: 
+          <% if usuario.possuiPerfil?%>
+            <span style="border-bottom: 2px solid <%= usuario.perfil.cordaCapoeira[1] %>; "> 
+            <%= usuario.perfil.cordaCapoeira[0] %>
+            </span>
+          <% else %>
+              Usuário ainda não criou um perfil
+          <% end %>
           <br> 
           <span class="nomeprofessor"> Professor: <%= usuario.nome_professor %> </span>
         </td>
         <td>
-          <span class="participacao-inicio"> Iniciou na capoeira: dd/mm/aaaa </span>
+          <span class="participacao-inicio"> 
+            <b> Iniciou na capoeira </b> <br> 
+            <% if usuario.possuiPerfil?%>
+              <i class="fa fa-calendar-o"></i> <%= usuario.perfil.dataInicioCapoeira %> 
+            <% else %>
+              <i class="fa fa-calendar-o"></i> Usuário ainda não criou um perfil
+            <% end %>  
+
+          </span>
           <br>
-          <span class="participacao-gcb"> Iniciou no GCB: dd/mm/aaaa </span>
           <br>
-          <span class="participacao-membro"> Membro do site: <%= l usuario.created_at, format: :mes_ano %></span>
+          <span class="participacao-gcb"> 
+            <b>Iniciou no GCB</b>   <br>
+            <% if usuario.possuiPerfil?%>
+              <i class="fa fa-calendar-o"></i> <%= usuario.perfil.dataInicioGCB %> 
+            <% else %>
+              <i class="fa fa-calendar-o"></i> Usuário ainda não criou um perfil
+            <% end %>  
+          </span>
+          <br>
+<!--           <span class="participacao-membro"> Membro do site: <%= l usuario.created_at, format: :mes_ano %></span> -->
         </td>
 
 	   </tr>
