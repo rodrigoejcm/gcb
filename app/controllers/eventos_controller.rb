@@ -1,20 +1,81 @@
 class EventosController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :public_proximos_eventos
+  before_action :defineLocalizacaoNova, only: [:new, :create]
   before_action :set_evento, only: [:show, :edit, :update, :destroy, :public_evento]
   before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos, :public_evento]
 
   
   def public_proximos_eventos
+    inicializaFiltros
     @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
   end
+
+
+  #---filtros
+
+  def public_proximos_eventos_local
+    if params[:p] || params[:ep] || params[:c]
+      inicializaFiltros
+      @eventos =  Evento.where(aprovado: "APROVADO")
+                        .where('data_hora_inicio > ?', DateTime.now)
+                        .where(pais: params[:p])
+                        .where(estadoprovincia: params[:ep])
+                        .where(cidade: params[:c])
+                        .order(data_hora_inicio: :asc)
+                        .paginate(:page => params[:page], :per_page => 5)
+      render 'public_proximos_eventos'
+    else
+      redirect_to proximos_eventos_path
+    end
+  end
+
+  def public_proximos_eventos_sem_local
+    #rREFATORAR - PODE SER USADO NO METODO ANTERIOR NO ELSE
+    inicializaFiltros
+    @eventos =  Evento.where(aprovado: "APROVADO")
+                      .where('data_hora_inicio > ?', DateTime.now)
+                      .where(pais: "")
+                      .where(estadoprovincia: "" )
+                      .where(cidade: "")
+                      .order(data_hora_inicio: :asc)
+                      .paginate(:page => params[:page], :per_page => 5)
+    render 'public_proximos_eventos'
+
+  end
+
+  def public_proximos_eventos_data
+
+    inicializaFiltros
+    @eventos =  Evento.where(aprovado: "APROVADO")
+                      .where('data_hora_inicio > ?', DateTime.now)
+                      .where('extract(year  from data_hora_inicio) = ?', params[:a])
+                      .where('extract(month  from data_hora_inicio) = ?', params[:m])
+                      .order(data_hora_inicio: :asc)
+                      .paginate(:page => params[:page], :per_page => 5)
+    render 'public_proximos_eventos'
+  
+  end
+
+  def public_proximos_eventos_usuario
+
+    inicializaFiltros
+    @eventos =  Evento.where(aprovado: "APROVADO")
+                      .where('data_hora_inicio > ?', DateTime.now)
+                      .where(usuario: params[:idusuario])
+                      .order(data_hora_inicio: :asc)
+                      .paginate(:page => params[:page], :per_page => 5)
+    render 'public_proximos_eventos'
+  
+  end
+
+  #---FIM 
+
 
   def public_evento
     #setado pelo before action
   end
 
-  # GET /eventos
-  # GET /eventos.json
   def index
     #mostra os eventos em que o usuario tem permissao para dar update 
     @eventos = Evento.where(usuario: current_usuario).accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
@@ -35,6 +96,9 @@ class EventosController < ApplicationController
   def new
     if podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['pode']
       @evento = Evento.new
+      
+      
+
     else
       redirect_to eventos_path, notice: podeCadastrarNovoEventoOuExcluirOuEditar['cadastrar']['justificativa'].to_s 
     end
@@ -42,6 +106,7 @@ class EventosController < ApplicationController
 
   # GET /eventos/1/edit
   def edit
+    defineLocalizacaoExistente(@evento.pais,@evento.estadoprovincia )
   end
 
   # POST /eventos
@@ -67,8 +132,6 @@ class EventosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /eventos/1
-  # PATCH/PUT /eventos/1.json
   def update
     if podeCadastrarNovoEventoOuExcluirOuEditar['editar']['pode']
       respond_to do |format|
@@ -162,6 +225,76 @@ class EventosController < ApplicationController
   end
   # -- para mostrar o resultado na view -- helper_method :podeCadastrarNovoEvento?
   helper_method :podeCadastrarNovoEventoOuExcluirOuEditar
+
+  def defineLocalizacaoNova
+      @paises_temp= CS.countries
+      @paises_temp.delete("BR")
+      @paises_temp[:BR] = "Brasil"
+      @paises = @paises_temp.sort.map {|k,v| [v,k]}
+      @estados =  Hash.new
+      @cidades =  Hash.new
+  end
+
+  def defineLocalizacaoExistente(pais,estadoprovincia)
+
+      
+      @paises_temp = CS.countries
+      @paises_temp.delete("BR")
+      @paises_temp[:BR] = "Brasil"
+      @paises = @paises_temp.sort.map {|k,v| [v,k]}
+     
+
+
+      @estados_temp =  CS.states(pais).sort.map {|k,v| [v,k]}
+      @estados = @estados_temp
+      @cidades =  CS.cities(estadoprovincia,pais)
+
+      
+  end
+
+  def inicializaFiltros
+      
+      @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
+      @datas = Array.new 
+      @professores= Array.new 
+      @locais = Array.new 
+      
+      for evento in @eventos
+
+        data = [(l evento.data_hora_inicio, format: :mes_ano),evento.data_hora_inicio.year,evento.data_hora_inicio.month ]
+        professor = [ evento.usuario.apelidoCompleto, evento.usuario ]
+        if (evento.cidade.empty? || evento.estadoprovincia.empty? || evento.pais.empty?)
+          local = ['Outros']
+        else
+          local = [evento.cidade+' ('+evento.estadoprovincia+') / '+evento.pais, evento.pais, evento.estadoprovincia, evento.cidade]
+        end
+
+        @datas.push(data)
+        @professores.push(professor)
+        @locais.push(local)
+
+      end
+
+
+
+      @resultDatas = @datas.inject(Hash.new(0)) { |hash,element|
+        hash[element] +=1
+        hash
+      }
+
+      @resultProfs = @professores.inject(Hash.new(0)) { |hash,element|
+        hash[element] +=1
+        hash
+      }
+
+      @resultLocais = @locais.inject(Hash.new(0)) { |hash,element|
+        hash[element] +=1
+        hash
+      }
+
+ 
+
+  end
   
 
 
@@ -176,7 +309,8 @@ class EventosController < ApplicationController
       params.require(:evento).permit( :titulo, :descricao, :local, 
                                       :data_hora_inicio, :data_hora_inicio_time,:data_hora_inicio_date,
                                       :data_hora_fim, :data_hora_fim_time, :data_hora_fim_date, 
-                                      :aprovado, :usuario, :image, :image_cache, :bootsy_image_gallery_id) # List here whitelisted params
+                                      :aprovado, :usuario, :image, :image_cache, :bootsy_image_gallery_id,
+                                      :cidade, :pais, :estadoprovincia, :p, :ep, :c, :idusuario) # List here whitelisted params
 
     end
 end

@@ -23,6 +23,10 @@
         </td>
         <td>
           <%= usuario.apelidoCompleto %>
+          <% if usuario.admin? || usuario.mestre? %>
+            <br>
+            <i class="fa fa-user"></i> Administrador
+          <% end %>
           <br> 
           Corda: 
           <% if usuario.possuiPerfil?%>

@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
 end
 
 group :development do
@@ -49,6 +50,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
   gem 'capistrano-figaro-yml', '~> 1.0.2'
+  gem 'annotate'
 
 end
 
@@ -87,4 +89,6 @@ gem 'elastic-beanstalk'
 #gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
 gem "time_splitter" , '>= 1.1.0'
 gem 'bootsy'
+#gem 'country_state_select'
+gem 'city-state', '~> 0.0.13'
 #gem "jquery-fileupload-rails"

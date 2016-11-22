@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: publicacoes
+#
+#  id               :integer          not null, primary key
+#  titulo           :string
+#  texto_publicacao :text
+#  usuario_id       :integer
+#  image            :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  aprovado         :string           default("INDEFINIDO")
+#  categoria_id     :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

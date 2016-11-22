@@ -125,15 +125,19 @@ textarea {
 }
 
 select {
-	border: 2px solid #E5E7E9;
-	height: 46px;
-	padding: 12px;
+	border: 1px solid #ccc;
+	color:#555555;
+	background-color: white;
+	padding: 6px;
 	outline: none;
 	line-height:1 !important;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 
-	-webkit-border-radius: 3px;
-	   -moz-border-radius: 3px;
-			border-radius: 3px;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+			border-radius: 2px;
+	border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 label {

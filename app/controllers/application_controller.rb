@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
   		if 
 		(controller_name == 'eventos' && action_name == 'public_evento') ||
 		(controller_name == 'eventos' && action_name == 'public_proximos_eventos') ||
+		(controller_name == 'eventos' && action_name == 'public_proximos_eventos_sem_local') ||
+		(controller_name == 'eventos' && action_name == 'public_proximos_eventos_local') ||
+		(controller_name == 'eventos' && action_name == 'public_proximos_eventos_usuario') ||
+		(controller_name == 'eventos' && action_name == 'public_proximos_eventos_data') ||
 		(controller_name == 'publicacoes' && action_name == 'public_publicacao') ||
 		(controller_name == 'publicacoes' && action_name == 'public_publicacoes') ||
 		controller_name == 'home' ||

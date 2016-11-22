@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: perfis
+#
+#  id           :integer          not null, primary key
+#  imagemPerfil :string
+#  usuario_id   :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  descricao    :text
+#  imagemCapa   :string
+#  datacap      :date
+#  datagcb      :date
+#  corda        :string
+#
+
 class Perfil < ApplicationRecord
   belongs_to :usuario
   mount_uploader :imagemPerfil, PerfilImagesUploader

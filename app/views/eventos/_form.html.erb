@@ -35,13 +35,62 @@
     </div>
   </div>
 
-   <div class="row">
-    <div class="col-md-10 col-sm-12 col-xm-12">
+   
+
+    <div class="row">
+    <div class="col-md-6 col-sm-12 col-xm-12">
+      <%= f.label :pais , "País:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+      
+        <%= f.select :pais, options_for_select(@paises,@evento.pais),  prompt: "Escolha um país"%>
+        
+        
+        
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :estadoprovincia , "Estado/Província:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+         <%= f.select   :estadoprovincia,
+                        options_for_select(@estados,@evento.estadoprovincia ),
+
+                        prompt: "-------------",
+                        class: 'form-control' 
+                        %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      <%= f.label :cidade , "Cidade:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+        <%= f.select      :cidade,
+                          options_for_select(@cidades,@evento.cidade),
+                          prompt: "-------------",
+                          class: 'form-control'
+                          %>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-sm-12 col-xm-12">
       <%= f.label :local , "Local do Evento:"%>
       <br>
       <div class="input-group">
         <div class="input-group-addon">
-          <i class="fa fa-home" aria-hidden="true"></i>    
+          <i class="fa fa-map-marker" aria-hidden="true"></i>    
         </div>
         <%= f.text_field :local, class: 'form-control', placeholder: 'Local do Evento'%>
       </div>

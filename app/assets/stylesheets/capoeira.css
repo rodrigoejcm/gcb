@@ -1010,3 +1010,9 @@ i.ico-hover:hover {
 	background-position: center center;
     background-size: cover;  
 }
+
+.fb-share-button{
+	position: absolute !important;
+	bottom:0%;
+	left:70%;
+}

@@ -17,6 +17,7 @@
 //= require bootsy
 //= require google_analytics
 
+
 //= require_tree .
 
 //turbolinks (ativar quando o bootsy suportar trubolink)

@@ -1,0 +1,62 @@
+<div class="side-nav-head">
+	<h4>DATAS</h4>
+</div>
+<ul class="list-group list-group-bordered list-group-noicon ">
+
+	<% datas.each do |key, value| %>
+
+			<li class="list-group-item">
+				<%=	link_to( publico_evento_data_path(:a => key[1], :m => key[2])) do %>		
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+
+	<% end %>
+</ul>
+
+<div class="side-nav-head">
+	<h4>LOCAIS</h4>
+</div>
+<ul class="list-group list-group-bordered list-group-noicon">
+
+	<% locais.each do |key, value| %>
+		<% if key[0] == "Outros" %>
+			<li class="list-group-item">
+				<%=	link_to( publico_evento_sem_local_path) do %>	
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+		<%else%> 
+			<li class="list-group-item">
+				<%=	link_to( publico_evento_local_path( :p => key[1], :ep => key[2], :c => key[3] )) do %>	
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
+
+
+<div class="side-nav-head">
+	<h4>PROFESSORES</h4>
+</div>
+<ul class="list-group list-group-bordered list-group-noicon ">
+
+	<% professores.each do |key, value| %>
+
+			<li class="list-group-item">
+				<%=	link_to( publico_evento_usuario_path(:idusuario => key[1].id )) do %>	
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+
+	<% end %>
+</ul>
+
+
+
+<!-- /side navigation -->
