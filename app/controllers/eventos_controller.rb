@@ -263,7 +263,7 @@ class EventosController < ApplicationController
 
         data = [(l evento.data_hora_inicio, format: :mes_ano),evento.data_hora_inicio.year,evento.data_hora_inicio.month ]
         professor = [ evento.usuario.apelidoCompleto, evento.usuario ]
-        if (evento.cidade.empty? || evento.estadoprovincia.empty? || evento.pais.empty?)
+        if (evento.cidade.blank? || evento.estadoprovincia.blank? || evento.pais.blank?)
           local = ['Outros']
         else
           local = [evento.cidade+' ('+evento.estadoprovincia+') / '+evento.pais, evento.pais, evento.estadoprovincia, evento.cidade]
