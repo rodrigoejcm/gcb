@@ -1,9 +1,23 @@
 class EventosController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource :only => :public_proximos_eventos
+  #cancancan
+  skip_authorize_resource :only => [  :public_proximos_eventos,
+                                      :public_proximos_eventos_local,
+                                      :public_proximos_eventos_sem_local,
+                                      :public_proximos_eventos_data,
+                                      :public_proximos_eventos_usuario ]
+  
   before_action :defineLocalizacaoNova, only: [:new, :create]
   before_action :set_evento, only: [:show, :edit, :update, :destroy, :public_evento]
-  before_action :authenticate_usuario!, :except => [:show, :public_proximos_eventos, :public_evento]
+  #device
+  before_action :authenticate_usuario!, :except => [  :show, 
+                                                      :public_proximos_eventos, 
+                                                      :public_evento,
+                                                      :public_proximos_eventos_local,
+                                                      :public_proximos_eventos_sem_local,
+                                                      :public_proximos_eventos_data,
+                                                      :public_proximos_eventos_usuario
+                                                    ]
 
   
   def public_proximos_eventos
