@@ -49,9 +49,11 @@ class EventosController < ApplicationController
     inicializaFiltros
     @eventos =  Evento.where(aprovado: "APROVADO")
                       .where('data_hora_inicio > ?', DateTime.now)
-                      .where(pais: "")
-                      .where(estadoprovincia: "" )
-                      .where(cidade: "")
+                      .where(
+                              "(pais is NULL or pais = '') or " + 
+                              "(estadoprovincia is NULL or estadoprovincia = '') or " +
+                              "(cidade is NULL or cidade = '')"
+                            )
                       .order(data_hora_inicio: :asc)
                       .paginate(:page => params[:page], :per_page => 5)
     render 'public_proximos_eventos'
@@ -277,6 +279,8 @@ class EventosController < ApplicationController
 
         data = [(l evento.data_hora_inicio, format: :mes_ano),evento.data_hora_inicio.year,evento.data_hora_inicio.month ]
         professor = [ evento.usuario.apelidoCompleto, evento.usuario ]
+        
+
         if (evento.cidade.blank? || evento.estadoprovincia.blank? || evento.pais.blank?)
           local = ['Outros']
         else
@@ -288,6 +292,7 @@ class EventosController < ApplicationController
         @locais.push(local)
 
       end
+
 
 
 
