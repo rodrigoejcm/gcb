@@ -11,7 +11,7 @@
 					<!-- POST ITEM -->
 					<div class="blog-post-item col-md-12 col-sm-12">
 
-						<h2><a href="blog-single-default.html"><%= @publicacao.titulo%></a></h2>
+						<h2><%= @publicacao.titulo%></h2>
 
 						<!-- IMAGE -->
 						<figure class="margin-bottom-20 imagem-publicacoes" style="background-image: url('<%=@publicacao.image_url.to_s%>');">
@@ -22,23 +22,23 @@
 
 						<ul class="blog-post-info list-inline">
 							<li>
-								<a href="#">
+								
 									<i class="fa fa-clock-o"></i> 
 									<span class="font-lato"><%=l @publicacao.created_at, format: :long %></span>
-								</a>
+								
 							</li>
 							<li>
 								<i class="fa fa-folder-open-o"></i> 
 
-								<a class="category" href="#">
+								<%= link_to( todas_publicacoes_categoria_path( :nomeCategoria =>   @publicacao.categoria.nomeCategoria )) do %>
 									<span class="font-lato"><%= @publicacao.categoria.nomeCategoria%></span>
-								</a>
+								<% end %>
 							</li>
 							<li>
-								<a href="#">
+								
 									<i class="fa fa-user"></i> 
 									<span class="font-lato"><%= @publicacao.usuario.apelidoCompleto%></span>
-								</a>
+								
 							</li>
 							<li>
 								<div 	class="fb-share-button" 

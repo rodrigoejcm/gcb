@@ -35,5 +35,16 @@ class RegistrationsController < DeviseController
   end
 
 
+
+
+
+
+
+
+
+
+
+
+
 end
 

@@ -7,7 +7,11 @@
 				<div class="row">
 					
 					<div class="col-md-9">
-						<h3>Próximos Eventos /<span class="size-18">GCB</span></h3>
+						<h3>Próximos Eventos / </span>
+						<%if @texto_filtro %>
+						<span class="size-16"> <%= @texto_filtro %> </span>
+						<% end %>	
+						</h3>
 
 						 <% @eventos.each do |evento| %>
 							<div class="row">

@@ -1,6 +1,7 @@
 class EventosController < ApplicationController
   load_and_authorize_resource
-  #cancancan
+  
+  #CANCANCAN#
   skip_authorize_resource :only => [  :public_proximos_eventos,
                                       :public_proximos_eventos_local,
                                       :public_proximos_eventos_sem_local,
@@ -9,7 +10,8 @@ class EventosController < ApplicationController
   
   before_action :defineLocalizacaoNova, only: [:new, :create]
   before_action :set_evento, only: [:show, :edit, :update, :destroy, :public_evento]
-  #device
+  
+  #DEVISE#
   before_action :authenticate_usuario!, :except => [  :show, 
                                                       :public_proximos_eventos, 
                                                       :public_evento,
@@ -18,10 +20,17 @@ class EventosController < ApplicationController
                                                       :public_proximos_eventos_data,
                                                       :public_proximos_eventos_usuario
                                                     ]
+  before_action :inicializaFiltros, only: [
+                                            :public_proximos_eventos_local,
+                                            :public_proximos_eventos,
+                                            :public_proximos_eventos_sem_local, 
+                                            :public_proximos_eventos_data, 
+                                            :public_evento,
+                                            :public_proximos_eventos_usuario
+                                          ]
 
   
   def public_proximos_eventos
-    inicializaFiltros
     @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
   end
 
@@ -30,7 +39,7 @@ class EventosController < ApplicationController
 
   def public_proximos_eventos_local
     if params[:p] || params[:ep] || params[:c]
-      inicializaFiltros
+      @texto_filtro = params[:c] + " (" + params[:ep] + ") - " + params[:p]
       @eventos =  Evento.where(aprovado: "APROVADO")
                         .where('data_hora_inicio > ?', DateTime.now)
                         .where(pais: params[:p])
@@ -38,6 +47,7 @@ class EventosController < ApplicationController
                         .where(cidade: params[:c])
                         .order(data_hora_inicio: :asc)
                         .paginate(:page => params[:page], :per_page => 5)
+     
       render 'public_proximos_eventos'
     else
       redirect_to proximos_eventos_path
@@ -46,7 +56,7 @@ class EventosController < ApplicationController
 
   def public_proximos_eventos_sem_local
     #rREFATORAR - PODE SER USADO NO METODO ANTERIOR NO ELSE
-    inicializaFiltros
+    @texto_filtro = "Outros Locais"
     @eventos =  Evento.where(aprovado: "APROVADO")
                       .where('data_hora_inicio > ?', DateTime.now)
                       .where(
@@ -57,12 +67,10 @@ class EventosController < ApplicationController
                       .order(data_hora_inicio: :asc)
                       .paginate(:page => params[:page], :per_page => 5)
     render 'public_proximos_eventos'
-
   end
 
   def public_proximos_eventos_data
-
-    inicializaFiltros
+    @texto_filtro = params[:m]+"/"+params[:a]
     @eventos =  Evento.where(aprovado: "APROVADO")
                       .where('data_hora_inicio > ?', DateTime.now)
                       .where('extract(year  from data_hora_inicio) = ?', params[:a])
@@ -70,19 +78,16 @@ class EventosController < ApplicationController
                       .order(data_hora_inicio: :asc)
                       .paginate(:page => params[:page], :per_page => 5)
     render 'public_proximos_eventos'
-  
   end
 
   def public_proximos_eventos_usuario
-
-    inicializaFiltros
+    @texto_filtro = (Usuario.find_by id: params[:idusuario]).apelidoCompleto
     @eventos =  Evento.where(aprovado: "APROVADO")
                       .where('data_hora_inicio > ?', DateTime.now)
                       .where(usuario: params[:idusuario])
                       .order(data_hora_inicio: :asc)
                       .paginate(:page => params[:page], :per_page => 5)
     render 'public_proximos_eventos'
-  
   end
 
   #---FIM 

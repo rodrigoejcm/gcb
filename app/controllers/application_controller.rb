@@ -57,11 +57,24 @@ class ApplicationController < ActionController::Base
   			return false
   		end
   	end	
-	
+
+	def listaProfessores
+		#REFATORAR - REMOVER DAQUI e INCLUIR NO REGISTRATION CONTROLLER DO DEVISE
+
+		professores = Hash.new
+
+		Usuario.where(approved: true).where.not(role: "Admin").each do |prof|
+			professores[prof.id] = prof.apelidoCompleto
+		end
+
+		return professores
+
+	end
+
 
   	##### HELPER METHODS
 	
-	helper_method :exibe_sidebar_usuario?,:pagina_perfil_publica?
+	helper_method :exibe_sidebar_usuario?,:pagina_perfil_publica?,:listaProfessores
 
 	##### END HELPER METHODS
 

@@ -65,6 +65,8 @@
                       <div class="col col-md-6">
                         <div class="field">
                           <label class="input">
+
+
                             <%= f.select :graduacao, ['Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
                           </label>      
                         </div>   
@@ -72,7 +74,11 @@
                       <div class="col col-md-6">
                         <div class="field">
                           <label class="input">
-                            <%= f.select :nome_professor, ['Paulinho Sabiá']  %> 
+                            <%= f.select :nome_professor, 
+                                        listaProfessores.sort.map{|k,v| [v,k]}.sort_by{|k,v| k},
+                                        prompt: "Escolha o seu professor"   %> 
+
+                            
                           </label>      
                         </div>
                       </div>

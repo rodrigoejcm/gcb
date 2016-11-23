@@ -25,25 +25,25 @@
 
 							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
 								<li>
-									<a href="#">
+									
 										<i class="fa fa-user"></i> 
 										<span class="font-lato"><%= publicacao.usuario.apelidoCompleto %></span>
-									</a>
+								
 								</li>
 								<li>
 									<i class="fa fa-folder-open-o"></i> 
-									<a class="category" href="#">
+									<%= link_to( todas_publicacoes_categoria_path( :nomeCategoria => publicacao.categoria.nomeCategoria )) do %>
 										<span class="font-lato"><%=publicacao.categoria.nomeCategoria%></span>
-									</a>
+									<% end %>
 								</li>
                                 <li>
-                                    <a href="#">
+                                   
                                         <i class="fa fa-clock-o"></i> 
                                         <span class="font-lato">
                                         <%=l publicacao.created_at, format: :short %>
 											
                                         </span>
-                                    </a>
+                                  
                                 </li>
 							</ul>
 

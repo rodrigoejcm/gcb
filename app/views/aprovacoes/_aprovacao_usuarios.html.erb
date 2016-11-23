@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% usuarios.where(approved: false).each do |usuario| %>
+    <% usuarios.where(approved: false).where("confirmed_at is not null ").each do |usuario| %>
       <tr>
         <td><%= usuario.apelido %></td>
         <td><%= usuario.nome%> <%= usuario.sobrenome %></td>
