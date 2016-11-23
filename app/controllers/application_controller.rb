@@ -68,9 +68,7 @@ class ApplicationController < ActionController::Base
 			   .where("confirmed_at is not null ").each do |prof|
 			professores[prof.apelido] = prof.apelidoCompleto
 		end
-
 		return professores
-
 	end
 
 
