@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
 		Usuario.where(approved: true)
 			   .where.not(role: "Admin")
 			   .where("confirmed_at is not null ").each do |prof|
-			professores[prof.id] = prof.apelidoCompleto
+			professores[prof.apelido] = prof.apelidoCompleto
 		end
 
 		return professores
