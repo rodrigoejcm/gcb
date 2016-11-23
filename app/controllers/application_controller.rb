@@ -67,6 +67,8 @@ class ApplicationController < ActionController::Base
 			professores[prof.apelido] = prof.apelidoCompleto
 		end
 
+		puts professores
+
 		return professores
 	end
 
