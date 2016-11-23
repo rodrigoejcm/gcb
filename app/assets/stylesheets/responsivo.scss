@@ -1,0 +1,22 @@
+@media only screen 
+  and (max-device-width: 414px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+  /* HOME */
+  .col-publicacoes-home {
+
+    h3{
+      font-size: 45px;
+
+      span{
+        display: block;
+      }
+
+    }
+
+  }
+
+
+
+}

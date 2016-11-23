@@ -2,17 +2,21 @@
 
 		<div class="row">
 			<!-- DIV Publicacoes -->
-			<p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <div class="col-md-8 col-xs-12">
 
+            <div class="col-md-8 col-xs-12 col-publicacoes-home">
+            <br>
 				<h3>Publicações Recentes /<span class="size-18">Notícias, Músicas, Técnicas</span></h3>
+				<br>
 				<% @ultimas_publicacoes.each do |publicacao| %>
+                
                 <!-- news item -->
 				<div class="inews-item">
+                    
+
                     <div class="cartaz" style="background-image: url('<%=publicacao.image_url.to_s%>');">
                     	
 					</div>
+					
 					
 					<div class="publicacao-item-content">
 						<div class="inews-content-inner div-news">
@@ -51,8 +55,13 @@
 								<%=strip_tags(publicacao.texto_publicacao).truncate(200) %></p>
 						</div>
 					</div>
+					
 				</div>
+				
 				<%end%>
+				
+				
+
 				<!-- /news item -->
                 
                 
@@ -68,10 +77,10 @@
             <!-- DIV Publicacoes -->
             
             <!-- DIV Eventos -->
-            <div class="col-md-4 col-xs-12">
-
+            <div class="col-md-4 col-xs-12 col-eventos-home">
+            <br>
 				<h3>Próximos Eventos /<span class="size-18">GCB</span></h3>
-
+				<br>
 				 <% @ultimos_eventos.each do |evento| %>
 					<div class="event-item">
 						<div class="event-date-wrapper">
