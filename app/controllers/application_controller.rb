@@ -63,11 +63,10 @@ class ApplicationController < ActionController::Base
 
 		professores = Hash.new
 
-		Usuario.where(approved: true)
-			   .where.not(role: "Admin")
-			   .where("confirmed_at is not null ").each do |prof|
+		Usuario.where(approved: true).where.not(role: "Admin").where("confirmed_at is not null ").each do |prof|
 			professores[prof.apelido] = prof.apelidoCompleto
 		end
+
 		return professores
 	end
 
