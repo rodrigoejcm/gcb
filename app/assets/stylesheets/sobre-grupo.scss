@@ -1,0 +1,86 @@
+.sobre-grupo{
+	
+	background-color: #369BE1;
+	width: 100vw;
+
+	.fundo-sobre{
+		height: 400px;
+		width: 100vw;
+		background-image: image-url("fundo_sobre_grupo.jpg");
+	}
+
+	.texto-sobre{
+
+
+		margin-top: -60px;
+		
+		.box{
+
+		-webkit-box-shadow: 15px 20px 46px -29px rgba(0,0,0,0.75);
+		-moz-box-shadow: 15px 20px 46px -29px rgba(0,0,0,0.75);
+		box-shadow: 15px 20px 46px -29px rgba(0,0,0,0.75);
+			
+			background-color: white;
+			
+			.box-texto{
+				padding:35px 55px;
+				font-family: 'open sans', sans-serif;
+				line-height: 1.8;
+			    letter-spacing: 2px;
+			    font-size: 17px;
+			    
+			    span{
+			    	color: #369BE1;
+			    	text-transform: uppercase;
+			    	font-variant: small-caps;
+			    	font-weight: bolder;
+			    	letter-spacing: 1px;
+			    	font-size: 15px;
+
+
+			    }
+
+			}	
+
+			.box-imagem{
+				background-image: image-url("fundo_sobre_capoeira.jpg");
+				height: 150px;
+			}	
+		}
+		
+	}
+
+	.texto-grupo{
+			.box-capoeira{
+			
+			padding:35px 55px;
+
+			h2{
+				text-transform: uppercase;
+				color:white;
+				font-size: 21px;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.box-capoeira-texto{
+				
+				color: white;
+				font-family: 'open sans', sans-serif;
+				line-height: 1.8;
+			    letter-spacing: 2px;
+			    font-size: 17px;
+			    
+			    
+
+			}	
+
+			.box-imagem{
+				background-image: image-url("fundo_sobre_capoeira.jpg");
+				height: 150px;
+			}	
+		}
+	}
+
+
+}

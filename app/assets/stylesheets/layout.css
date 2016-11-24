@@ -49,6 +49,9 @@
 
 /** Globals
  **************************************************************** **/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Raleway:300,400');
+
 html, body {
 	height:100%;
 }
@@ -4871,6 +4874,7 @@ section#slider {
 	margin:0;
 	box-shadow:none;
 	background-color:#151515;
+	background-position: center -33px;
 	overflow:hidden !important;
 	border-bottom:0;
 	z-index:0;
