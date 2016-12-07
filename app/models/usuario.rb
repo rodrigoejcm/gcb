@@ -35,6 +35,8 @@ class Usuario < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  validates :termo, acceptance: true
+
   before_create :set_default_role
   
   has_many :eventos

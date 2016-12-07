@@ -58,7 +58,7 @@
                       <div class="col col-md-5">
                         <div class="field">
                           <label class="input">
-                            <%= f.select :sexo, [['Masculino', 'M'], ['Feminino', 'F']] , prompt: "Sexo"%>
+<%= f.select(:sexo, [['Masculino', 'M'], ['Feminino', 'F']] , prompt: "Sexo", :class => "form-control") %>
                           </label>
                         </div>
                       </div>
@@ -132,9 +132,61 @@
                  
 
                     <div class="margin-top-20">
-                        <label class="checkbox nomargin"><input class="checked-agree" type="checkbox" name="checkbox"><i></i>Concordo com os termos de serviço.</label>
-                        <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>Gostaria de receber novidade do Grupo Capoeira Brasil.</label>
+                        <label class="checkbox nomargin termo">
+                         <%= f.check_box :termo , class: 'checked-agree ' %>
+                          <i></i><a href="#termo-modal" class="popup-modal">Concordo com os termos de serviço.</a>
+                        </label>
+                        <!-- <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>Gostaria de receber novidade do Grupo Capoeira Brasil.</label> -->
                       </div>
+
+                      <div id="termo-modal" class="white-popup-block mfp-hide">
+                        <h1>Termos de Serviço</h1>
+                        <p><a class="popup-modal-dismiss" href="#">Fechar</a></p>
+                        <p>Bem-vindo!
+
+Ficamos muito felizes por você ter decidido usar o Snapchat e nossos outros produtos e serviços, que chamaremos simplesmente de “Serviços” abaixo.
+
+Elaboramos estes Termos de Serviço (que chamaremos de “Termos”) para informar você sobre as regras que regem o nosso relacionamento. Embora tenhamos empenhado todo esforço possível para eliminar o "juridiquês" dos nossos Termos, há algumas partes que ainda podem soar parecidas com um contrato tradicional. Mas há uma boa razão para isso: estes termos, de fato, constituem um contrato juridicamente vinculante entre você e a Snap Inc. Portanto, leia-os com muita atenção.
+
+Ao utilizar os Serviços, você concorda com os Termos. Naturalmente, se você não concordar com os Termos, então não utilize os Serviços.
+
+NOTIFICAÇÃO DE ARBITRAGEM: ESTES TERMOS CONTÊM UMA CLÁUSULA ARBITRAL UM POUCO MAIS ADIANTE. EXCETUANDO-SE DETERMINADOS TIPOS DE LITÍGIOS MENCIONADOS NA CLÁUSULA ARBITRAL, VOCÊ E A SNAP INC. CONCORDAM QUE LITÍGIOS ENTRE AS PARTES SERÃO RESOLVIDOS POR ARBITRAGEM VINCULATIVA OBRIGATÓRIA E VOCÊ E A SNAP INC. RENUNCIAM TODOS OS DIREITOS DE PARTICIPAR DE UMA AÇÃO COLETIVA OU DE ARBITRAGEM COLETIVA.
+
+1. Quem pode utilizar os Serviços
+
+Menores de 13 anos de idade não têm permissão para criar uma conta ou utilizar os Serviços. Pode ser que ofereçamos Serviços adicionais, sujeitos a termos adicionais, que podem exigir que você seja ainda mais velho para utilizá-los. Portanto, leia todos os termos com atenção.
+
+Ao utilizar os Serviços, você declara que:
+
+Pode assinar um contrato vinculante com a Snap Inc.
+Não é um indivíduo que se encontra impedido de receber os Serviços nos termos da legislação dos Estados Unidos, ou de qualquer outra jurisdição aplicável – isto é, o seu nome não consta na lista de Cidadãos Especialmente Designados do Departamento do Tesouro dos EUA (U.S. Treasury Department’s list of Specially Designated Nationals), e você não enfrenta nenhum outro tipo de proibição de natureza semelhante.
+Irá cumprir estes Termos e todas as leis, regras e regulamentos locais, estaduais, nacionais e internacionais aplicáveis.
+Se você estiver utilizando os Serviços em nome de uma empresa ou entidade, você declara estar autorizado a outorgar todas as licenças estabelecidas nestes Termos, bem como concordar com estes Termos em nome da empresa ou entidade que representa. Se você estiver utilizando os Serviços em nome de uma entidade do Governo dos EUA, você concorda com o Aditamento dos Termos de Serviço da Snap Inc. para usuários do Governo dos EUA.
+
+Bem-vindo!
+
+Ficamos muito felizes por você ter decidido usar o Snapchat e nossos outros produtos e serviços, que chamaremos simplesmente de “Serviços” abaixo.
+
+Elaboramos estes Termos de Serviço (que chamaremos de “Termos”) para informar você sobre as regras que regem o nosso relacionamento. Embora tenhamos empenhado todo esforço possível para eliminar o "juridiquês" dos nossos Termos, há algumas partes que ainda podem soar parecidas com um contrato tradicional. Mas há uma boa razão para isso: estes termos, de fato, constituem um contrato juridicamente vinculante entre você e a Snap Inc. Portanto, leia-os com muita atenção.
+
+Ao utilizar os Serviços, você concorda com os Termos. Naturalmente, se você não concordar com os Termos, então não utilize os Serviços.
+
+NOTIFICAÇÃO DE ARBITRAGEM: ESTES TERMOS CONTÊM UMA CLÁUSULA ARBITRAL UM POUCO MAIS ADIANTE. EXCETUANDO-SE DETERMINADOS TIPOS DE LITÍGIOS MENCIONADOS NA CLÁUSULA ARBITRAL, VOCÊ E A SNAP INC. CONCORDAM QUE LITÍGIOS ENTRE AS PARTES SERÃO RESOLVIDOS POR ARBITRAGEM VINCULATIVA OBRIGATÓRIA E VOCÊ E A SNAP INC. RENUNCIAM TODOS OS DIREITOS DE PARTICIPAR DE UMA AÇÃO COLETIVA OU DE ARBITRAGEM COLETIVA.
+
+1. Quem pode utilizar os Serviços
+
+Menores de 13 anos de idade não têm permissão para criar uma conta ou utilizar os Serviços. Pode ser que ofereçamos Serviços adicionais, sujeitos a termos adicionais, que podem exigir que você seja ainda mais velho para utilizá-los. Portanto, leia todos os termos com atenção.
+
+Ao utilizar os Serviços, você declara que:
+
+Pode assinar um contrato vinculante com a Snap Inc.
+Não é um indivíduo que se encontra impedido de receber os Serviços nos termos da legislação dos Estados Unidos, ou de qualquer outra jurisdição aplicável – isto é, o seu nome não consta na lista de Cidadãos Especialmente Designados do Departamento do Tesouro dos EUA (U.S. Treasury Department’s list of Specially Designated Nationals), e você não enfrenta nenhum outro tipo de proibição de natureza semelhante.
+Irá cumprir estes Termos e todas as leis, regras e regulamentos locais, estaduais, nacionais e internacionais aplicáveis.
+Se você estiver utilizando os Serviços em nome de uma empresa ou entidade, você declara estar autorizado a outorgar todas as licenças estabelecidas nestes Termos, bem como concordar com estes Termos em nome da empresa ou entidade que representa. Se você estiver utilizando os Serviços em nome de uma entidade do Governo dos EUA, você concorda com o Aditamento dos Termos de Serviço da Snap Inc. para usuários do Governo dos EUA.</p>
+                        
+                      </div>
+
+
                   </fieldset>
                     
 
@@ -148,9 +200,7 @@
                      
                   <%end%>
                   <br>
-                  <%= render "devise/shared/links" %>
-                  <!-- /register form -->
-
+                  
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 ">
@@ -180,6 +230,12 @@ O conteúdo deste site é gerenciado por capoeiristas graduados do Mestre Paulin
                     </li>
                     
                   </ul>
+
+                  <br>
+
+                  <%= render "devise/shared/links" %>
+                  <!-- /register form -->
+
 
                 </div>
 

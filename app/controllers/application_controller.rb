@@ -64,12 +64,12 @@ class ApplicationController < ActionController::Base
 		professores = Hash.new
 
 		Usuario.where(approved: true).where.not(role: "Admin").where("confirmed_at is not null ").each do |prof|
-			professores[prof.apelido] = prof.apelidoCompleto
+			professores[prof.apelido] = prof.apelido
 		end
 
-		puts professores
+		
 
-		return professores
+		return professores.sort
 	end
 
 
@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:nome, :sobrenome, :apelido, :sexo, :graduacao, :nome_professor])
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:nome, :sobrenome, :apelido, :sexo, :graduacao, :nome_professor, :termo])
 		devise_parameter_sanitizer.permit(:account_update, keys: [:nome, :sobrenome, :apelido, :sexo, :graduacao, :nome_professor, :current_password])
 	end
 
