@@ -126,7 +126,7 @@ Rails.application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   
   
-  devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'cadastrar', edit: 'configuracoes' }
+  devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'cadastro', edit: 'configuracoes' }
   get 'lista_usuarios' , to: 'usuarios#lista_usuarios', as: 'lista_usuarios'
 
 
