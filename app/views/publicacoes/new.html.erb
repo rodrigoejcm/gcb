@@ -1,8 +1,12 @@
-<h1>Nova Publicaçãao</h1>
+<h1>Nova Publicação</h1>
 
 
 <%= form_for(@publicacao) do |f| %>
-	
+
+	<div class="alert alert-info" role="alert">
+		<b>Atenção:</b> Esta é uma área dedicada a publicação de notícias, músicas, tecnicas, cursos e outros assuntos. Se voce deseja publicar um evento, <%= link_to 'clique aqui', eventos_path %>.
+	</div>
+
 	<%= render 'form', publicacao: @publicacao, categorias:@categorias, f:f  %>
 
 	<div class="actions">

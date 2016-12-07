@@ -30,7 +30,7 @@
 			</li>
 		<%else%> 
 			<li class="list-group-item">
-				<%=	link_to( publico_evento_local_path( :p => key[1], :ep => key[2], :c => key[3] )) do %>	
+				<%=	link_to( publico_evento_local_path( :p => key[1])) do %>	
 					<%= key[0]%>
 					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
 				<% end %>

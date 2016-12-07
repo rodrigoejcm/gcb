@@ -14,10 +14,13 @@
 #
 
 class Publicacao < ApplicationRecord
+    validates :titulo, presence: true
+    validates :texto_publicacao, presence: true
     include Bootsy::Container
   	belongs_to :usuario
   	belongs_to :categoria
   	mount_uploader :image, PostImagesUploader
+
 
   	def status_aprovacao
   		if self.aprovado == "APROVADO"

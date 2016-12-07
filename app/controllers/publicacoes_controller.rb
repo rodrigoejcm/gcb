@@ -67,6 +67,11 @@ class PublicacoesController < ApplicationController
   def create
     @publicacao = Publicacao.new(publicacao_params)
     @publicacao.usuario = current_usuario
+
+    if @publicacao.categoria.nil?
+      #refatorar para ser a default atraves da base de dades
+      @publicacao.categoria =  Categoria.find_by nomeCategoria: "Geral"
+    end 
     
 
     respond_to do |format|
@@ -99,7 +104,8 @@ class PublicacoesController < ApplicationController
   def destroy
     @publicacao.destroy
     respond_to do |format|
-      format.html { redirect_to publicacoes_url, notice: 'Publicação excluĩda com sucesso.' }
+      
+      format.html { redirect_back(fallback_location: (request.referer || root_path), notice: 'Publicação excluĩda com sucesso.' ) }
       format.json { head :no_content }
     end
   end

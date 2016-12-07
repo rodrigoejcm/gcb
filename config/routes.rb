@@ -175,7 +175,7 @@ Rails.application.routes.draw do
   get '/proximos-eventos/evento/:id', to: 'eventos#public_evento', as: 'publico-evento'
 
   #filtro de eventos
-  get '/proximos-eventos/local/:p/:ep/:c',  to: 'eventos#public_proximos_eventos_local',           as: 'publico-evento-local'
+  get '/proximos-eventos/local/:p',         to: 'eventos#public_proximos_eventos_local',           as: 'publico-evento-local'
   get '/proximos-eventos/local/',           to: 'eventos#public_proximos_eventos_sem_local',       as: 'publico-evento-sem-local'
   get '/proximos-eventos/data/:a/:m',       to: 'eventos#public_proximos_eventos_data',            as: 'publico-evento-data'
   get '/proximos-eventos/usuario/:idusuario',      to: 'eventos#public_proximos_eventos_usuario',   as: 'publico-evento-usuario'

@@ -38,13 +38,11 @@ class EventosController < ApplicationController
   #---filtros
 
   def public_proximos_eventos_local
-    if params[:p] || params[:ep] || params[:c]
-      @texto_filtro = params[:c] + " (" + params[:ep] + ") - " + params[:p]
+    if params[:p]
+      @texto_filtro = params[:p]
       @eventos =  Evento.where(aprovado: "APROVADO")
                         .where('data_hora_inicio > ?', DateTime.now)
                         .where(pais: params[:p])
-                        .where(estadoprovincia: params[:ep])
-                        .where(cidade: params[:c])
                         .order(data_hora_inicio: :asc)
                         .paginate(:page => params[:page], :per_page => 5)
      
@@ -180,7 +178,7 @@ class EventosController < ApplicationController
     if podeCadastrarNovoEventoOuExcluirOuEditar['excluir']['pode']
       @evento.destroy
       respond_to do |format|
-        format.html { redirect_to eventos_url, notice: 'Evento escluido com sucesso.' }
+        format.html { redirect_back(fallback_location: (request.referer || root_path), notice: 'Evento excluído com sucesso.' ) }
         format.json { head :no_content }
       end
     else
@@ -279,17 +277,21 @@ class EventosController < ApplicationController
       @datas = Array.new 
       @professores= Array.new 
       @locais = Array.new 
+      @paises_temp = CS.countries
+      @paises_temp.delete("BR")
+      @paises_temp[:BR] = "Brasil"
       
       for evento in @eventos
 
         data = [(l evento.data_hora_inicio, format: :mes_ano),evento.data_hora_inicio.year,evento.data_hora_inicio.month ]
         professor = [ evento.usuario.apelidoCompleto, evento.usuario ]
         
-
-        if (evento.cidade.blank? || evento.estadoprovincia.blank? || evento.pais.blank?)
+        if (evento.pais.blank?)
+        #if (evento.cidade.blank? || evento.estadoprovincia.blank? || evento.pais.blank?)
           local = ['Outros']
         else
-          local = [evento.cidade+' ('+evento.estadoprovincia+') / '+evento.pais, evento.pais, evento.estadoprovincia, evento.cidade]
+          #refatorado pra mostrar apenas país
+          local = [@paises_temp[evento.pais.to_sym], evento.pais, evento.estadoprovincia, evento.cidade]
         end
 
         @datas.push(data)
@@ -311,12 +313,13 @@ class EventosController < ApplicationController
         hash
       }
 
-      @resultLocais = @locais.inject(Hash.new(0)) { |hash,element|
+      @resultLocais_temp = @locais.inject(Hash.new(0)) { |hash,element|
         hash[element] +=1
         hash
       }
 
- 
+      @resultLocais = @resultLocais_temp.sort
+
 
   end
   

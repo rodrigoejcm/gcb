@@ -54,14 +54,15 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+    padding-left: 9px;
+    border-left: 3px solid red;
+    /* background-color: red; */
+    display: table;
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 1px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -76,6 +77,10 @@ div {
     margin-bottom: 0;
     background-color: #c00;
     color: #fff;
+  }
+
+  ul{
+    margin-top: 10px;
   }
 
   ul li {

@@ -1,7 +1,7 @@
 
   <% if publicacao.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(publicacao.errors.count, "error") %> erros impediram da publicação ser salva:</h2>
+      <h2><%= pluralize(publicacao.errors.count, "erros") %> impediram a publicação de ser salva:</h2>
 
       <ul>
       <% publicacao.errors.full_messages.each do |message| %>
@@ -36,7 +36,7 @@
     <%= f.label :categoria_id %>
     <br>
     <div class="input-group">
-      <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria, class: 'form-control' %>
+      <%= f.collection_select :categoria_id, Categoria.all, :id, :nomeCategoria, class: 'form-control', prompt: "Escolha uma categoria" %>
     </div>
   </div>
 </div>

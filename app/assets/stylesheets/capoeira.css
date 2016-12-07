@@ -786,7 +786,11 @@ section.dark.alternate .evento-timeline .evento-timeline-entry {
     width: 260px;
     height: 140px;
     background-position: center center;
-    background-size: cover;    
+    background-size: cover;
+    box-sizing:border-box;
+	border: 1px solid #eaeaea;
+
+    
     /*display:inline-block;*/
     /*border:2px solid red;
     margin: 4px;*/

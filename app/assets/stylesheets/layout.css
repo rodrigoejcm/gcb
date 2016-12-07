@@ -3837,6 +3837,7 @@ h6>span.rotate {
 	padding:10px;
 	display:block;
 	background-color:rgba(0,0,0,0.04);
+	min-height: 82px;
 }
 section.dark .event-item {
 	background-color:rgba(0,0,0,0.06);
@@ -4875,6 +4876,7 @@ section#slider {
 	box-shadow:none;
 	background-color:#151515;
 	background-position: center -33px;
+	background-size: contain !important;
 	overflow:hidden !important;
 	border-bottom:0;
 	z-index:0;
