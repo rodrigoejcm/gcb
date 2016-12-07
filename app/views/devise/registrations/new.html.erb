@@ -1,0 +1,216 @@
+      <section>
+      
+        <div class="display-table">
+          <div class="display-table-cell vertical-align-middle">
+            
+            <div class="container">
+              
+              <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                  <!-- ALERT -->
+                  <!--
+                  <div class="alert alert-mini alert-danger margin-bottom-30">
+                    <strong>Oh snap!</strong> Login Incorrect!
+                  </div>
+                  -->
+                  <!-- /ALERT -->
+
+                  <!-- register form -->
+
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'nomargin sky-form boxed'}) do |f| %>
+                      <%= devise_error_messages! %>
+                    <header>
+                      <i class="fa fa-users"></i> Cadastro
+                      <br>
+                      <p>Área destinada somente aos professores do Grupo Capoeira Brasil</p>
+                    </header>
+
+
+
+                    <fieldset class="nomargin">     
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :nome ,placeholder: "Nome" %>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :sobrenome, placeholder: "Sobrenome"%>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.text_field :apelido ,placeholder: "Apelido" %>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col col-md-5">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.select :sexo, [['Masculino', 'M'], ['Feminino', 'F']] , prompt: "Sexo"%>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+
+
+                            <%= f.select :graduacao, ['Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
+                          </label>      
+                        </div>   
+                      </div>
+                      <div class="col col-md-6">
+                        <div class="field">
+                          <label class="input">
+                            <%= f.select :nome_professor, 
+                                        listaProfessores.sort.map{|k,v| [v,k]}.sort_by{|k,v| k},
+                                        prompt: "Escolha o seu professor"   %> 
+
+                            
+                          </label>      
+                        </div>
+                      </div>
+                    </div>                           
+                    
+
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-envelope"></i>
+                              <%= f.email_field :email, placeholder: "E-mail" %>
+                              <b class="tooltip tooltip-bottom-right">Necessário para verificar o cadastro</b>
+                          </label>      
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-lock"></i>
+                              <% if @minimum_password_length %>
+                            
+                            <% end %>
+                            <%= f.password_field :password, autocomplete: "off", placeholder:"Senha" %>
+                          </label>     
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col col-md-12">
+                        <div class="field">
+                          <label class="input">
+                              <i class="ico-append fa fa-envelope"></i>
+                              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmação de Senha" %>
+                          </label>      
+                        </div>
+                      </div>
+                    </div>
+
+                    
+
+                     
+
+                    
+                 
+
+                    <div class="margin-top-20">
+                        <label class="checkbox nomargin"><input class="checked-agree" type="checkbox" name="checkbox"><i></i>Concordo com os termos de serviço.</label>
+                        <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>Gostaria de receber novidade do Grupo Capoeira Brasil.</label>
+                      </div>
+                  </fieldset>
+                    
+
+
+                    <div class="row margin-bottom-20 actions">
+                      <div class="col-md-12">
+                         <%= f.submit "Cadastrar", class:'btn btn-primary' %>
+                      </div>
+                    </div>
+
+                   
+
+                      
+                     
+                  <%end%>
+                  <br>
+                  <%= render "devise/shared/links" %>
+                  <!-- /register form -->
+
+                </div>
+
+                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 ">
+
+
+                  <h2 class="size-20 text-center-xs">Cadastro</h2>
+
+                  <p>Seja ​b​em-v​indo(a) a mais uma sede do Grupo Capoeira Brasil.
+O conteúdo deste site é gerenciado por capoeiristas graduados do Mestre Paulinho Sabiá e o cadastramento é destinado apenas àqueles que desenvolvem um trabalho pelo Grupo Capoeira Brasil / Sabiá. </p>
+
+                  <ul class="list-unstyled login-features">
+                    <li>
+                      <i class="numero"><b>1</b></i> 
+                      Preencha o formulário de cadastro. 
+                    </li>
+                    <li>
+                      <i class="numero"><b>2</b></i>
+                      ​C​onfirme o seu cadastro através do email recebido.
+                    </li>
+                    <li>
+                      <i class="numero"><b>3</b></i>
+                     Aguarde a aprovação do seu cadastro pelo Mestre.
+                    </li>
+                    <li>
+                      <i class="numero"><b>4</b></i>
+                      Faça seu login e acesse sua área administrativa.
+                    </li>
+                    
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
