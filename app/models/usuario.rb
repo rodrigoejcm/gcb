@@ -108,6 +108,8 @@ class Usuario < ApplicationRecord
   def apelidoCompleto
     if graduacaoGenero.nil?
       return self.graduacao << ' ' << self.apelido
+    elsif admin? 
+     return "Administrador"
     else  
       return graduacaoGenero << ' ' << self.apelido
     end

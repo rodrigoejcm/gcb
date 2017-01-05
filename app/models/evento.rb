@@ -52,6 +52,13 @@ class Evento < ApplicationRecord
       end
   end
 
+
+  def nome_pais
+      paises_temp = CS.countries
+      paises_temp.delete("BR")
+      paises_temp[:BR] = "Brasil"
+      return paises_temp[self.pais.to_sym]
+  end
  
 
 end

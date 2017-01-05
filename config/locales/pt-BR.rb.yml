@@ -44,7 +44,8 @@ pt-BR:
       nome_mes_ano: "%B/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
-      medium:  "%d %B %Y" 
+      medium: "%d %B %Y" 
+      mesabrv: "%b" 
     month_names:
     -
     - Janeiro

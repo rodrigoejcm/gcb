@@ -21,15 +21,25 @@
 								
 								<div class="event-date-wrapper">
 									<span class="event-date-day"><%= @evento.data_hora_inicio.to_time.strftime('%d')%></span>
-									<span class="event-date-month"><%= @evento.data_hora_inicio.to_time.strftime('%^b')%></span>
+									<span class="event-date-month uppercase"><%=l @evento.data_hora_inicio.to_date, format: :mesabrv %></span>
 								</div>
 								<div class="event-content-wrapper">
 									<div class="event-content-inner-wrapper">
 										<h3 class="event-title"><%= @evento.titulo %></h3>
-										<div class="event-location"><%= @evento.usuario.graduacao %> - <%= @evento.usuario.nome %> </div>
-			                            <div class="event-location"><%= @evento.local %> </div>
+										<div class="event-location"><%= @evento.usuario.apelidoCompleto %> </div>
 			                            <div class="event-location">
-			                            	<%= @evento.data_hora_inicio.to_time.strftime('%H:%M') %> - <%= @evento.data_hora_fim.to_time.strftime('%H:%M') %>  
+			                            	<b>Local:</b> <%= @evento.nome_pais %> - 
+			                            	<%= @evento.estadoprovincia %> - 
+			                            	<%= @evento.cidade %> -	<%= @evento.local %>
+			                            	</div>
+			                            <div class="event-location">
+			                            	<b>Início do Evento:</b> Dia 
+			                            	<%= l @evento.data_hora_inicio.to_date, format: :short %> - 
+			                            	<%= @evento.data_hora_inicio.to_time.strftime('%H:%M') %>
+			                            	<br>
+			                            	<b>Fim do Evento:</b> Dia 
+			                            	<%= l @evento.data_hora_fim.to_date, format: :short %> - 
+			                            	<%= @evento.data_hora_fim.to_time.strftime('%H:%M') %>
 			                            </div>
 			                            <hr>
 			                            <div class="event-location"><%= @evento.descricao.html_safe %> </div>

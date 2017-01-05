@@ -85,13 +85,13 @@
 					<div class="event-item">
 						<div class="event-date-wrapper">
 							<span class="event-date-day"><%= evento.data_hora_inicio.to_time.strftime('%d')%></span>
-							<span class="event-date-month"><%= evento.data_hora_inicio.to_time.strftime('%^b')%></span>
+							<span class="event-date-month uppercase"><%=l evento.data_hora_inicio.to_date, format: :mesabrv %></span>
 						</div>
 						<div class="event-content-wrapper">
 							<div class="event-content-inner-wrapper">
 								<h3 class="event-title"><a href="<%= publico_evento_path(evento) %>"><%= evento.titulo %></a></h3>
 								<div class="event-location"><%= evento.usuario.apelidoCompleto %> </div>
-	                            <div class="event-location"><%= evento.local %> </div>
+	                            <div class="event-location"><%=  evento.nome_pais %> - <%= evento.cidade %> </div>
 							</div>
 	                       
 	                    </div>

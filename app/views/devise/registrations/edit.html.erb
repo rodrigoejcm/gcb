@@ -27,12 +27,14 @@
 
   <div class="field">
     <%= f.label :graduacao , "Graduação:" %><br />
-    <%= f.select :graduacao, ['Calouro(a)', 'Graduado(a)', 'Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
+    <%= f.select :graduacao, ['Instrutor(a)', 'Professor(a)', 'Formando(a)', 'Formado(a)', 'Mestre(a)' ], prompt: "Informe sua graduação" %> 
   </div>  
 
   <div class="field">
     <%= f.label :nome_professor , "Nome do Professor:" %><br />
-    <%= f.text_field :nome_professor%>
+    <%= f.select :nome_professor, 
+                                        listaProfessores.sort.map{|k,v| [v,k]}.sort_by{|k,v| k},
+                                        prompt: "Escolha o seu professor"   %> 
   </div>  
 
   <div class="field">

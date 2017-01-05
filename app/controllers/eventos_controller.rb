@@ -291,7 +291,8 @@ class EventosController < ApplicationController
           local = ['Outros']
         else
           #refatorado pra mostrar apenas país
-          local = [@paises_temp[evento.pais.to_sym], evento.pais, evento.estadoprovincia, evento.cidade]
+          #local = [@paises_temp[evento.pais.to_sym], evento.pais, evento.estadoprovincia, evento.cidade]
+          local = [@paises_temp[evento.pais.to_sym], evento.pais]
         end
 
         @datas.push(data)
