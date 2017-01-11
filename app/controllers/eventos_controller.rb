@@ -273,7 +273,9 @@ class EventosController < ApplicationController
 
   def inicializaFiltros
       
-      @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
+      #@eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc).paginate(:page => params[:page], :per_page => 5)
+      #ajuste de filtro
+      @eventos = Evento.where(aprovado: "APROVADO").where('data_hora_inicio > ?', DateTime.now).order(data_hora_inicio: :asc)
       @datas = Array.new 
       @professores= Array.new 
       @locais = Array.new 
