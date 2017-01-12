@@ -22,12 +22,15 @@
           <% end %>    
         </td>
         <td>
-          <%= usuario.apelidoCompleto %>
           <% if usuario.admin? || usuario.mestre? %>
-            <br>
-            <i class="fa fa-user"></i> Administrador
+            <i class="fa fa-user"></i> Administrador - 
           <% end %>
+          <%= usuario.apelidoCompleto %>
           <br> 
+          <i class="fa fa-envelope"></i> <%= usuario.email %>
+          <br>  
+          <i class="fa fa-phone"></i> <%= usuario.telefoneDeContato %>
+          <br><br>
           Corda: 
           <% if usuario.possuiPerfil?%>
             <span style="border-bottom: 2px solid <%= usuario.perfil.cordaCapoeira[1] %>; "> 

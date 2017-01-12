@@ -58,7 +58,7 @@ def cordaCapoeira
 			return ['Preta' , '#000000']
 		end
 	else
-		return ['Usuário ainda não incluiu a corda que possui.' , 'white'] 
+		return ['Corda não Cadastrada.' , 'white'] 
 	end
 end
 
@@ -66,7 +66,7 @@ def dataInicioCapoeira
 	if possuiDataCap?
 		return I18n.localize self.datacap, format: :nome_mes_ano
 	else
-		return "Usuário ainda não incluiu a data que iniciou a praticar capoeira."
+		return "Data não Cadastrada."
 	end
 end
 
@@ -74,7 +74,7 @@ def dataInicioGCB
 	if possuiDataGcb?
 		return I18n.localize self.datagcb, format: :nome_mes_ano
 	else
-		return "Usuário ainda não incluiu a data que iniciou no Grupo."
+		return "Data não Cadastrada."
 	end
 end
 

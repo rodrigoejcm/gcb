@@ -115,6 +115,14 @@ class Usuario < ApplicationRecord
     end
   end
 
+  def telefoneDeContato
+    if self.telefone.nil?
+      return "Telefone não Cadastrado"
+    else
+      return self.telefone
+    end
+  end
+
 	def active_for_authentication? 
     	super && approved? 
   	end 
