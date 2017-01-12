@@ -220,4 +220,5 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       mes_ano: "%B/%Y" 
       short: "%d de %B, %H:%M"
+      short_sem_hora: "%d de %B de %Y"
     pm: ''
