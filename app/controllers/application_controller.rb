@@ -52,6 +52,20 @@ class ApplicationController < ActionController::Base
   	end
 
 
+  	#implementacao em paralelo - mostra apaenas para o admin
+  	def exibe_para_usuario?
+  		if usuario_signed_in?
+  			if current_usuario.admin?
+  				return true
+  			else
+  				return false
+  			end
+  		else
+  			return false
+  		end
+  	end
+
+
   	def pagina_perfil_publica?
   		if (controller_name == 'perfis' && action_name == 'public_show')
   			return true
