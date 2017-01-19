@@ -4,6 +4,7 @@ class GeografiaController < ApplicationController
     
     @estados=CS.states(geografia_params[:pais])
 
+
     respond_to do |format|
       format.js
 
@@ -14,6 +15,7 @@ class GeografiaController < ApplicationController
   def cidades
     
     @cidades=CS.cities(geografia_params[:estado], geografia_params[:pais])
+
 
     respond_to do |format|
       format.js

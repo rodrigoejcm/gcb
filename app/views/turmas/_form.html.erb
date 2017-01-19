@@ -1,0 +1,145 @@
+  <% if turma.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
+
+      <ul>
+      <% turma.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+   <div class="row">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <%= f.label :local_id, "Local:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>    
+        </div>
+        <%= f.select :local_id, options_for_select(@locais, :local_id) , prompt: "Escolha um local" %>
+      </div>
+      <%= link_to 'Clique aqui para cadastrar um novo local.', new_local_path %>
+    </div>  
+  </div>
+
+   <div class="row">
+
+    <div class="col-md-12">
+      <label> Dias da semana:</label>
+    </div>
+
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">
+        <%= f.label :dia_seg, "seg" %>
+        <%= f.check_box :dia_seg %>  
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">
+        <%= f.label :dia_ter, "ter" %>
+        <%= f.check_box :dia_ter %>
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">
+        <%= f.label :dia_qua, "qua" %>
+        <%= f.check_box :dia_qua %>
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">
+        <%= f.label :dia_qui, "qui" %>
+        <%= f.check_box :dia_qui %>
+      </div>
+    </div>  
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">  
+        <%= f.label :dia_sex, "sex" %>
+        <%= f.check_box :dia_sex %>
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">
+        <%= f.label :dia_sab, "sab" %>
+        <%= f.check_box :dia_sab %>
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">  
+        <%= f.label :dia_dom, "dom" %>
+        <%= f.check_box :dia_dom %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <%= f.label :periodo, "Período:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-sun-o" aria-hidden="true"></i>    
+        </div>
+        <%= f.select :periodo, options_for_select(@periodos, :periodo) , prompt: "Escolha um período" %>
+      </div>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-sm-12 col-xs-12">
+      <%= f.label :hora_inicio, "Início:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>    
+        </div>
+         <%= f.time_field :hora_inicio, class: 'form-control' %>
+      </div>
+      
+    </div>
+        <div class="col-md-2 col-sm-12 col-xs-12">
+      <%= f.label :hora_fim, "Fim:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>    
+        </div>
+        <%= f.time_field :hora_fim, class: 'form-control' %>
+      </div>
+      
+    </div>  
+  </div>
+
+   <div class="row">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <%= f.label :publico, "Público Alvo:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-users" aria-hidden="true"></i>    
+        </div>
+        <%= f.select :publico, options_for_select(@publicos, :publico) , prompt: "Escolha um público alvo" %>
+      </div>
+    </div>  
+  </div>
+
+
+   <div class="row">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <%= f.label :observacoes, "Observações:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-pencil" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_area :observacoes, class: "form-control", placeholder: "Observações" %>
+      </div>
+    </div>  
+  </div>
+
+
+  
+  

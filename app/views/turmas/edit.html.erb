@@ -1,0 +1,31 @@
+
+<h1>Editar Turma</h1>
+
+
+<%= form_for(@turma) do |f| %>
+
+			<%= render 'form', turma: @turma, f:f %>
+			
+			
+			<% #opcao disponivel somente ao editar %>
+			<div class="row">
+			    <div class="col-md-8 col-sm-12 col-xs-12">
+			      <%= f.label :turma_ativa, "Exibir turma:" %>
+			      <br>
+			      <div class="input-group">
+			        <div class="input-group-addon">
+			          <i class="fa fa-check" aria-hidden="true"></i>    
+			        </div>
+			        <%= f.select :turma_ativa, [["Turma Ativa", true], ["Turma Desativada", false]], class: 'form-control' %>
+			      </div>
+			    </div>  
+			</div>
+
+			<div class="actions">
+				<%= f.submit "Salvar alterações da Turma",:class => "btn btn-warning btn-mini"%>
+			</div>
+
+			<% end %> 
+
+<%= link_to 'Visualizar', @turma %> |
+<%= link_to 'Voltar para tela de turmas', turmas_path %>

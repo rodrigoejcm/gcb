@@ -1,0 +1,21 @@
+
+
+		<h1>Cadastrar Nova Turma</h1>
+
+		<%= form_for(@turma) do |f| %>
+
+			<%= render 'form', turma: @turma, f:f %>
+			
+			<div class="actions">
+   				<%= f.submit "Cadastrar Turma" , :class => "btn btn-warning btn-mini"%>
+  			
+			</div>
+
+		<% end  #end form renderizado%> 
+
+
+		
+		<%= link_to 'Voltar para tela de turmas', turmas_path %>
+
+
+

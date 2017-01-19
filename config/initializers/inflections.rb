@@ -25,4 +25,8 @@
         inflect.irregular "Perfil", "Perfis"
         inflect.irregular "perfil", "perfis"
         inflect.plural "perfis", "perfil"
+        inflect.irregular "local", "locais"
+        inflect.plural "locais", "local"
+        inflect.irregular "localizacao", "localizacoes"
+        inflect.plural "localizacoes", "localizacao"
  end

@@ -1,0 +1,20 @@
+
+
+
+		<h1>Cadastrar Novo Local</h1>
+
+		<%= form_for(@local) do |f| %>
+
+			<%= render 'form', local: @local, f:f %>
+			
+			<div class="actions">
+   				<%= f.submit "Cadastrar Local" , :class => "btn btn-warning btn-mini"%>
+  			
+			</div>
+
+		<% end %> 
+
+
+		<%= link_to 'Voltar', locais_path %>
+
+

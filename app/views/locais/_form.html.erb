@@ -1,0 +1,149 @@
+
+  <% if local.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(local.errors.count, "error") %> prohibited this local from being saved:</h2>
+
+      <ul>
+      <% local.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <%= f.label :nome, "Nome:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_field :nome, class: 'form-control', placeholder: 'Nome do Local' %>
+      </div>
+    </div>
+  </div>
+
+
+   <div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <%= f.label :descricao , "Descrição:" %>
+      <br>
+      <div class="input-group">
+       <div class="input-group-addon">
+          <i class="fa fa-pencil" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_area :descricao, class: 'form-control', placeholder: 'Descrição do local' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-8 col-sm-12 col-xm-12">
+      <%= f.label :endereco , "Endereço:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_field :endereco, class: 'form-control', placeholder: 'Rua / Número / Complemento / Bairro'%>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+     <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :pais , "País:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+        <%= f.select :pais, options_for_select(@paises,@local.pais),  prompt: "Escolha um país"%>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :estadoprovincia , "Estado/Província:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+         <%= f.select   :estadoprovincia,
+                        options_for_select(@estados,@local.estadoprovincia ),
+                        prompt: "-------------",
+                        class: 'form-control' 
+                        %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 col-xm-12">
+      <%= f.label :cidade , "Cidade:"%>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-globe" aria-hidden="true"></i>    
+        </div>
+        <%= f.select      :cidade,
+                          options_for_select(@cidades,@local.cidade),
+                          prompt: "-------------",
+                          class: 'form-control'
+                          %>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-12 col-xs-12">
+     <%= f.label :contato1, "Contato 1:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-phone" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_field :contato1, class: 'form-control', placeholder: 'E-mail ou Telefone' %>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12">
+     <%= f.label :contato2, "Contato2:" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>    
+        </div>
+        <%= f.text_field :contato2, class: 'form-control', placeholder: 'E-mail ou Telefone' %>
+      </div>
+    </div>
+  </div>
+
+   <div class="row">
+    
+    <div class="col-md-5 col-sm-12 col-xm-12">
+      
+      <div class="input-group">
+        <% if @local.imagem? %> 
+        <%= f.label :imagem , "Alterar Imagem:"%>
+        <%else%>
+        <%= f.label :imagem , "Imagem:"%>
+        <% end %>
+        <br>
+       <%= f.file_field :imagem, id:'foto-local' %>
+       
+       
+      </div>
+    </div>
+    <div class="col-md-4">
+      <% if @local.imagem? %> 
+        <%= f.label :imagem , "Imagem Atual:"%>
+        <br>
+        <%= image_tag(@local.imagem_url, height:'50') %> 
+      <% end %>  
+    </div>
+  </div>
+
+

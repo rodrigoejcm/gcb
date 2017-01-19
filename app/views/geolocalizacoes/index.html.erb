@@ -1,0 +1,98 @@
+<section id="events">
+
+		<div class="row">
+			<!-- DIV Publicacoes -->
+ 
+            <div class="col-md-8 col-xs-12 col-publicacoes-home">
+            <br>
+				<h3>Encontre a Capoeira </h3>
+				<br>
+				<% @locaisDaCapoeira.each do |local| %>
+                
+                <!-- news item -->
+				<div class="inews-item">
+                    
+
+                    <div class="cartaz" style="background-image: url('<%=local.imagem_url.to_s%>');">
+                    	
+					</div>
+					
+					
+					<div class="publicacao-item-content">
+						<div class="inews-content-inner div-news">
+							
+							<h3 class="size-20">
+								<%=local.nome%>
+							</h3>
+
+							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
+								<li>
+									
+										<i class="fa fa-map"></i> 
+										<span class="font-lato"><%= local.endereco %></span>
+								
+								</li>
+								
+							</ul>
+
+							
+								<p>
+									<table style="border: 1px solid black;">
+										<thead>
+											<tr  style="border: 1px solid black; padding: 2px;">
+												<th style="padding: 2px; class="text-center">Seg</th>
+												<th class="text-center">Ter</th>
+												<th class="text-center">Qua</th>
+												<th class="text-center">Qui</th>
+												<th class="text-center">Sex</th>
+												<th class="text-center">Sab</th>
+												<th class="text-center">Dom</th>
+												<th class="text-center"></th>
+											</th>
+										</thead>
+										<tbody>
+										<% local.turmas.each do |turma| %>
+											<tr>
+												<td class="text-center"><%if turma.dia_seg? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"> <%if turma.dia_ter? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"><%if turma.dia_qua? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"> <%if turma.dia_qui? %>
+												<i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"><%if turma.dia_sex? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"><%if turma.dia_sab? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td class="text-center"><%if turma.dia_dom? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+												<td>
+													<%=turma.usuario.apelidoCompleto%>
+												</td>
+											</tr>
+										<% end %>
+										</tbody>
+									</table>
+									
+								</p>
+							
+						</div>
+					</div>
+					
+				</div>
+				
+				<%end%>
+				
+				
+
+				<!-- /news item -->
+                
+                
+                
+                <!-- /news item -->
+                <div>
+                	<div class="inews-content-inner">
+						<h3 class="size-14 text-left"><a href="<%= todas_publicacoes_path%>">Ver Todas</a></h3>
+                    </div>
+                </div>
+                <!-- /news item -->
+			</div>
+            <!-- DIV Publicacoes -->
+            
+            
+</section>

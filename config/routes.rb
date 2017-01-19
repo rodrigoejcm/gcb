@@ -123,6 +123,7 @@ Rails.application.routes.draw do
 
   #resources :publicacaos
   resources :publicacoes
+
   #devise_for :admin_users, ActiveAdmin::Devise.config
   
   
@@ -200,6 +201,9 @@ Rails.application.routes.draw do
 
 
   
+  resources :turmas
+  resources :locais
+  get '/encontre-a-capoeira', to: 'geolocalizacoes#index', as: 'geolocalizacoes'
 
 
 

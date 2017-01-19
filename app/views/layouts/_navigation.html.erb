@@ -53,9 +53,16 @@
 							</a>
 						</li>
                         <li><!-- ENCONTRE A CAPOEIRA -->
-							<a href="#" style="color: #ddd;">
-								ENCONTRE A CAPOEIRA
-							</a>
+							<% if current_usuario.admin? %>
+						    	<!-- PATH AINDA NAO DEFINIDO -->
+						    	<a href="<%=geolocalizacoes_path%>">
+									ENCONTRE A CAPOEIRA
+								</a>    
+						    <% else %>
+						    	<a href="#" style="color: #ddd;">
+									ENCONTRE A CAPOEIRA
+								</a>
+						    <% end %>
 						</li>
 						<% if !usuario_signed_in? %>
 							 <li>  

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112133455) do
+ActiveRecord::Schema.define(version: 20170118200253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,23 @@ ActiveRecord::Schema.define(version: 20170112133455) do
     t.index ["usuario_id"], name: "index_eventos_on_usuario_id", using: :btree
   end
 
+  create_table "locais", force: :cascade do |t|
+    t.string   "nome"
+    t.text     "descricao"
+    t.string   "endereco"
+    t.string   "cidade"
+    t.string   "estadoprovincia"
+    t.string   "pais"
+    t.string   "contato1"
+    t.string   "contato2"
+    t.string   "imagem"
+    t.string   "mapa"
+    t.integer  "usuario_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["usuario_id"], name: "index_locais_on_usuario_id", using: :btree
+  end
+
   create_table "perfis", force: :cascade do |t|
     t.string   "imagemPerfil"
     t.integer  "usuario_id"
@@ -90,6 +107,29 @@ ActiveRecord::Schema.define(version: 20170112133455) do
     t.integer  "categoria_id"
     t.index ["categoria_id"], name: "index_publicacoes_on_categoria_id", using: :btree
     t.index ["usuario_id"], name: "index_publicacoes_on_usuario_id", using: :btree
+  end
+
+  create_table "turmas", force: :cascade do |t|
+    t.integer  "local_id"
+    t.integer  "usuario_id"
+    t.string   "dias"
+    t.string   "periodo"
+    t.time     "hora_inicio"
+    t.time     "hora_fim"
+    t.string   "publico"
+    t.text     "observacoes"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "dia_seg"
+    t.boolean  "dia_ter"
+    t.boolean  "dia_qua"
+    t.boolean  "dia_qui"
+    t.boolean  "dia_sex"
+    t.boolean  "dia_sab"
+    t.boolean  "dia_dom"
+    t.boolean  "turma_ativa"
+    t.index ["local_id"], name: "index_turmas_on_local_id", using: :btree
+    t.index ["usuario_id"], name: "index_turmas_on_usuario_id", using: :btree
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -124,7 +164,10 @@ ActiveRecord::Schema.define(version: 20170112133455) do
   end
 
   add_foreign_key "eventos", "usuarios"
+  add_foreign_key "locais", "usuarios"
   add_foreign_key "perfis", "usuarios"
   add_foreign_key "publicacoes", "categorias"
   add_foreign_key "publicacoes", "usuarios"
+  add_foreign_key "turmas", "locais"
+  add_foreign_key "turmas", "usuarios"
 end

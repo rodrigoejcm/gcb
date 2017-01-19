@@ -42,6 +42,14 @@
             <i class="fa fa-pencil"></i> MINHAS PUBLICAÇÕES
         <% end %>
     </li>
+    <% if current_usuario.admin? %>
+        <li class="list-group-item">
+            <!-- PATH AINDA NAO DEFINIDO -->
+            <%= link_to turmas_path do %>
+                <i class="fa fa-users"></i> MINHAS TURMAS
+            <% end %>
+        </li>
+    <% end %>
     <li class="list-group-item">
         <%= link_to edit_usuario_registration_path do %>
             <i class="fa fa-cog"></i> MEU CADASTRO

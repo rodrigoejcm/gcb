@@ -1,0 +1,79 @@
+
+<h1>Minhas Turmas</h1>
+
+<%= link_to new_turma_path, class: 'btn btn-success' do %>
+  <i class="fa fa-plus"></i> Cadastrar Nova Turma
+<% end %>
+
+<%= link_to locais_path, class: 'btn btn-danger' do %>
+  <i class="fa fa-map-marker"></i> Locais Cadastrados
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Turma</th>
+      <th></th>
+      <th class="text-center">seg</th>
+      <th class="text-center">ter</th>
+      <th class="text-center">qua</th>
+      <th class="text-center">qui</th>
+      <th class="text-center">sex</th>
+      <th class="text-center">sab</th>
+      <th class="text-center">dom</th>
+      <th class="text-center">Turma Ativa?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turmas.each do |turma| %>
+      <tr>
+        <td><%=image_tag turma.local.imagem_url.to_s, size: '70'%></td>
+        <td>
+          <%= turma.local.nome %> <br> <%= turma.hora_inicio.strftime('%H:%m')%> - <%= turma.hora_fim.to_time.strftime('%H:%m ')%> (<%= turma.periodo%>) <br> <%= turma.publico%> 
+        </td>
+        <td class="text-center">
+          <%if turma.dia_seg? %>
+            <br>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <%end%>
+        </td>
+        <td class="text-center"><%if turma.dia_ter? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_qua? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_qui? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_sex? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_sab? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_dom? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+       
+        <td class="text-center">
+          <br>
+          <%if turma.turma_ativa? %>
+          sim
+          <%else%>
+          não
+          <% end %>
+        </td>
+        <td>
+          
+          <%= link_to(turma) do %>
+            <i class="fa fa-calendar-o"></i> Visualizar
+          <% end %>
+          <br>
+          <%= link_to(edit_turma_path(turma)) do %>
+            <i class="fa fa-pencil"></i> Editar
+          <% end %>
+          <br>
+          <%= link_to(turma, method: :delete, data: { confirm: 'Tem certeza que deseja excluir a turma?' }) do %>
+            <i class="fa fa-trash-o"></i> Excluir
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @turmas %>
+
+<br>
