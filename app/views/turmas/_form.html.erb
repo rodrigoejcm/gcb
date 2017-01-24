@@ -12,23 +12,44 @@
 
 
    <div class="row">
-    <div class="col-md-5 col-sm-12 col-xs-12">
-      <%= f.label :local_id, "Local:" %>
-      <br>
-      <div class="input-group">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+       <%= f.label :local_id, "Local onde ocorre a turma:" %>
+        <p class="sublabel">Escolha o local aonde a turma acontece.
+        <span>Caso não encontre o local na lista, clique para cadastrar um novo.</span> </p>
+      <div class="input-group" style="float:left;">
         <div class="input-group-addon">
           <i class="fa fa-calendar-o" aria-hidden="true"></i>    
         </div>
-        <%= f.select :local_id, options_for_select(@locais, :local_id) , prompt: "Escolha um local" %>
+      <% # DÚVIDA #
+         # 1 - QUAL SERIA A MANEIRA CORRETA DE ESCREVER ESSE SELECT POR CONTA DO IF? RESOLVIDO
+         # 2 - PORQUE QUANDO O f.select ESTÁ PARA :local OU INVÉS DE :local_id, OBTENHO O ERRO  Local(#69813380182220) expected, got String(#3981400) ?
+         #2.A - PElo que entendi na documentaçã, http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html, é sempre o parametro ID que deve ser alocado. PAra isso, tenho que permitir o parametro de id na lista d eparametros permitidos.
+         #2.B - NAO FUNCIONA f.select :local, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local"
+         #3 - Funciona ( com id), porem pra null - f.select :local_id, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local"
+      %>
+        
+        <%= f.select :local_id, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local" %>
+      <div style="display: inline-block; font-size: 11px; padding-bottom: 2px; padding-top: 2px;margin-left: 10px;" class="label label-primary">
+        <%= link_to(new_local_path) do %>
+          <div class="" style="text-align: center; color:white;">Não encontrou o local na lista?<br>Clique aqui para cadastrar um novo.</div>
+        <% end %>  
       </div>
-      <%= link_to 'Clique aqui para cadastrar um novo local.', new_local_path %>
-    </div>  
+      </div>
+       
+       <%if params[:notice] %>  
+        <br>    <br>    
+        <p id="notice"><%= params[:notice] %></p>
+       <%end%>
+
+    </div>
+   
   </div>
 
    <div class="row">
 
     <div class="col-md-12">
-      <label> Dias da semana:</label>
+      <label> Dias que ocorre a turma:</label>
+      <p class="sublabel">Escolha os dias da semana em que a turma acontece</p>
     </div>
 
     <div class="col-md-1 col-sm-1 col-xs-1">
@@ -76,9 +97,11 @@
   </div>
 
   <div class="row">
-    <div class="col-md-5 col-sm-12 col-xs-12">
-      <%= f.label :periodo, "Período:" %>
-      <br>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <%= f.label :periodo, "Período do dia:" %>
+      <p class="sublabel">Escolha o período em que a turma acontece.
+        <span>Essa informação ajudará os usuários a buscarem turmas em períodos específicos</span>
+      </p>
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-sun-o" aria-hidden="true"></i>    
@@ -91,7 +114,8 @@
   <div class="row">
     <div class="col-md-2 col-sm-12 col-xs-12">
       <%= f.label :hora_inicio, "Início:" %>
-      <br>
+      <p class="sublabel">Hora que começa.</p>
+    
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-clock-o" aria-hidden="true"></i>    
@@ -102,7 +126,7 @@
     </div>
         <div class="col-md-2 col-sm-12 col-xs-12">
       <%= f.label :hora_fim, "Fim:" %>
-      <br>
+      <p class="sublabel">Hora que termina.</p>
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-clock-o" aria-hidden="true"></i>    
@@ -116,7 +140,7 @@
    <div class="row">
     <div class="col-md-5 col-sm-12 col-xs-12">
       <%= f.label :publico, "Público Alvo:" %>
-      <br>
+      <p class="sublabel">Escolha o público que frequenta a turma.</p>
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-users" aria-hidden="true"></i>    
@@ -129,8 +153,8 @@
 
    <div class="row">
     <div class="col-md-8 col-sm-12 col-xs-12">
-      <%= f.label :observacoes, "Observações:" %>
-      <br>
+      <%= f.label :observacoes, "Informações adicionais:" %>
+      <p class="sublabel">Descreva os pontos adcionais para complementar as informações desta turma .</p>
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-pencil" aria-hidden="true"></i>    

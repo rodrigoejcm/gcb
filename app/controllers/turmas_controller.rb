@@ -1,6 +1,6 @@
 class TurmasController < ApplicationController
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
-  before_action :set_listas, only: [:new, :edit, :create]
+  before_action :set_listas, only: [:new, :new_turma_sem_local, :edit, :create]
 
   # GET /turmas
   # GET /turmas.json
@@ -16,11 +16,18 @@ class TurmasController < ApplicationController
   # GET /turmas/new
   def new
     @turma = Turma.new
-    
+  end
+
+  def new_turma_sem_local
+    @turma = Turma.new
+    @turma.local = Local.find(params[:id_local])
+    render :new
   end
 
   # GET /turmas/1/edit
   def edit
+
+
   end
 
   # POST /turmas
@@ -46,7 +53,7 @@ class TurmasController < ApplicationController
   def update
     respond_to do |format|
       if @turma.update(turma_params)
-        format.html { redirect_to @turma, notice: 'Turma atualizada com sucesso.' }
+        format.html { redirect_to turmas_path, notice: 'Turma atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @turma }
       else
         format.html { render :edit }
@@ -75,7 +82,8 @@ class TurmasController < ApplicationController
 
     # listas de locais , periodos, publico e etc.
     def set_listas
-      @locais = Local.all.map{|l| [l.nome,l.id]}
+      #@locais = Local.all.map{|l| [l.nome,l.id]}
+      @locais = Local.all
       @periodos = ['Manhã','Tarde','Noite']
       @publicos = ['Infantil','Adulto']
     end
@@ -85,6 +93,7 @@ class TurmasController < ApplicationController
 
       params.require(:turma).permit(  
                                       :local_id,
+                                      :local_nome,
                                       :local,
                                       :hora_inicio,
                                       :hora_fim,

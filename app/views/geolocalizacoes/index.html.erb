@@ -1,98 +1,102 @@
 <section id="events">
 
-		<div class="row">
-			<!-- DIV Publicacoes -->
- 
-            <div class="col-md-8 col-xs-12 col-publicacoes-home">
-            <br>
-				<h3>Encontre a Capoeira </h3>
-				<br>
-				<% @locaisDaCapoeira.each do |local| %>
-                
-                <!-- news item -->
-				<div class="inews-item">
-                    
+	<h3>Encontre a Capoeira </h3>
+	
+	<div class="row">
+		<div class="col-md-9 col-sm-9">
+		
+				 <div class="row">
+						<!-- item -->
+						<% @locaisDaCapoeira.each do |local| %>
+							
+							<div class="col-md-4 col-sm-6">
+								<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+									<div class="front">
+										<div class="box1 box-default">
+											<div class="box-icon-title">
+												<div class="cartaz encontre" style="background-image: url('<%=local.imagem_url.to_s%>');"></div>
+												<h2><%=local.nome%></h2>
+												<small><%=local.nome%></small>
+											</div>
+											<br>
+											<table style="border: 1px solid black;">
+													<thead>
+														<tr  style="border: 1px solid black; padding: 2px;">
+															<th style="padding: 2px; class="text-center">Seg</th>
+															<th class="text-center">Ter</th>
+															<th class="text-center">Qua</th>
+															<th class="text-center">Qui</th>
+															<th class="text-center">Sex</th>
+															<th class="text-center">Sab</th>
+															<th class="text-center">Dom</th>
+															<th class="text-center"></th>
+														</tr>
+													</thead>
+													<tbody>
+													<% local.turmas.each do |turma| %>
+														<tr>
+															<td class="text-center"><%if turma.dia_seg? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"> <%if turma.dia_ter? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"><%if turma.dia_qua? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"> <%if turma.dia_qui? %>
+															<i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"><%if turma.dia_sex? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"><%if turma.dia_sab? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td class="text-center"><%if turma.dia_dom? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+															<td>
+																<%=turma.usuario.apelidoCompleto%>
+															</td>
+														</tr>
+													<% end %>
+													</tbody>
+												</table>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                    <div class="cartaz" style="background-image: url('<%=local.imagem_url.to_s%>');">
-                    	
+						<% end %>
+
 					</div>
-					
-					
-					<div class="publicacao-item-content">
-						<div class="inews-content-inner div-news">
-							
-							<h3 class="size-20">
-								<%=local.nome%>
-							</h3>
+		
+		</div>
+		<div class="col-md-3 col-sm-3">
+				<!-- INLINE SEARCH -->
+<!-- 				<div class="inline-search clearfix margin-bottom-30">
+					<form action="" method="get" class="widget_search">
+						<input type="search" placeholder="Buscar..." id="s" name="s" class="serch-input">
+						<button type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</form>
+				</div> -->
+				<!-- /INLINE SEARCH -->
 
-							<ul class="blog-post-info list-inline noborder margin-bottom-20 nopadding">
-								<li>
-									
-										<i class="fa fa-map"></i> 
-										<span class="font-lato"><%= local.endereco %></span>
-								
-								</li>
-								
-							</ul>
+				<!-- <hr /> -->
 
-							
-								<p>
-									<table style="border: 1px solid black;">
-										<thead>
-											<tr  style="border: 1px solid black; padding: 2px;">
-												<th style="padding: 2px; class="text-center">Seg</th>
-												<th class="text-center">Ter</th>
-												<th class="text-center">Qua</th>
-												<th class="text-center">Qui</th>
-												<th class="text-center">Sex</th>
-												<th class="text-center">Sab</th>
-												<th class="text-center">Dom</th>
-												<th class="text-center"></th>
-											</th>
-										</thead>
-										<tbody>
-										<% local.turmas.each do |turma| %>
-											<tr>
-												<td class="text-center"><%if turma.dia_seg? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"> <%if turma.dia_ter? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"><%if turma.dia_qua? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"> <%if turma.dia_qui? %>
-												<i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"><%if turma.dia_sex? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"><%if turma.dia_sab? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td class="text-center"><%if turma.dia_dom? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-												<td>
-													<%=turma.usuario.apelidoCompleto%>
-												</td>
-											</tr>
-										<% end %>
-										</tbody>
-									</table>
-									
-								</p>
-							
-						</div>
-					</div>
-					
+				<!-- side navigation -->
+				<div class="side-nav margin-bottom-60">
+
+					<% #render 'sidebar_publicacao', categorias:@categorias %>
+					<%= render 'sidebar_encontre_a_capoeira' %>
+					<hr>
+	                <%= render 'layouts/sidebar_fb' %>
+
+				
 				</div>
-				
-				<%end%>
-				
-				
 
-				<!-- /news item -->
-                
-                
-                
-                <!-- /news item -->
-                <div>
-                	<div class="inews-content-inner">
-						<h3 class="size-14 text-left"><a href="<%= todas_publicacoes_path%>">Ver Todas</a></h3>
-                    </div>
-                </div>
-                <!-- /news item -->
 			</div>
-            <!-- DIV Publicacoes -->
-            
-            
+
+	</div>
+
+
+    </div>        
 </section>
+
+
+<br>
+<br>
+
+
+
+

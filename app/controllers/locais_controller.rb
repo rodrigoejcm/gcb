@@ -31,7 +31,7 @@ class LocaisController < ApplicationController
 
     respond_to do |format|
       if @local.save
-        format.html { redirect_to locais_path, notice: 'Local cadastrado com sucesso' }
+        format.html { redirect_to new_turma_sem_local_path @local, notice: 'Novo local cadastrado com sucesso. Verifique se já está aparecendo na lista' }
         format.json { render :show, status: :created, location: @local }
       else
         format.html { render :new }

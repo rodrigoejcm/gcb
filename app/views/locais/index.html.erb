@@ -1,13 +1,9 @@
 
-<h1>Locais Cadastrados</h1>
+<h1>Meus Cadastrados de Locais</h1>
 
-<%= link_to new_local_path, class: 'btn btn-success' do %>
-  <i class="fa fa-plus"></i> Cadastrar Novo Local
-<% end %>
-
-<%= link_to turmas_path, class: 'btn btn-danger' do %>
-  <i class="fa fa-users"></i> Minhas Turmas
-<% end %>
+<div class="alert alert-info" role="alert">
+    Estes são os locais cadastrados por você. Estes locais estão disponiveis para serem selecionados na tela de cadastro de turmas..
+  </div>
 
 <p id="notice"><%= notice %></p>
 
@@ -58,3 +54,7 @@
 
 <br>
 
+
+<%= link_to turmas_path do %>
+  <i class="fa fa-users"></i> Voltar para tela de Turmas
+<% end %>

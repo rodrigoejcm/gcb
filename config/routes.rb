@@ -202,6 +202,7 @@ Rails.application.routes.draw do
 
   
   resources :turmas
+  get '/turmas/nova-turma-sem-local/:id_local', to: 'turmas#new_turma_sem_local', as: 'new_turma_sem_local'
   resources :locais
   get '/encontre-a-capoeira', to: 'geolocalizacoes#index', as: 'geolocalizacoes'
 

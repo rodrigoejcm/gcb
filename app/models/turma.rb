@@ -1,5 +1,6 @@
 class Turma < ApplicationRecord
   belongs_to :local
+  #has_one :local
   belongs_to :usuario #default: responsavel pelo cadastro, alterado, reponsável pela turma
 
   validates :local_id, presence: true

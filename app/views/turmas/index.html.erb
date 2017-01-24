@@ -5,48 +5,61 @@
   <i class="fa fa-plus"></i> Cadastrar Nova Turma
 <% end %>
 
-<%= link_to locais_path, class: 'btn btn-danger' do %>
-  <i class="fa fa-map-marker"></i> Locais Cadastrados
-<% end %>
-
 <p id="notice"><%= notice %></p>
 
 <table class="table table-hover table-striped">
+  <COLGROUP span="2">
+  <COLGROUP span="7" style="border: 1px solid #ddd;">
+  <COLGROUP span="2">
   <thead>
+    
     <tr>
-      <th>Turma</th>
-      <th></th>
-      <th class="text-center">seg</th>
-      <th class="text-center">ter</th>
-      <th class="text-center">qua</th>
-      <th class="text-center">qui</th>
-      <th class="text-center">sex</th>
-      <th class="text-center">sab</th>
-      <th class="text-center">dom</th>
-      <th class="text-center">Turma Ativa?</th>
-      <th></th>
+      <th rowspan="2">Turma</th>
+      <th rowspan="2"></th>
+      <th colspan="7" class="text-center borda-bottom-1px">Dias da semana</th>
+      <th class="text-center" rowspan="2">Turma Ativa?</th>
+      <th rowspan="2"></th>
     </tr>
+    
+    <tr>
+      <th class="text-center subneader-tabela">seg</th>
+      <th class="text-center subneader-tabela">ter</th>
+      <th class="text-center subneader-tabela">qua</th>
+      <th class="text-center subneader-tabela">qui</th>
+      <th class="text-center subneader-tabela">sex</th>
+      <th class="text-center subneader-tabela">sab</th>
+      <th class="text-center subneader-tabela">dom</th>
+    </tr>
+
   </thead>
 
   <tbody>
     <% @turmas.each do |turma| %>
       <tr>
-        <td><%=image_tag turma.local.imagem_url.to_s, size: '70'%></td>
+        <td><%=image_tag turma.local.imagem_url.to_s, size: '50'%></td>
         <td>
-          <%= turma.local.nome %> <br> <%= turma.hora_inicio.strftime('%H:%m')%> - <%= turma.hora_fim.to_time.strftime('%H:%m ')%> (<%= turma.periodo%>) <br> <%= turma.publico%> 
+          <%= turma.local.nome %> <br> <%= l turma.hora_inicio, format: :hora_minuto%> - <%= l turma.hora_fim, format: :hora_minuto %> (<%= turma.periodo%>) <br> <%= turma.publico%> 
         </td>
         <td class="text-center">
           <%if turma.dia_seg? %>
             <br>
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <i class="fa fa-check turma-sim" aria-hidden="true"></i>
           <%end%>
         </td>
-        <td class="text-center"><%if turma.dia_ter? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_qua? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_qui? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_sex? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_sab? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_dom? %><br><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center">
+          <%if turma.dia_ter? %>
+            <br>
+            <i class="fa fa-check turma-sim" aria-hidden="true"></i>
+          <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
+          <%end%>
+        </td>
+        <td class="text-center"><%if turma.dia_qua? %><br><i class="fa fa-check turma-sim" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_qui? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_sex? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_sab? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center"><%if turma.dia_dom? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
        
         <td class="text-center">
           <br>
@@ -77,3 +90,7 @@
 <%= will_paginate @turmas %>
 
 <br>
+
+<%= link_to locais_path, class: 'btn' do %>
+  <i class="fa fa-map-marker"></i> Clique aqui para visualizar os seus locais cadastrados.
+<% end %>
