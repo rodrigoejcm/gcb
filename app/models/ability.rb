@@ -89,7 +89,33 @@ class Ability
         can :public_evento, Evento
         can :public_eventos, Evento
 
-    end
+    elsif usuario.colaborador_teste?
+
+        #Evento
+        can :read, Evento
+        can :create, Evento
+        can [:update, :destroy], Evento, :usuario => usuario
+        can :public_evento, Evento
+        can :public_eventos, Evento
+
+        #Publicação
+        can :read, Publicacao
+        can :create, Publicacao
+        can [:update, :destroy], Publicacao, :usuario => usuario
+        can :public_publicacao, Publicacao
+        can :public_publicacoes, Publicacao
+        
+        #Local
+        can :read, Local
+        can :create, Local
+        can [:update, :destroy], Local, :usuario => usuario
+
+        #Turma
+        can :read, Turma
+        can :create, Turma
+        can [:update, :destroy], Turma, :usuario => usuario
+
+     end 
   
   end
 end

@@ -1,3 +1,7 @@
+.tamanho500{
+	height:500px !important;
+}
+
 .box-dia{
 	width:50px;
 	border: 1px solid #ccc;
@@ -39,6 +43,82 @@
 
 .encontre{
 	width: 100%;
+	float: none;
 }
 
+
+.avatar_turma_professor{
+	width: 50px;
+	height: 50px;
+	/* border: 1px solid #eeeeee; */
+	float:left;
+
+	 -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+
+}
+
+h2.nome_local{
+	font-size: 15px !important;
+	margin-top: 10px;
+    margin-bottom: 4px;
+
+}
+
+.nome_e_local{
+	height: 45px;
+	overflow: hidden;
+}
+
+.turmas{
+
+	hr {
+    	margin-top: 10px;
+    	margin-bottom: 10px;
+    }
+
+	p{
+		    margin: 0;
+	}
+
+	.dias_da_turma{
+		font-size: 11px;
+	}
+
+	.nome_professor{
+		font-size: 10px;
+	}
+
+	.link-turma{
+		z-index: 4;
+		&:hover{
+			p{
+				text-decoration: none;
+			}
+			.turmas{
+				background-color: none;	
+			}
+			
+		}
+	}
+
+	.info-turma{
+		margin-left: 45px;
+		padding-left: 15px;
+
+		p {
+			text-align: left !important;
+		}
+	}
+
+}
+
+.maisturmas{
+	position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
 

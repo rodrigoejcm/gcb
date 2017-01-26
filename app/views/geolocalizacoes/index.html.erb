@@ -1,6 +1,12 @@
 <section id="events">
 
-	<h3>Encontre a Capoeira </h3>
+	<h3>Encontre a Capoeira 
+		<span style="font-size: 15px;">
+		<% if !@nomeFiltro.nil? %>
+		 / <%=@nomeFiltro%> 
+		<% end %>
+		</span>
+	</h3>
 	
 	<div class="row">
 		<div class="col-md-9 col-sm-9">
@@ -10,50 +16,55 @@
 						<% @locaisDaCapoeira.each do |local| %>
 							
 							<div class="col-md-4 col-sm-6">
-								<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center ">
 									<div class="front">
-										<div class="box1 box-default">
+										<div class="box1 box-default tamanho500">
 											<div class="box-icon-title">
 												<div class="cartaz encontre" style="background-image: url('<%=local.imagem_url.to_s%>');"></div>
-												<h2><%=local.nome%></h2>
-												<small><%=local.nome%></small>
+												<div class="nome_e_local">
+													<h2 class="nome_local"><%=local.nome%></h2>
+													<small class="local_local"><%=local.nome_pais%> - <%=local.cidade%> </small>	
+												</div>
 											</div>
 											<br>
-											<table style="border: 1px solid black;">
-													<thead>
-														<tr  style="border: 1px solid black; padding: 2px;">
-															<th style="padding: 2px; class="text-center">Seg</th>
-															<th class="text-center">Ter</th>
-															<th class="text-center">Qua</th>
-															<th class="text-center">Qui</th>
-															<th class="text-center">Sex</th>
-															<th class="text-center">Sab</th>
-															<th class="text-center">Dom</th>
-															<th class="text-center"></th>
-														</tr>
-													</thead>
-													<tbody>
-													<% local.turmas.each do |turma| %>
-														<tr>
-															<td class="text-center"><%if turma.dia_seg? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"> <%if turma.dia_ter? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"><%if turma.dia_qua? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"> <%if turma.dia_qui? %>
-															<i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"><%if turma.dia_sex? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"><%if turma.dia_sab? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td class="text-center"><%if turma.dia_dom? %><i class="fa fa-times" aria-hidden="true"></i> <%end%></td>
-															<td>
-																<%=turma.usuario.apelidoCompleto%>
-															</td>
-														</tr>
-													<% end %>
-													</tbody>
-												</table>
+											<% local.turmas.each do |turma| %>
+											
+											<%= link_to geolocalizacoes_local_turma_path(local,turma),  :class=>"link-turma"  do %>
+											<div class="turmas">
+											<hr>
+											
+												<% if turma.usuario.perfil %>
+													<div class="cartaz encontre avatar_turma_professor" style="background-image: url('<%=turma.usuario.perfil.imagemPerfil_url.to_s%>');"></div>
+												<% else %>
+													<div class="cartaz encontre avatar_turma_professor" style="background-image: url('<%=turma.usuario.perfil.imagemPerfil_url.to_s%>');"></div>
+												<% end %>
+												<div class="info-turma">
+													<p>
+														<i class="fa fa-clock-o" aria-hidden="true"></i>
+														<%=turma.horario_da_turma%></p>
+													<p class="dias_da_turma">
+														<i class="fa fa-calendar" aria-hidden="true"></i>
+														<%=turma.dias_da_semana%>
+													</p>	
+													<p class="nome_professor">
+													<i class="fa fa-user" aria-hidden="true"></i>
+														<%=turma.usuario.apelido%>
+													</p>
+												</div>
+												
+											</div>
+											<% end %>
+											<% end %>
+											<br>
+											<%= link_to geolocalizacoes_local_path(local),  :class=>"maisturmas"  do %>
+												Ver todas as turmas
+											<% end %>
 										</div>
 									</div>
 								</div>
+								<br>
 							</div>
+
 
 						<% end %>
 
@@ -78,7 +89,8 @@
 				<div class="side-nav margin-bottom-60">
 
 					<% #render 'sidebar_publicacao', categorias:@categorias %>
-					<%= render 'sidebar_encontre_a_capoeira' %>
+					<%= render 'sidebar_encontre_a_capoeira', locais:@resultLocais, professores:@resultProfs %>
+
 					<hr>
 	                <%= render 'layouts/sidebar_fb' %>
 

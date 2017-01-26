@@ -202,10 +202,15 @@ Rails.application.routes.draw do
 
   
   resources :turmas
-  get '/turmas/nova-turma-sem-local/:id_local', to: 'turmas#new_turma_sem_local', as: 'new_turma_sem_local'
-  resources :locais
-  get '/encontre-a-capoeira', to: 'geolocalizacoes#index', as: 'geolocalizacoes'
 
+  get '/turmas/nova-turma-sem-local/:id_local', to: 'turmas#new_turma_sem_local', as: 'new_turma_sem_local'
+
+  resources :locais
+
+  get '/encontre-a-capoeira', to: 'geolocalizacoes#index', as: 'geolocalizacoes'
+  get '/encontre-a-capoeira/:tipo/:parametro', to: 'geolocalizacoes#index', as: 'geolocalizacoes-filtros'
+  get '/encontre-a-capoeira/:id_local', to: 'geolocalizacoes#index_local', as: 'geolocalizacoes-local'
+  get '/encontre-a-capoeira/:id_local/:id_turma', to: 'geolocalizacoes#index_local_turma', as: 'geolocalizacoes-local-turma'
 
 
   ActiveAdmin.routes(self)

@@ -24,6 +24,8 @@
         <td>
           <% if usuario.admin? || usuario.mestre? %>
             <i class="fa fa-user"></i> Administrador - 
+          <% elsif usuario.colaborador_teste? %>
+            <i class="fa fa-diamond"></i> Colaborador Teste - 
           <% end %>
           <%= usuario.apelidoCompleto %>
           <br> 

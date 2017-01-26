@@ -7,4 +7,29 @@ class Turma < ApplicationRecord
   validates :hora_inicio, presence: true
   validates :hora_fim, presence: true
 
+
+  def dias_da_semana
+
+  	dias = []
+  	dias.push("seg") if self.dia_seg
+  	dias.push("ter") if self.dia_ter
+  	dias.push("qua") if self.dia_qua
+  	dias.push("qui") if self.dia_qui
+  	dias.push("sex") if self.dia_sex
+  	dias.push("sab") if self.dia_sab
+  	dias.push("dom") if self.dia_dom
+
+  	return dias.join(" / ") 
+
+  end
+
+  def horario_da_turma
+  	
+  	inicio = I18n.localize self.hora_inicio, format: :hora_minuto
+  	fim = I18n.localize self.hora_fim, format: :hora_minuto
+
+  	return inicio + " - " + fim
+
+  end
+
 end

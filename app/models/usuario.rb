@@ -40,6 +40,8 @@ class Usuario < ApplicationRecord
   before_create :set_default_role
   
   has_many :eventos
+  has_many :turmas
+  has_many :locais
   has_many :publicacoes
   has_one :perfil
 
@@ -59,12 +61,20 @@ class Usuario < ApplicationRecord
   		self.role == "professor_premium"
 	end
 
+  def colaborador_teste?
+      self.role == "colaborador_teste"
+  end
+
+  def colaborador?
+      self.role == "colaborador"
+  end
+
 	def mestre?
   		self.role == "mestre"
 	end
 
 	def usuarioLimitado?
-		!self.admin? && !self.mestre? && !self.professor_premium?
+		!self.admin? && !self.mestre? && !self.colaborador? && !self.colaborador_teste?
 	end
 
   def possuiPerfil?

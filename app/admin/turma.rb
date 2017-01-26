@@ -15,23 +15,27 @@ ActiveAdmin.register Turma do
 
  # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :id, :nome, :pais, :usuario, :endereco
+  permit_params :id, :nome, :periodo, :usuario, :local, :local_nome
  
     index do
         column :id
-        column :local
+        column :local do |t|
+            t.local.nome
+        end
         column :created_at
-        column :usuario
+        column :usuario do |u|
+            u.usuario.apelido
+        end
         column :periodo
         actions
     end
  
-    filter :local
+    filter :usuario , :as => :select, :collection => Usuario.all.map{|u| [u.apelido,u.id]}
  
     form do |f|
         f.inputs "" do
-            f.input :local
-            f.input :usuario
+            f.input :local, :as => :select, :collection => Hash[Local.all.map{|c| [c.nome,c.id]}]
+            f.input :usuario,  :as => :select, :collection => Hash[Usuario.all.map{|b| [b.apelido,b.id]}]
             f.input :periodo
         end
         f.actions

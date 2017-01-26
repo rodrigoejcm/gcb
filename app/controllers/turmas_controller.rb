@@ -3,7 +3,7 @@ class TurmasController < ApplicationController
   before_action :set_listas, only: [:new, :new_turma_sem_local, :edit, :create]
 
   # GET /turmas
-  # GET /turmas.json
+  # GET /turmas.json 
   def index
     @turmas = Turma.where(usuario: current_usuario).accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
   end
@@ -15,7 +15,13 @@ class TurmasController < ApplicationController
 
   # GET /turmas/new
   def new
-    @turma = Turma.new
+
+    if podeCadastrarNovaTurma
+      @turma = Turma.new
+    else
+      redirect_to turmas_path, notice: 'Você já possui uma turma cadastrada. Para cadastrar novas turmas, é necessário ser um usuário Colaborador. '
+    end
+
   end
 
   def new_turma_sem_local
@@ -72,10 +78,26 @@ class TurmasController < ApplicationController
     end
   end
 
- 
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
+      
+    def podeCadastrarNovaTurma
+        puts "--------"
+        puts current_usuario.turmas.exists?
+        puts "--------"
+
+        if (current_usuario.usuarioLimitado? && current_usuario.turmas.exists?)
+            #se usuario é limitado e ja possui local
+            #true -true
+            return false
+        end
+
+        return true
+
+    end
+
     def set_turma
       @turma = Turma.find(params[:id])
     end

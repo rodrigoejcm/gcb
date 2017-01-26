@@ -1,9 +1,37 @@
 <div class="side-nav-head">
-	<button class="fa fa-bars"></button>
-	<h4>Filtros</h4>
+	<h4>LOCAIS</h4>
 </div>
-<ul class="list-group list-group-bordered list-group-noicon uppercase">
+<ul class="list-group list-group-bordered list-group-noicon">
 
-	
+	<% locais.each do |key, value| %>
+		
+			<li class="list-group-item">
+				<%=	link_to( geolocalizacoes_filtros_path( :tipo => 'l' , :parametro => key[1] )  )do %>	
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+
+	<% end %>
+</ul>
+
+
+<div class="side-nav-head">
+	<h4>PROFESSORES</h4>
+</div>
+<ul class="list-group list-group-bordered list-group-noicon ">
+
+	<% professores.each do |key, value| %>
+
+			<li class="list-group-item">
+				<%=	link_to( geolocalizacoes_filtros_path( :tipo => 'p' , :parametro => key[1] ) ) do %>	
+					<%= key[0]%>
+					<span class="size-11 text-muted pull-right">(<%=value%>)</span>
+				<% end %>
+			</li>
+
+	<% end %>
 </ul>
 <!-- /side navigation -->
+
+
