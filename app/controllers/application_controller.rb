@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
 		(controller_name == 'publicacoes' && action_name == 'public_publicacao') ||
 		(controller_name == 'publicacoes' && action_name == 'public_publicacoes') ||
 		(controller_name == 'geolocalizacoes' && action_name == 'index') ||
+		(controller_name == 'geolocalizacoes' && action_name == 'index_local') ||
 		controller_name == 'home' || 
 
 		!usuario_signed_in?

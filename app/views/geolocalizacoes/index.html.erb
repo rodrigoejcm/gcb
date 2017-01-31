@@ -22,21 +22,22 @@
 											<div class="box-icon-title">
 												<div class="cartaz encontre" style="background-image: url('<%=local.imagem_url.to_s%>');"></div>
 												<div class="nome_e_local">
-													<h2 class="nome_local"><%=local.nome%></h2>
+													<h2 class="nome_local"><%=local.nome.truncate(50)%></h2>
 													<small class="local_local"><%=local.nome_pais%> - <%=local.cidade%> </small>	
 												</div>
 											</div>
 											<br>
-											<% local.turmas.each do |turma| %>
+											<% local.turmas.take(2).each do |turma| %>
 											
-											<%= link_to geolocalizacoes_local_turma_path(local,turma),  :class=>"link-turma"  do %>
+											<%= link_to geolocalizacoes_local_path(local),  :class=>"link-turma"  do %>
 											<div class="turmas">
 											<hr>
 											
 												<% if turma.usuario.perfil %>
 													<div class="cartaz encontre avatar_turma_professor" style="background-image: url('<%=turma.usuario.perfil.imagemPerfil_url.to_s%>');"></div>
 												<% else %>
-													<div class="cartaz encontre avatar_turma_professor" style="background-image: url('<%=turma.usuario.perfil.imagemPerfil_url.to_s%>');"></div>
+													<div 	class="cartaz encontre avatar_turma_professor"
+															style="background-image: url('<%= image_url("avatar2.jpg")%>');"></div>
 												<% end %>
 												<div class="info-turma">
 													<p>
@@ -48,16 +49,23 @@
 													</p>	
 													<p class="nome_professor">
 													<i class="fa fa-user" aria-hidden="true"></i>
-														<%=turma.usuario.apelido%>
+														<%=turma.usuario.apelidoCompleto%>
 													</p>
 												</div>
 												
 											</div>
 											<% end %>
 											<% end %>
-											<br>
-											<%= link_to geolocalizacoes_local_path(local),  :class=>"maisturmas"  do %>
-												Ver todas as turmas
+											<% if local.turmas.count > 2 %>
+												<%= link_to geolocalizacoes_local_path(local),  :class=>"maisturmas"  do %>
+													Ver mais 
+													<% falta = local.turmas.count - 2%>
+													<% if falta == 1%>
+													<%=falta%> turma
+													<% else %>
+													<%=falta%> turmas
+													<% end %>
+												<% end %>
 											<% end %>
 										</div>
 									</div>

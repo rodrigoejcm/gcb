@@ -5,7 +5,7 @@ class TurmasController < ApplicationController
   # GET /turmas
   # GET /turmas.json 
   def index
-    @turmas = Turma.where(usuario: current_usuario).accessible_by(current_ability, :update).paginate(:page => params[:page], :per_page => 5)
+    @turmas = Turma.includes(:local).where(usuario: current_usuario).accessible_by(current_ability, :update).order("locais.nome asc").paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /turmas/1
@@ -84,9 +84,6 @@ class TurmasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
       
     def podeCadastrarNovaTurma
-        puts "--------"
-        puts current_usuario.turmas.exists?
-        puts "--------"
 
         if (current_usuario.usuarioLimitado? && current_usuario.turmas.exists?)
             #se usuario é limitado e ja possui local

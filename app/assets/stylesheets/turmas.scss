@@ -1,5 +1,5 @@
 .tamanho500{
-	height:500px !important;
+	height:425px !important;
 }
 
 .box-dia{
@@ -28,7 +28,7 @@
 }
 
 .turma-nao{
-	color: red;
+	color: #ddd;
 }
 
 .borda-bottom-1px{
@@ -44,6 +44,9 @@
 .encontre{
 	width: 100%;
 	float: none;
+		 -webkit-border-radius: 3%;
+    -moz-border-radius: 3%;
+    border-radius: 3%;
 }
 
 
@@ -61,15 +64,24 @@
 }
 
 h2.nome_local{
-	font-size: 15px !important;
+	font-size: 14px !important;
 	margin-top: 10px;
     margin-bottom: 4px;
 
 }
 
 .nome_e_local{
-	height: 45px;
+	height: 60px;
 	overflow: hidden;
+	
+    .nome_local{
+    	background: white;
+	    padding: 10px 0;
+	    color: #7e7e7e !important;
+	    margin-top: -5px;
+	    height: 45px;
+	
+    }
 }
 
 .turmas{
@@ -117,8 +129,55 @@ h2.nome_local{
 
 .maisturmas{
 	position: absolute;
-    bottom: 14px;
+    	bottom: 0;
     left: 0;
     right: 0;
+    background-color: #ddd;
+    padding: 6px 0;
+    
+
+    &:hover{
+    	text-decoration: none;
+    	font-weight: bold;
+    }
 }
 
+
+.infolocal{ 
+
+	p{
+		margin-bottom: 8px;
+		font-size: 14px;
+		color: #777;
+	}
+
+	
+}
+
+.infolocal > :first-child{
+		margin-top: 12px;
+}
+
+.infolocalturmas .turmas{
+	background-color: #f8f8f8;
+	    padding-left: 10px;
+    padding-bottom: 10px;
+    height: 125px;
+
+    .avatar_turma_professor{
+    	width: 100px;
+		height: 100px;
+    }
+
+    .info-turma{
+    	    padding-left: 70px;
+    	    font-size: 11px!important;
+    }
+
+}
+
+.mapalocal{
+	height: 300px;
+	background-repeat: no-repeat;
+
+}

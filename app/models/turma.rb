@@ -11,13 +11,14 @@ class Turma < ApplicationRecord
   def dias_da_semana
 
   	dias = []
-  	dias.push("seg") if self.dia_seg
+  	dias.push("dom") if self.dia_dom
+    dias.push("seg") if self.dia_seg
   	dias.push("ter") if self.dia_ter
   	dias.push("qua") if self.dia_qua
   	dias.push("qui") if self.dia_qui
   	dias.push("sex") if self.dia_sex
   	dias.push("sab") if self.dia_sab
-  	dias.push("dom") if self.dia_dom
+  	
 
   	return dias.join(" / ") 
 

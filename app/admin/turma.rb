@@ -15,7 +15,7 @@ ActiveAdmin.register Turma do
 
  # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :id, :nome, :periodo, :usuario, :local, :local_nome
+  permit_params :id, :nome, :periodo, :usuario, :local, :local_nome, :usuario_id
  
     index do
         column :id

@@ -1,4 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_turma_path(@turma) %> |
-<%= link_to 'Back', turmas_path %>
+<h2>Turma</h2>
+
+<p>Dias: <%=@turma.dias_da_semana%></p>
+<p>Horário: <%=@turma.horario_da_turma%> (<%=@turma.periodo%>)</p>
+<p>Público: <%=@turma.publico%></p>
+
+<hr>
+
+<h4>Local da Turma</h4>
+<p><%=@turma.local.nome%></p>
+<p><%=@turma.local.endereco_completo%></p>
+<%=image_tag(	"https://maps.googleapis.com/maps/api/staticmap
+				?center=#{@turma.local.latitude},#{@turma.local.longitude}
+				&zoom=16
+				&size=300x300
+				&maptype=roadmap
+				&markers=color:blue%7Clabel:#{@turma.local.nome}%7C#{@turma.local.latitude},#{@turma.local.longitude}
+				&key=AIzaSyBRm2ob56GOjnSIKFxPYrp04haa0c4Gdsc"
+)%>
+<br>
+<br>
+<%= link_to 'Editar', edit_turma_path(@turma) %> |
+<%= link_to 'Voltar para a lista de turmas', turmas_path %>

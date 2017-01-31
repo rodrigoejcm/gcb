@@ -93,3 +93,5 @@ gem 'bootsy'
 #gem 'country_state_select'
 gem 'city-state', '~> 0.0.13'
 #gem "jquery-fileupload-rails"
+
+gem 'geocoder'

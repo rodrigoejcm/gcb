@@ -1,6 +1,6 @@
 class GeolocalizacoesController < ApplicationController
 
-	before_action :set_locais_e_turmas_ativas, only: [:index, :inicializaFiltros, :index_filtro]
+	before_action :set_locais_e_turmas_ativas, only: [:index, :index_filtro]
 	before_action :set_local_e_turmas_ativas, only: [:index_local]
 	before_action :set_turma_ativa, only: [:index_local_turma]
 	before_action :inicializaFiltros, only: [:index, :index_local, :index_local_turma, :index_filtro]
@@ -37,6 +37,8 @@ class GeolocalizacoesController < ApplicationController
 
 	def inicializaFiltros
       
+      set_locais_e_turmas_ativas
+
       professores= Array.new 
       locais = Array.new 
       
@@ -83,7 +85,9 @@ class GeolocalizacoesController < ApplicationController
       @locaisDaCapoeira = 	Local.includes(:turmas)
       						.where.not( turmas: {id: nil})
       						.where( turmas: {turma_ativa: true})
-      						.order("turmas.hora_inicio asc")
+      						.order("nome asc","turmas.hora_inicio asc")
+                  .paginate(:page => params[:page], :per_page => 12)
+
       	#("user_extensions.company desc")
 		#City.includes(:photos).where.not( photos: {city_id: nil} )
 		#City.includes(:photos).where(photos: { city_id: nil })
@@ -92,11 +96,11 @@ class GeolocalizacoesController < ApplicationController
 
     def set_local_e_turmas_ativas
     	if params[:id_local]
-     		@local =  	Local.includes(:turmas)
+     		@local = Local.includes(:turmas)
      					.where.not( turmas: {id: nil})
      					.where( turmas: {turma_ativa: true})
-     					.where(local_id: params[:id_local])
      					.order("turmas.hora_inicio asc")
+              .find(params[:id_local])
       	end
     end
 

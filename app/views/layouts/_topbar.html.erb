@@ -39,6 +39,15 @@
 					            <% end %>
 					        </li>
 					    <% end %>    
+
+						<% if current_usuario.admin? %>
+					        <li>
+					            <!-- PATH AINDA NAO DEFINIDO -->
+					            <%= link_to turmas_path do %>
+					                <i class="fa fa-users"></i> Minhas Turmas
+					            <% end %>
+					        </li>
+					    <% end %>
 						<!-- <li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> Publicar Conteúdo</a></li>
                         <li><a tabindex="-1" href="#"><i class="fa fa-group"></i> Autorizações Pendentes</a></li> -->
                         <li class="divider"></li>

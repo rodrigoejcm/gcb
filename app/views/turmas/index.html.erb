@@ -22,13 +22,14 @@
     </tr>
     
     <tr>
+      <th class="text-center subneader-tabela">dom</th>
       <th class="text-center subneader-tabela">seg</th>
       <th class="text-center subneader-tabela">ter</th>
       <th class="text-center subneader-tabela">qua</th>
       <th class="text-center subneader-tabela">qui</th>
       <th class="text-center subneader-tabela">sex</th>
       <th class="text-center subneader-tabela">sab</th>
-      <th class="text-center subneader-tabela">dom</th>
+      
     </tr>
 
   </thead>
@@ -41,9 +42,21 @@
           <%= turma.local.nome %> <br> <%= l turma.hora_inicio, format: :hora_minuto%> - <%= l turma.hora_fim, format: :hora_minuto %> (<%= turma.periodo%>) <br> <%= turma.publico%> 
         </td>
         <td class="text-center">
+          <%if turma.dia_dom? %>
+            <br>
+            <i class="fa fa-check turma-sim" aria-hidden="true"></i>
+          <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
+        <%end%>
+        </td>
+        <td class="text-center">
           <%if turma.dia_seg? %>
             <br>
             <i class="fa fa-check turma-sim" aria-hidden="true"></i>
+            <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
           <%end%>
         </td>
         <td class="text-center">
@@ -55,11 +68,37 @@
             <i class="fa fa-times turma-nao" aria-hidden="true"></i>
           <%end%>
         </td>
-        <td class="text-center"><%if turma.dia_qua? %><br><i class="fa fa-check turma-sim" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_qui? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_sex? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_sab? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
-        <td class="text-center"><%if turma.dia_dom? %><br><i class="fa fa-check" aria-hidden="true"></i> <%end%></td>
+        <td class="text-center">
+          <%if turma.dia_qua? %>
+            <br><i class="fa fa-check turma-sim" aria-hidden="true"></i> 
+            <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
+          <%end%>
+        </td>
+        <td class="text-center">
+          <%if turma.dia_qui? %>
+            <br><i class="fa fa-check turma-sim" aria-hidden="true"></i>
+          <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i> 
+          <%end%>
+        </td>
+        <td class="text-center">
+          <%if turma.dia_sex? %>
+            <br><i class="fa fa-check turma-sim" aria-hidden="true"></i>
+            <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
+            <%end%>
+        </td>
+        <td class="text-center">
+          <%if turma.dia_sab? %><br><i class="fa fa-check turma-sim" aria-hidden="true"></i>
+          <%else%>
+            <br>
+            <i class="fa fa-times turma-nao" aria-hidden="true"></i>
+          <%end%>
+        </td>
        
         <td class="text-center">
           <br>

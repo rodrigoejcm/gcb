@@ -1,4 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_local_path(@local) %> |
-<%= link_to 'Back', locais_path %>
+<h2>Local</h2>
+
+
+<p><%=@local.nome%></p>
+<p><%=@local.endereco_completo%></p>
+<p><%=@local.contato1%></p>
+<p><%=@local.contato2%></p>
+
+<p>
+
+
+<%=image_tag(	"https://maps.googleapis.com/maps/api/staticmap
+				?center=#{@local.latitude},#{@local.longitude}
+				&zoom=16
+				&size=300x300
+				&maptype=roadmap
+				&markers=color:blue%7Clabel:#{@local.nome}%7C#{@local.latitude},#{@local.longitude}
+				&key=AIzaSyBRm2ob56GOjnSIKFxPYrp04haa0c4Gdsc"
+)%>
+
+
+
+
+
+</p>
+
+
+<%= link_to 'Editar Local', edit_local_path(@local) %> |
+<%= link_to 'Voltar para lista de locais', locais_path %>

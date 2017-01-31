@@ -5,8 +5,10 @@
     <tr>
       <th>Usuário</th>
       <th></th>
+      
     <!--   <th>Nome</th> -->
       <th>Participação</th>
+      <th></th>
 
     </tr>
   </thead>
@@ -21,12 +23,8 @@
                <%= image_tag("avatar2.jpg", height: '110', width: '110')%>
           <% end %>    
         </td>
+        
         <td>
-          <% if usuario.admin? || usuario.mestre? %>
-            <i class="fa fa-user"></i> Administrador - 
-          <% elsif usuario.colaborador_teste? %>
-            <i class="fa fa-diamond"></i> Colaborador Teste - 
-          <% end %>
           <%= usuario.apelidoCompleto %>
           <br> 
           <i class="fa fa-envelope"></i> <%= usuario.email %>
@@ -66,6 +64,15 @@
           </span>
           <br>
 <!--           <span class="participacao-membro"> Membro do site: <%= l usuario.created_at, format: :mes_ano %></span> -->
+        </td>
+        <td>
+          <% if usuario.admin? || usuario.mestre? %>
+           Administrador 
+          <% elsif usuario.colaborador_teste? %>
+           Colaborador Teste
+          <% elsif usuario.professor? %>
+           Comum
+          <% end %>
         </td>
 
 	   </tr>

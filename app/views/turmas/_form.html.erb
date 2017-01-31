@@ -29,11 +29,13 @@
       %>
         
         <%= f.select :local_id, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local" %>
-      <div style="display: inline-block; font-size: 11px; padding-bottom: 2px; padding-top: 2px;margin-left: 10px;" class="label label-primary">
+     
+      </div>
+      <br><br>
+      <div style="display: inline-block; padding-bottom: 3px; padding-top: 3px;" class="label label-success">
         <%= link_to(new_local_path) do %>
           <div class="" style="text-align: center; color:white;">Não encontrou o local na lista?<br>Clique aqui para cadastrar um novo.</div>
         <% end %>  
-      </div>
       </div>
        
        <%if params[:notice] %>  
@@ -50,6 +52,13 @@
     <div class="col-md-12">
       <label> Dias que ocorre a turma:</label>
       <p class="sublabel">Escolha os dias da semana em que a turma acontece</p>
+    </div>
+
+    <div class="col-md-1 col-sm-1 col-xs-1">
+      <div class="box-dia">  
+        <%= f.label :dia_dom, "dom" %>
+        <%= f.check_box :dia_dom %>
+      </div>
     </div>
 
     <div class="col-md-1 col-sm-1 col-xs-1">
@@ -88,12 +97,7 @@
         <%= f.check_box :dia_sab %>
       </div>
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-      <div class="box-dia">  
-        <%= f.label :dia_dom, "dom" %>
-        <%= f.check_box :dia_dom %>
-      </div>
-    </div>
+    
   </div>
 
   <div class="row">

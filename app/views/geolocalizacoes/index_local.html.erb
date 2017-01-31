@@ -1,1 +1,129 @@
-<p>local</p>
+<section id="events">
+<br>
+	<h3>Encontre a Capoeira 
+		<span style="font-size: 15px;">
+		/ <%=@local.nome%>
+		</span>
+	</h3>
+	
+	<div class="row">
+		<div class="col-md-9 col-sm-9">
+		<br>
+            <div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="box-icon-title">
+						<div class="cartaz encontre" style="background-image: url('<%=@local.imagem_url.to_s%>');">
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="infolocal">
+						<p>
+							<i class="fa fa-home" aria-hidden="true"></i>
+							<%=@local.nome%>
+							</p>
+						<p>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							<%=@local.endereco%></br><%=@local.cidade%> - <%=@local.estadoprovincia%> - <%=@local.nome_pais%>
+						</p>
+						<p>
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<%=@local.contato1%>
+						</p>
+						<p>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<%=@local.contato2%>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 infolocalturmas">
+				<br>
+				<h4>Turmas 
+					<span style="font-size: 13px;">
+					/ <%=@local.nome%>
+					</span>
+				</h4>
+				<hr>
+					<% @local.turmas.each do |turma| %>
+	
+						
+						<div class="turmas">
+						<hr>
+
+							<% if turma.usuario.perfil %>
+								<div class="cartaz encontre avatar_turma_professor" style="background-image: url('<%=turma.usuario.perfil.imagemPerfil_url.to_s%>');"></div>
+							<% else %>
+								<div 	class="cartaz encontre avatar_turma_professor"
+										style="background-image: url('<%= image_url("avatar2.jpg")%>');"></div>
+							<% end %>
+							<div class="info-turma">
+							<br>
+								<p>
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<%=turma.horario_da_turma%></p>
+								<p class="dias_da_turma">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+									<%=turma.dias_da_semana%>
+								</p>	
+								<p class="nome_professor">
+								<i class="fa fa-user" aria-hidden="true"></i>
+									<%=turma.usuario.apelidoCompleto%>
+								</p>
+								<p class="email_professor">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+									<%=turma.usuario.email%>
+								</p>
+							</div>
+						</div>
+						<% end %>
+						
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<br><br>
+					<h4>Mapa
+						<span style="font-size: 13px;">
+							/ <%=@local.nome%>
+						</span>
+					</h4>
+					<hr>
+					<div 	class="mapalocal" 
+							style="background-image: url(
+'https://maps.googleapis.com/maps/api/staticmap?center=<%=@local.latitude%>,<%=@local.longitude%>&zoom=16&size=2000x300&maptype=roadmap&markers=color:blue%7Clabel:<%=@local.nome%>%7C<%=@local.latitude%>,<%=@local.longitude%>&key=AIzaSyBRm2ob56GOjnSIKFxPYrp04haa0c4Gdsc') ">
+						
+
+						
+					</div>
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3">
+				<div class="side-nav margin-bottom-60">
+					<%= render 'sidebar_encontre_a_capoeira', locais:@resultLocais, professores:@resultProfs %>
+					<hr>
+	                <%= render 'layouts/sidebar_fb' %>
+				</div>
+			</div>
+		</div>
+    </div>
+
+</section>
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
