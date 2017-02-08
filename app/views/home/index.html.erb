@@ -23,7 +23,7 @@
 							
 							<h3 class="size-20">
 								<%= link_to( publico_publicacao_path(publicacao)) do %>
-									<%=publicacao.titulo%>
+									<%=publicacao.titulo.truncate(50)%>
 								<% end %>
 							</h3>
 
