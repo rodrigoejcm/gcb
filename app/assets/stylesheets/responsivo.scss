@@ -3,8 +3,14 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
 
+  
+  /* HOME SLIDER */
+  section#slider{
+    margin-top: 50px !important;
+  }
   /* HOME */
-  .col-publicacoes-home {
+
+  .col-publicacoes-home, .col-eventos-home {
 
     h3{
       font-size: 45px;
@@ -17,6 +23,56 @@
 
   }
 
+}
 
+@media only screen 
+  and (max-device-width: 414px) 
+  { 
 
+  #topBar{
+    height: 50px;
+    font-size: 14px;
+
+      ul.top-links>li>a {
+        padding: 13px;
+        font-size: 20px;
+      }
+  }
+
+  .dropdown-menu{
+
+    li a{
+      font-size: 20px !important;
+    }
+  }
+
+  #topMain{
+    li a {
+      font-size: 20px !important;
+    }
+  }
+
+  #topNav a.logo {
+    font-size: 24px !important;
+  }
+  
+        
+
+  .hidden-xs{
+    visibility: hidden;
+  }
+
+  .container {
+    width: 90% !important;
+  }
+
+  .mapadosite{
+    display: none;
+  }
+  /* HOME SLIDER */
+  section#slider{
+    margin-top: 50px ;
+    height: 300px !important;
+  }
+ 
 }
