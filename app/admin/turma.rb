@@ -30,7 +30,7 @@ ActiveAdmin.register Turma do
         actions
     end
  
-    filter :usuario , :as => :select, :collection => Usuario.all.map{|u| [u.apelido,u.id]}
+    #filter :usuario , :as => :select, :collection => Usuario.all.map{|u| [u.apelido,u.id]}
  
     form do |f|
         f.inputs "" do

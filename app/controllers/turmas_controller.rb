@@ -3,9 +3,16 @@ class TurmasController < ApplicationController
   before_action :set_listas, only: [:new, :new_turma_sem_local, :edit, :create]
 
   # GET /turmas
-  # GET /turmas.json 
+  # GET /turmas.json
   def index
-    @turmas = Turma.includes(:local).where(usuario: current_usuario).accessible_by(current_ability, :update).order("locais.nome asc").paginate(:page => params[:page], :per_page => 10)
+    #@turmas = Turma.includes(:local).where(usuario: current_usuario).accessible_by(current_ability, :update).order("locais.nome asc").paginate(:page => params[:page], :per_page => 10)
+
+
+    @turmas = Local.includes(:turmas).accessible_by(current_ability, :update).where.not( turmas: {id: nil})
+              .where( turmas: {turma_ativa: true})
+              .order("turmas.hora_inicio asc")
+              .paginate(:page => params[:page], :per_page => 10)
+
   end
 
   # GET /turmas/1
@@ -82,7 +89,7 @@ class TurmasController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-      
+
     def podeCadastrarNovaTurma
 
         if (current_usuario.usuarioLimitado? && current_usuario.turmas.exists?)
@@ -110,7 +117,7 @@ class TurmasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def turma_params
 
-      params.require(:turma).permit(  
+      params.require(:turma).permit(
                                       :local_id,
                                       :local_nome,
                                       :local,
@@ -126,6 +133,6 @@ class TurmasController < ApplicationController
                                       :dia_sex,
                                       :dia_sab,
                                       :dia_dom,
-                                      :turma_ativa) 
+                                      :turma_ativa)
     end
 end
