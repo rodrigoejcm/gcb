@@ -8,10 +8,14 @@ class TurmasController < ApplicationController
     #@turmas = Turma.includes(:local).where(usuario: current_usuario).accessible_by(current_ability, :update).order("locais.nome asc").paginate(:page => params[:page], :per_page => 10)
 
 
-    @turmas = Local.includes(:turmas).accessible_by(current_ability, :update).where.not( turmas: {id: nil})
+    @turmas =
+              Local.includes(:turmas)
+              .where( turmas: {usuario: current_usuario})
               .where( turmas: {turma_ativa: true})
-              .order("turmas.hora_inicio asc")
-              .paginate(:page => params[:page], :per_page => 10)
+              .order( nome: :asc)
+              .paginate(:page => params[:page], :per_page => 3)
+
+      puts @turmas.size
 
   end
 

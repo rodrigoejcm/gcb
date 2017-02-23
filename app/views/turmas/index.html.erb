@@ -11,35 +11,41 @@
 <% @turmas.each do |local| %>
   <table class="table table-hover table-striped" style="border: 2px solid #ddd ">
 
-
     <thead>
-
       <tr>
-        <th colspan=2 style="height:120px; width:100%; background-image: url('<%=local.imagem_url.to_s%>'); background-size: cover; background-position: center;"></th>
-        <th class=" borda-bottom-1px" style="background-color: #f9f9f9; font-weight: normal; vertical-align: middle;" >
-           <p style="font-size: 14px; font-weight: bold; color:#827977;"><%=local.nome%></p>
-           <p style="margin-top: -10px; color:#a2a2a2;"><%=local.cidade%></p>
-           <div style="font-size: 12px;">
+        <th colspan="2" class=" borda-bottom-1px" style="background-color: #f9f9f9; font-weight: normal; vertical-align: top; width: 50%;" >
+           <p style="font-size: 14px; font-weight: bold; color:#827977;"><%=local.nome%> <span style="font-size: 12; font-weight: normal; color:#a2a2a2;">(<%=local.cidade%>)</span></p>
+        </th>
+        <th colspan="2" style="background-color: #f9f9f9 ;vertical-align: top;">
+            <span style="font-size: 12px; font-weight: normal; margin-right: 15px;">
               <%= link_to(local) do %>
-                <i class="fa fa-calendar-o"></i> Visualizar mais informações do local
+                <i class="fa fa-calendar-o"></i> Visualizar informações do local
               <% end %>
-           </div>
-            <div style="font-size: 12px;">
+           </span>
+            <span style="font-size: 12px; font-weight: normal;">
               <%= link_to(edit_local_path(local)) do %>
               <i class="fa fa-pencil"></i> Editar informações do local
             <% end %>
-            </div>
-            <br>
+            </span>
         </th>
       </tr>
-
     </thead>
+
+    <thead>
+      <tr>
+        <th  style="height:120px; width:25%; background-image: url('<%="https://maps.googleapis.com/maps/api/staticmap?center="+local.latitude.to_s+","+local.longitude.to_s+"&zoom=16&size=300x300&maptype=roadmap&markers=color:blue%7Clabel:gcb%7C"+local.latitude.to_s+","+local.longitude.to_s+"&key=AIzaSyBRm2ob56GOjnSIKFxPYrp04haa0c4Gdsc"%>');background-size: cover; background-position: center;"></th>
+        <th colspan="3" style="height:120px; width:75%; background-image: url('<%=local.imagem_url.to_s%>'); background-size: cover; background-position: center;"></th>
+      </tr>
+    </thead>
+
+
 
     <thead>
 
       <tr>
-        <th style="width: 30%">Horário</th>
-        <th style="width: 30%">Dias</th>
+        <th style="width: 25%">Horário</th>
+        <th style="width: 25%">Dias</th>
+        <th style="width: 20%">Público</th>
         <th style="width: 30%"></th>
       </tr>
 
@@ -51,6 +57,7 @@
         <tr>
           <td><%=turma.horario_da_turma%></td>
           <td><%=turma.dias_da_semana%></td>
+          <td><%=turma.publico%></td>
           <td>
             <%= link_to(turma) do %>
               <span style="margin-right: 5px;">
@@ -72,12 +79,12 @@
       <% end %>
     </tbody>
   </table>
+<br>
 <%end%>
+
   <%= will_paginate @turmas %>
 
   <br>
 
-  <%= link_to locais_path, class: 'btn' do %>
-    <i class="fa fa-map-marker"></i> Clique aqui para visualizar os seus locais cadastrados.
-  <% end %>
+
 <% end %>

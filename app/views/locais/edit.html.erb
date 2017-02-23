@@ -4,16 +4,17 @@
 <%= form_for(@local) do |f| %>
 
 			<%= render 'form', local: @local, f:f %>
-			
-			
+
+
 			<% #opcao disponivel somente ao editar %>
-			
+
 			<div class="actions">
 				<%= f.submit "Salvar alterações do Local",:class => "btn btn-success btn-mini"%>
 			</div>
 
-			<% end %> 
+			<% end %>
 
 <%= link_to 'Visualizar', @local %> |
-<%= link_to 'Voltar para tela de locais', locais_path %>
+<%= link_to 'Excluir', @local, method: :delete, data: { confirm: 'Tem certeza que deseja excluir este local?' } %> |
+<%= link_to 'Voltar', turmas_path %>
 <br>

@@ -45,7 +45,7 @@ class LocaisController < ApplicationController
   def update
     respond_to do |format|
       if @local.update(local_params)
-        format.html { redirect_to locais_path, notice: 'Local atualizado com sucesso.' }
+        format.html { redirect_to turmas_path, notice: 'Local atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @local }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LocaisController < ApplicationController
   def destroy
     @local.destroy
     respond_to do |format|
-      format.html { redirect_to locais_url, notice: 'Local excluído com sucesso.' }
+      format.html { redirect_to turmas_url, notice: 'Local excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +69,7 @@ class LocaisController < ApplicationController
       @paises_temp.delete("BR")
       @paises_temp[:BR] = "Brasil"
       @paises = @paises_temp.sort.map {|k,v| [v,k]}
-           
+
       @estados =  Hash.new
       @cidades =  Hash.new
   end
@@ -92,7 +92,7 @@ class LocaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def local_params
-      params.require(:local).permit( :nome, :descricao, :endereco, 
+      params.require(:local).permit( :nome, :descricao, :endereco,
                                       :usuario, :imagem, :cidade, :pais, :estadoprovincia, :contato1, :contato2, :latitude, :longitude) # List here whitel
     end
 end
