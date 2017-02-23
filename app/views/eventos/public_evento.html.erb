@@ -3,7 +3,7 @@
 	<div class="container">
 
 			<div class="row">
-					
+
 			<div class="col-md-9">
 
 				<h3>Eventos /<span class="size-18"> <%= @evento.titulo %> </span></h3>
@@ -11,14 +11,14 @@
 				 <div class="row">
 
 					<!-- DIV Eventos -->
-						
+
 							<figure class="margin-bottom-20">
 								<%=image_tag @evento.image_url.to_s , class: "img-responsive"%>
 							</figure>
-						
-						
+
+
 							<div class="event-item">
-								
+
 								<div class="event-date-wrapper">
 									<span class="event-date-day"><%= @evento.data_hora_inicio.to_time.strftime('%d')%></span>
 									<span class="event-date-month uppercase"><%=l @evento.data_hora_inicio.to_date, format: :mesabrv %></span>
@@ -28,36 +28,49 @@
 										<h3 class="event-title"><%= @evento.titulo %></h3>
 										<div class="event-location"><%= @evento.usuario.apelidoCompleto %> </div>
 			                            <div class="event-location">
-			                            	<b>Local:</b> <%= @evento.nome_pais %> - 
-			                            	<%= @evento.estadoprovincia %> - 
+			                            	<b>Local:</b> <%= @evento.nome_pais %> -
+			                            	<%= @evento.estadoprovincia %> -
 			                            	<%= @evento.cidade %> -	<%= @evento.local %>
 			                            	</div>
 			                            <div class="event-location">
-			                            	<b>Início do Evento:</b> Dia 
-			                            	<%= l @evento.data_hora_inicio.to_date, format: :short %> - 
+			                            	<b>Início do Evento:</b> Dia
+			                            	<%= l @evento.data_hora_inicio.to_date, format: :short %> -
 			                            	<%= @evento.data_hora_inicio.to_time.strftime('%H:%M') %>
 			                            	<br>
-			                            	<b>Fim do Evento:</b> Dia 
-			                            	<%= l @evento.data_hora_fim.to_date, format: :short %> - 
+			                            	<b>Fim do Evento:</b> Dia
+			                            	<%= l @evento.data_hora_fim.to_date, format: :short %> -
 			                            	<%= @evento.data_hora_fim.to_time.strftime('%H:%M') %>
 			                            </div>
 			                            <hr>
 			                            <div class="event-location"><%= @evento.descricao.html_safe %> </div>
-									</div>
-			                       
+								<div 	class="fb-share-button"
+													data-href="<%=request.original_url%>"
+													data-layout="button"
+													data-mobile-iframe="true">
+													<a
+														class="fb-xfbml-parse-ignore"
+														target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+														Compartilhar
+													</a>
+											</div>
+				</div>
+
 			                    </div>
 							</div>
-						
+
+
+
 					</div>
+
 
 			</div>
 			<div class="col-md-3">
-				 <%= render 'layouts/sidebar_fb' %>	
+				 <%= render 'layouts/sidebar_fb' %>
 			</div>
 
 			</div>
 
-				
+
 	</div>
-        
+
 </section>
