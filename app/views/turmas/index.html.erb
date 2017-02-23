@@ -55,7 +55,12 @@
     <tbody>
       <% local.turmas.each do |turma| %>
         <tr>
-          <td><%=turma.horario_da_turma%></td>
+          <td>
+            <%=turma.horario_da_turma%>
+            <% if !turma.turma_ativa%>
+              <span style="color: red;"> (desativada)</span>
+            <%end%>
+          </td>
           <td><%=turma.dias_da_semana%></td>
           <td><%=turma.publico%></td>
           <td>

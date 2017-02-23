@@ -11,7 +11,6 @@ class TurmasController < ApplicationController
     @turmas =
               Local.includes(:turmas)
               .where( turmas: {usuario: current_usuario})
-              .where( turmas: {turma_ativa: true})
               .order( nome: :asc)
               .paginate(:page => params[:page], :per_page => 3)
 
