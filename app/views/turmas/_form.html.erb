@@ -16,22 +16,14 @@
        <%= f.label :local_id, "Local onde ocorre a turma:" %>
         <p class="sublabel">Escolha o local aonde a turma acontece.
         <span>Caso não encontre o local na lista, clique para cadastrar um novo.</span> </p>
-      <div class="input-group" style="float:left;">
+      <div class="input-group">
         <div class="input-group-addon">
-          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <i class="fa fa-sun-o" aria-hidden="true"></i>
         </div>
-      <% # DÚVIDA #
-         # 1 - QUAL SERIA A MANEIRA CORRETA DE ESCREVER ESSE SELECT POR CONTA DO IF? RESOLVIDO
-         # 2 - PORQUE QUANDO O f.select ESTÁ PARA :local OU INVÉS DE :local_id, OBTENHO O ERRO  Local(#69813380182220) expected, got String(#3981400) ?
-         #2.A - PElo que entendi na documentaçã, http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html, é sempre o parametro ID que deve ser alocado. PAra isso, tenho que permitir o parametro de id na lista d eparametros permitidos.
-         #2.B - NAO FUNCIONA f.select :local, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local"
-         #3 - Funciona ( com id), porem pra null - f.select :local_id, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local"
-      %>
-
         <%= f.select :local_id, @locais.collect {|l| [ l.nome, l.id ]} , prompt: "Escolha um local" %>
 
       </div>
-      <br><br>
+      <br>
       <div >
         <%= link_to(new_local_path) do %>
           <span class="btn btn-success btn-mini" style="text-align: center; color:white;">Cadastrar novo local</span>
@@ -167,6 +159,19 @@
       </div>
     </div>
   </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js"></script>
+  <script>
+  $(function() {
+    $('#turma_local_id').selectize({
+      sortField: 'nome'
+    });
+  });
+
+  </script>
+
+
 
 
 
